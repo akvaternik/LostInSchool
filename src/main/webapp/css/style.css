@@ -1,0 +1,66 @@
+body{
+	background-color: #999999;
+	margin: 0px;
+}
+
+
+#jeu{
+	top: 35px;
+	margin-right: auto;
+	margin-left: auto;
+	width: 885px;
+	height: 588px;
+	position: relative;
+}
+
+#jeu img{
+	position: absolute;
+}
+ 
+#vue{
+	height: 588px;
+	width: 785px;
+	z-index: 1;
+}
+
+#ecran_principal{
+	width: 785px;
+	height: 588px;
+	position: absolute;
+}
+
+#inventaire{
+	left: 800px;
+	width: 110px;
+	height: 588px;
+	position: absolute;
+	background-color: black;
+}
+
+
+#liste{
+	left: 7px;
+	height: 588px;
+	width: 103px;
+	position: absolute;
+	overflow: auto;
+	vertical-align : top;
+}
+
+
+.obj{
+	width: 78px;
+	height: 78px;
+	z-index: 2;
+}
+
+#liste tr{
+	height: 78px;
+}
+
+#inventaire table{
+	height: 588px;
+	width: 110px;
+	border-collapse: collapse;
+}
+

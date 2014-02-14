@@ -22,7 +22,7 @@ public class IndexController {
         DB db = new MongoClient().getDB("LostInSchool");
         Jongo jongo = new Jongo(db);
         MongoCollection views = jongo.getCollection("views");
-        JSONObject jsonObject = views.findOne("{_id: " + "'" + destination + "'}").as(JSONObject.class);
+        JSONObject jsonObject = views.findOne("{name: " + "'" + destination + "'}").projection("{_id:0}").as(JSONObject.class);
 
         return  jsonObject.toJSONString();
     }

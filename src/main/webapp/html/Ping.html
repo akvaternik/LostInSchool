@@ -1,0 +1,28 @@
+﻿<img id="vue" src="../../img/Ping.jpg"/>
+<img src="../../img/Fleche_g.png" width="78px" style="left: 275px; bottom: 0px; z-index: 2" onclick="chargeView('Tableau')"/>
+<img src="../../img/Fleche_d.png" width="78px" style="left: 431px; bottom: 0px; z-index: 2" onclick="chargeView('Mur')"/>
+<img src="../../img/Fleche_b.png" width="78px" style="left: 353px; bottom: 0px; z-index: 2" onclick="chargeView('Sortie')"/>
+
+<img id="Mario" src="../../img/Mario.png" width="78px" style="position: absolute; z-index: 2" onclick="Mario_parle()"/>
+<script type="text/javascript">
+    function Mario_parle(){
+        var texte = "Tu veux être mon ami?";
+        var zone = document.createElement("div");
+        zone.setAttribute("id", "zone_texte");
+        document.getElementById("ecran_principal").appendChild(zone);
+        zone.innerHTML = texte;
+        zone.style.backgroundColor = "black";
+        zone.style.color = "red";
+        zone.style.width = "785px";
+        zone.style.position = "absolute";
+        zone.style.top = "450px";
+        zone.style.zIndex = "3";
+    }
+</script>
+
+<img id="oui" src="../../img/oui.jpg" width="55px" style="right: 0px; z-index: 2" onclick="disparait()"/>
+<script type="text/javascript">
+    function disparait(){
+        document.getElementById("oui").style.display = "none";
+    }
+</script>

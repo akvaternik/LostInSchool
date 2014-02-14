@@ -1,0 +1,28 @@
+<img id="vue" src="../../img/Sortie.jpg"/>
+<img src="../../img/Fleche_g.png" width="78px" style="left: 275px; bottom: 0px; z-index: 2" onclick="chargeView('Mur')"/>
+<img src="../../img/Fleche_d.png" width="78px" style="left: 431px; bottom: 0px; z-index: 2" onclick="chargeView('Tableau')"/>
+<img src="../../img/Fleche_b.png" width="78px" style="left: 353px; bottom: 0px; z-index: 2" onclick="chargeView('Ping')"/>
+
+
+<img id="portal" src="../../img/portal.jpg" width="79px" style="left: 20px; top: 200px; z-index: 2" onclick="gateauApparait()"/>
+<script type="text/javascript">
+	function gateauApparait(){
+		var cake = document.createElement("img");
+		cake.setAttribute("id", "cake");
+		cake.setAttribute("src", "../../img/cake.jpg");
+		cake.style.width = "79px";
+		cake.style.top = "410px";
+		cake.style.left = "570px";
+		cake.style.zIndex = "3";
+		cake.setAttribute("onclick", "recupereGateau()");
+		document.getElementById("ecran_principal").appendChild(cake);
+	}
+</script>
+
+<script type="text/javascript">
+	function recupereGateau(){
+		var cake = document.getElementById("cake");
+        document.getElementById("ecran_principal").removeChild(cake);
+		document.getElementById("liste").innerHTML = '<tr><td><img class="obj" src="../../img/cake.jpg" style="border: none" onclick="selection(this)" name="cake"/></td></tr>' + document.getElementById("liste").innerHTML;
+	}
+</script>

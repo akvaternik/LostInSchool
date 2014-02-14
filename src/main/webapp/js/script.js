@@ -20,12 +20,13 @@ function isSelected(name){
 }
 
 function chargeView(destination){
+
     $.ajax({type: "GET",
             url: "/getJSON/" + destination,
             dataType: "text",
             success: function(newViewString) {
                 var newView = jQuery.parseJSON(newViewString);
-                document.getElementById("ecran_principal").innerHTML = newView.view;
+                ecran.load(newView.html);
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 alert(xhr.status);

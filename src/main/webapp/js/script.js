@@ -38,5 +38,5 @@ function chargeView(destination){
 
 $(document).ready(function() {
 	ecran = $("#ecran_principal");
-	chargeView('Ping');
+	chargeView('login');
 });

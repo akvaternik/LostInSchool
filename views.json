@@ -1,4 +1,5 @@
 ﻿[
+    {"name": "login", "html": "../../html/login.html"},
     {"name": "Ping", "html": "../../html/Ping.html"},
     {"name": "Sortie", "html": "../../html/Sortie.html"},
     {"name": "Tableau", "html": "../../html/Tableau.html"},

@@ -18,17 +18,6 @@
 				
 				<table>
 					<tbody id="liste">
-						<tr><td><img class="obj" src="../../img/Mario.png" style="border: none" onclick="selection(this)"/></td></tr>
-						<tr><td><img class="obj" src="../../img/r2d2.png" style="border: none" onclick="selection(this)"/></td></tr>
-						<tr><td><img class="obj" src="../../img/r2d2.png" style="border: none" onclick="selection(this)"/></td></tr>
-						<tr><td><img class="obj" src="../../img/r2d2.png" style="border: none" onclick="selection(this)"/></td></tr>
-						<tr><td><img class="obj" src="../../img/r2d2.png" style="border: none" onclick="selection(this)"/></td></tr>
-						<tr><td><img class="obj" src="../../img/r2d2.png" style="border: none" onclick="selection(this)"/></td></tr>
-						<tr><td><img class="obj" src="../../img/r2d2.png" style="border: none" onclick="selection(this)"/></td></tr>
-						<tr><td><img class="obj" src="../../img/r2d2.png" style="border: none" onclick="selection(this)"/></td></tr>
-						<tr><td><img class="obj" src="../../img/r2d2.png" style="border: none" onclick="selection(this)"/></td></tr>
-						<tr><td><img class="obj" src="../../img/r2d2.png" style="border: none" onclick="selection(this)"/></td></tr>
-						<tr><td><img class="obj" src="../../img/r2d2.png" style="border: none" onclick="selection(this)"/></td></tr>
 					</tbody>
 				</table>
 

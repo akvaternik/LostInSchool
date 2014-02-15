@@ -16,6 +16,12 @@ import java.net.UnknownHostException;
 @Controller
 public class IndexController {
 
+    @RequestMapping({"/", "/index"})
+    public String index() {
+        return "index";
+    }
+
+
     @RequestMapping("/getJSON/{destination}")
     @ResponseBody
     public String getJSON(@PathVariable String destination) throws UnknownHostException, JsonProcessingException {

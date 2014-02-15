@@ -4,13 +4,14 @@
     <display-name>LostInSchool</display-name>
 
     <servlet>
-        <servlet-name>index</servlet-name>
-        <servlet-class>web.servlet.IndexServlet</servlet-class>
+        <servlet-name>login</servlet-name>
+        <servlet-class>web.servlet.LoginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>index</servlet-name>
-        <url-pattern>/index.html</url-pattern>
+        <servlet-name>login</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
+
 
     <!-- Spring servlet -->
     <servlet>

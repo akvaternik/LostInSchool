@@ -59,6 +59,30 @@ function login(user, pwd){
     }
 }
 
+function subscribe(user, pwd){
+    if(user != "" && pwd != ""){
+        $.ajax({type: "POST",
+            url: "/subscribe/" + user + "/" + pwd,
+            dataType: "text",
+            success: function(status) {
+                if(status === "ok"){
+                    chargeView('Ping');
+                }
+                else{
+                    alert("User name is already used, please choose another one.");
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert(xhr.status);
+                alert(thrownError);
+            }
+        });
+    }
+    else{
+        alert("Please enter your user name and your password.")
+    }
+}
+
 $(document).ready(function() {
 	ecran = $("#ecran_principal");
 	chargeView('login');

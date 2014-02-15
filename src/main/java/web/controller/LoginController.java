@@ -43,4 +43,23 @@ public class LoginController {
         return access;
     }
 
+    @RequestMapping("/subscribe/{user}/{pwd}")
+    @ResponseBody
+    public String subscribe(@PathVariable String user, @PathVariable String pwd) throws UnknownHostException {
+        String status = "";
+        DB db = new MongoClient().getDB("LostInSchool");
+        Jongo jongo = new Jongo(db);
+        MongoCollection users = jongo.getCollection("users");
+        JSONObject jsonObject = users.findOne("{userID: " + "'" + user + "'}").projection("{_id:0}").as(JSONObject.class);
+        if(jsonObject == null){
+            status = "ok";
+            users.insert("{userID: " + "'" + user + "', password: " + "'" + pwd + "'}");
+            return status;
+        }
+        else{
+            status = "fail";
+            return status;
+        }
+    }
+
 }

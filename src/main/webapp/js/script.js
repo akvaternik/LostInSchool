@@ -36,7 +36,8 @@ function chargeView(destination){
 }
 
 function login(user, pwd){
-    if(user != "" && pwd != ""){
+    var re = new RegExp("[a-zA-Z0-9]+");
+    if(user == re.exec(user) && pwd == re.exec(pwd)){
         $.ajax({type: "GET",
             url: "/login/" + user + "/" + pwd,
             dataType: "text",
@@ -55,12 +56,13 @@ function login(user, pwd){
         });
     }
     else{
-        alert("Please enter your user name and your password.")
+        alert("Either user name or password is invalid.")
     }
 }
 
 function subscribe(user, pwd){
-    if(user != "" && pwd != ""){
+    var re = new RegExp("[a-zA-Z0-9]+");
+    if(user == re.exec(user) && pwd == re.exec(pwd)){
         $.ajax({type: "POST",
             url: "/subscribe/" + user + "/" + pwd,
             dataType: "text",
@@ -79,7 +81,7 @@ function subscribe(user, pwd){
         });
     }
     else{
-        alert("Please enter your user name and your password.")
+        alert("Either user name or password is invalid.")
     }
 }
 

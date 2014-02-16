@@ -10,15 +10,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.Cookie;
+import java.io.UnsupportedEncodingException;
 import java.net.UnknownHostException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 @Controller
 public class LoginController {
 
     @RequestMapping("/login/{user}/{pwd}")
     @ResponseBody
-    public String login(@PathVariable String user, @PathVariable String pwd) throws UnknownHostException {
+    public String login(@PathVariable String user, @PathVariable String pwd) throws UnknownHostException, NoSuchAlgorithmException, UnsupportedEncodingException {
         String access = "";
 
         DB db = new MongoClient().getDB("LostInSchool");
@@ -32,20 +34,28 @@ public class LoginController {
         String userID = (String) jsonObject.get("userID");
         String password = (String) jsonObject.get("password");
 
-        if(userID.equals(user) && password.equals(pwd)){
+        MessageDigest md = MessageDigest.getInstance("SHA-512");
+        md.update(pwd.getBytes("UTF-8"));
+        byte[] bytes = md.digest();
+        StringBuffer hexString = new StringBuffer();
+        for (int i = 0; i < bytes.length; i++) {
+            String hex = Integer.toHexString(0xff & bytes[i]);
+            if(hex.length()==1){
+                hexString.append('0');
+            }
+            hexString.append(hex);
+        }
+        String pwd_crypted =  hexString.toString();
+
+        if(userID.equals(user) && password.equals(pwd_crypted)){
             access = "ok";
-            /*Cookie loginCookie = new Cookie("user",user);
-            //setting cookie to expiry in 30 mins
-            loginCookie.setMaxAge(30*60);
-            response.addCookie(loginCookie);
-            response.sendRedirect("LoginSuccess.jsp");*/
         }
         return access;
     }
 
     @RequestMapping("/subscribe/{user}/{pwd}")
     @ResponseBody
-    public String subscribe(@PathVariable String user, @PathVariable String pwd) throws UnknownHostException {
+    public String subscribe(@PathVariable String user, @PathVariable String pwd) throws UnknownHostException, NoSuchAlgorithmException, UnsupportedEncodingException {
         String status = "";
         DB db = new MongoClient().getDB("LostInSchool");
         Jongo jongo = new Jongo(db);
@@ -53,7 +63,19 @@ public class LoginController {
         JSONObject jsonObject = users.findOne("{userID: " + "'" + user + "'}").projection("{_id:0}").as(JSONObject.class);
         if(jsonObject == null){
             status = "ok";
-            users.insert("{userID: " + "'" + user + "', password: " + "'" + pwd + "'}");
+            MessageDigest md = MessageDigest.getInstance("SHA-512");
+            md.update(pwd.getBytes("UTF-8"));
+            byte[] bytes = md.digest();
+            StringBuffer hexString = new StringBuffer();
+            for (int i = 0; i < bytes.length; i++) {
+                String hex = Integer.toHexString(0xff & bytes[i]);
+                if(hex.length()==1){
+                    hexString.append('0');
+                }
+                hexString.append(hex);
+            }
+            String pwd_crypted =  hexString.toString();
+            users.insert("{userID: " + "'" + user + "', password: " + "'" + pwd_crypted + "'}");
             return status;
         }
         else{

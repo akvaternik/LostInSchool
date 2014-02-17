@@ -75,7 +75,7 @@ public class LoginController {
                 hexString.append(hex);
             }
             String pwd_crypted =  hexString.toString();
-            users.insert("{userID: " + "'" + user + "', password: " + "'" + pwd_crypted + "'}");
+            users.insert("{userID: " + "'" + user + "', password: " + "'" + pwd_crypted + "', inventory: []}");
             return status;
         }
         else{
@@ -83,5 +83,20 @@ public class LoginController {
             return status;
         }
     }
+
+    @RequestMapping("/save/{user}")
+    @ResponseBody
+    public String save(@PathVariable String user) throws UnknownHostException, NoSuchAlgorithmException, UnsupportedEncodingException {
+        DB db = new MongoClient().getDB("LostInSchool");
+        Jongo jongo = new Jongo(db);
+        MongoCollection users = jongo.getCollection("users");
+        users.update("{userID: " + "'" + user + "'}").with("{$set: {inventory : [" + "'" + "cake" + "']}}");
+        return "ok";
+    }
+
+
+
+
+
 
 }

@@ -22,7 +22,9 @@
 				</table>
 
 			</div>	
-			
+			<div id="sauvegarde" hidden>
+                <input type="button" value="Save" onclick="save()">
+			</div>
 			
 		</div>
 		

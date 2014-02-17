@@ -1,4 +1,5 @@
 ﻿var ecran;
+var current_user;
 
 function selection(obj){					
 	var objs = document.getElementsByClassName("obj");
@@ -44,6 +45,8 @@ function login(user, pwd){
             success: function(access) {
                 if (access === "ok"){
                     chargeView('Ping');
+                    current_user = user;
+                    document.getElementById("sauvegarde").setAttribute("style", "display: block");
                 }
                 else{
                     alert("Either user name or password is wrong.");
@@ -69,6 +72,8 @@ function subscribe(user, pwd){
             success: function(status) {
                 if(status === "ok"){
                     chargeView('Ping');
+                    current_user = user;
+                    document.getElementById("sauvegarde").setAttribute("style", "display: block");
                 }
                 else{
                     alert("User name is already used, please choose another one.");
@@ -84,6 +89,29 @@ function subscribe(user, pwd){
         alert("Either user name or password is invalid.")
     }
 }
+
+function save(){
+    $.ajax({type: "POST",
+        url: "/save/" + current_user,
+        dataType: "text",
+        success: function(status) {
+            if(status === "ok"){
+                alert("Game saved!");
+            }
+            else{
+                alert("Save error!");
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert(xhr.status);
+            alert(thrownError);
+        }
+    });
+}
+
+
+
+
 
 $(document).ready(function() {
 	ecran = $("#ecran_principal");

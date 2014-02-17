@@ -84,13 +84,13 @@ public class LoginController {
         }
     }
 
-    @RequestMapping("/save/{user}")
+    @RequestMapping("/save/{user}/{inventory}")
     @ResponseBody
-    public String save(@PathVariable String user) throws UnknownHostException, NoSuchAlgorithmException, UnsupportedEncodingException {
+    public String save(@PathVariable String user, @PathVariable String inventory) throws UnknownHostException, NoSuchAlgorithmException, UnsupportedEncodingException {
         DB db = new MongoClient().getDB("LostInSchool");
         Jongo jongo = new Jongo(db);
         MongoCollection users = jongo.getCollection("users");
-        users.update("{userID: " + "'" + user + "'}").with("{$set: {inventory : [" + "'" + "cake" + "']}}");
+        users.update("{userID: " + "'" + user + "'}").with("{$set: {inventory :" + inventory + "}}");
         return "ok";
     }
 

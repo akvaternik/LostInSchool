@@ -91,8 +91,9 @@ function subscribe(user, pwd){
 }
 
 function save(){
+    var inventory = getInventory();
     $.ajax({type: "POST",
-        url: "/save/" + current_user,
+        url: "/save/" + current_user + "/" + inventory,
         dataType: "text",
         success: function(status) {
             if(status === "ok"){
@@ -109,7 +110,19 @@ function save(){
     });
 }
 
-
+function getInventory(){
+    var inventory = [];
+    var objs = document.getElementsByClassName("obj");
+    for(var i=0; i<objs.length; i++) {
+        var name = objs[i].name;
+        var src = objs[i].src.split("/");
+        src = src[src.length-1];
+        src = src.substring(0,src.length-4);
+        inventory.push({"name": name, "src": src});
+    }
+    var inventoryString = JSON.stringify(inventory);
+    return inventoryString;
+}
 
 
 

@@ -4,6 +4,7 @@ import com.mongodb.DB;
 import com.mongodb.MongoClient;
 import org.jongo.Jongo;
 import org.jongo.MongoCollection;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +15,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.UnknownHostException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 
 @Controller
 public class LoginController {
@@ -94,7 +96,22 @@ public class LoginController {
         return "ok";
     }
 
+    @RequestMapping("/load_game/{user}")
+    @ResponseBody
+    public String load_game(@PathVariable String user) throws UnknownHostException, NoSuchAlgorithmException, UnsupportedEncodingException {
+        DB db = new MongoClient().getDB("LostInSchool");
+        Jongo jongo = new Jongo(db);
+        MongoCollection users = jongo.getCollection("users");
+        JSONObject jsonObject = users.findOne("{userID: " + "'" + user + "'}").projection("{_id:0}").as(JSONObject.class);
+        ArrayList<JSONObject> inventory_list = (ArrayList<JSONObject>) jsonObject.get("inventory");
+        JSONArray inventory = new JSONArray();
+        for(int i=0;i<inventory_list.size();i++){
+            inventory.add(inventory_list.get(i));
+        }
 
+
+        return inventory.toJSONString();
+    }
 
 
 

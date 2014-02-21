@@ -47,6 +47,7 @@ function login(user, pwd){
                     chargeView('Ping');
                     current_user = user;
                     document.getElementById("sauvegarde").setAttribute("style", "display: block");
+                    load_game();
                 }
                 else{
                     alert("Either user name or password is wrong.");
@@ -124,7 +125,40 @@ function getInventory(){
     return inventoryString;
 }
 
+function load_game(){
 
+    $.ajax({type: "POST",
+        url: "/load_game/" + current_user,
+        dataType: "text",
+        success: function(jsonString) {
+            var inventory = jQuery.parseJSON(jsonString);
+            load_inventory(inventory);
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert(xhr.status);
+            alert(thrownError);
+        }
+    });
+}
+
+function load_inventory(inventory){
+    for(var i=0;i<inventory.length;i++){
+        var nom = inventory[i].name;
+        var source = "../../img/".concat(inventory[i].src,".jpg");
+        var tr = document.createElement("tr");
+        var td = document.createElement("td");
+        var img = document.createElement("img");
+        img.setAttribute("class","obj");
+        img.setAttribute("src",source);
+        img.setAttribute("style","border: none");
+        img.setAttribute("onclick","selection(this)");
+        img.setAttribute("name",nom);
+        td.appendChild(img);
+        tr.appendChild(td);
+        document.getElementById("liste").appendChild(tr);
+    }
+
+}
 
 $(document).ready(function() {
 	ecran = $("#ecran_principal");

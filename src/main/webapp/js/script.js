@@ -1,5 +1,6 @@
 ﻿var ecran;
 var current_user;
+var current_view;
 
 function selection(obj){					
 	var objs = document.getElementsByClassName("obj");
@@ -28,6 +29,7 @@ function chargeView(destination){
             success: function(newViewString) {
                 var newView = jQuery.parseJSON(newViewString);
                 ecran.load(newView.html);
+                current_view = newView.name;
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 alert(xhr.status);
@@ -44,7 +46,6 @@ function login(user, pwd){
             dataType: "text",
             success: function(access) {
                 if (access === "ok"){
-                    chargeView('Ping');
                     current_user = user;
                     document.getElementById("sauvegarde").setAttribute("style", "display: block");
                     load_game();
@@ -72,9 +73,11 @@ function subscribe(user, pwd){
             dataType: "text",
             success: function(status) {
                 if(status === "ok"){
-                    chargeView('Ping');
+                    current_view = "Ping";
+                    chargeView(current_view);
                     current_user = user;
                     document.getElementById("sauvegarde").setAttribute("style", "display: block");
+                    save();
                 }
                 else{
                     alert("User name is already used, please choose another one.");
@@ -94,7 +97,7 @@ function subscribe(user, pwd){
 function save(){
     var inventory = getInventory();
     $.ajax({type: "POST",
-        url: "/save/" + current_user + "/" + inventory,
+        url: "/save/" + current_user + "/" + inventory + "/" + current_view,
         dataType: "text",
         success: function(status) {
             if(status === "ok"){
@@ -131,8 +134,10 @@ function load_game(){
         url: "/load_game/" + current_user,
         dataType: "text",
         success: function(jsonString) {
-            var inventory = jQuery.parseJSON(jsonString);
+            var json = jQuery.parseJSON(jsonString);
+            var inventory = json['inventory'];
             load_inventory(inventory);
+            chargeView(json['current_view']);
         },
         error: function (xhr, ajaxOptions, thrownError) {
             alert(xhr.status);

@@ -4,18 +4,15 @@ import com.mongodb.DB;
 import com.mongodb.MongoClient;
 import org.jongo.Jongo;
 import org.jongo.MongoCollection;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import java.io.UnsupportedEncodingException;
 import java.net.UnknownHostException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 
 @Controller
 public class LoginController {
@@ -86,13 +83,14 @@ public class LoginController {
         }
     }
 
-    @RequestMapping("/save/{user}/{inventory}")
+    @RequestMapping("/save/{user}/{inventory}/{current_view}")
     @ResponseBody
-    public String save(@PathVariable String user, @PathVariable String inventory) throws UnknownHostException, NoSuchAlgorithmException, UnsupportedEncodingException {
+    public String save(@PathVariable String user, @PathVariable String inventory, @PathVariable String current_view) throws UnknownHostException, NoSuchAlgorithmException, UnsupportedEncodingException {
         DB db = new MongoClient().getDB("LostInSchool");
         Jongo jongo = new Jongo(db);
         MongoCollection users = jongo.getCollection("users");
         users.update("{userID: " + "'" + user + "'}").with("{$set: {inventory :" + inventory + "}}");
+        users.update("{userID: " + "'" + user + "'}").with("{$set: {current_view :" + "'" + current_view + "'" + "}}");
         return "ok";
     }
 
@@ -103,14 +101,8 @@ public class LoginController {
         Jongo jongo = new Jongo(db);
         MongoCollection users = jongo.getCollection("users");
         JSONObject jsonObject = users.findOne("{userID: " + "'" + user + "'}").projection("{_id:0}").as(JSONObject.class);
-        ArrayList<JSONObject> inventory_list = (ArrayList<JSONObject>) jsonObject.get("inventory");
-        JSONArray inventory = new JSONArray();
-        for(int i=0;i<inventory_list.size();i++){
-            inventory.add(inventory_list.get(i));
-        }
 
-
-        return inventory.toJSONString();
+        return jsonObject.toJSONString();
     }
 
 

@@ -4,7 +4,7 @@ var current_view;
 
 function selection(obj){					
 	var objs = document.getElementsByClassName("obj");
-   	for(i=0; i<objs.length; i++) {
+   	for(var i=0; i<objs.length; i++) {
 		objs[i].style.border ="none";
     	}
 	obj.style.borderWidth = "1px";
@@ -15,11 +15,30 @@ function selection(obj){
 function isSelected(name){
 	
 	var objs = document.getElementsByName(name);
+    var bool = false;
 	if(objs.length == 0){
 		return false;
 	}
-	return objs[0].style.borderColor == "blue";
+    for(var i=0; i<objs.length; i++){
+        if(objs[i].style.borderColor == "blue"){
+            bool = true;
+        }
+    }
+
+	return bool;
 }
+
+function indexSelected(name){
+    var objs = document.getElementsByName(name);
+    for(var i=0; i<objs.length; i++){
+        if(objs[i].style.borderColor == "blue"){
+            return i;
+        }
+    }
+    return null;
+}
+
+
 
 function chargeView(destination){
 
@@ -165,7 +184,7 @@ function load_inventory(inventory){
 
 }
 
-function add_inventory(source,nom){
+function add_object(source,nom){
     var tr = document.createElement("tr");
     var td = document.createElement("td");
     var img = document.createElement("img");
@@ -179,6 +198,14 @@ function add_inventory(source,nom){
     var liste = document.getElementById("liste");
     liste.insertBefore(tr, liste.firstChild);
 }
+
+function remove_object(name){
+    var liste = document.getElementById("liste");
+    var objs = document.getElementsByName(name);
+    liste.removeChild(objs[indexSelected(name)].parentNode.parentNode);
+}
+
+
 
 $(document).ready(function() {
 	ecran = $("#ecran_principal");

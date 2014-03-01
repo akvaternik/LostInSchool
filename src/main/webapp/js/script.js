@@ -165,6 +165,21 @@ function load_inventory(inventory){
 
 }
 
+function add_inventory(source,nom){
+    var tr = document.createElement("tr");
+    var td = document.createElement("td");
+    var img = document.createElement("img");
+    img.setAttribute("class","obj");
+    img.setAttribute("src",source);
+    img.setAttribute("style","border: none");
+    img.setAttribute("onclick","selection(this)");
+    img.setAttribute("name",nom);
+    td.appendChild(img);
+    tr.appendChild(td);
+    var liste = document.getElementById("liste");
+    liste.insertBefore(tr, liste.firstChild);
+}
+
 $(document).ready(function() {
 	ecran = $("#ecran_principal");
 	chargeView('login');

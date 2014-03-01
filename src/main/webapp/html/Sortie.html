@@ -23,6 +23,6 @@
 	function recupereGateau(){
 		var cake = document.getElementById("cake");
         document.getElementById("ecran_principal").removeChild(cake);
-		document.getElementById("liste").innerHTML = '<tr><td><img class="obj" src="../../img/cake.jpg" style="border: none" onclick="selection(this)" name="cake"/></td></tr>' + document.getElementById("liste").innerHTML;
+        add_inventory("../../img/cake.jpg","cake");
 	}
 </script>

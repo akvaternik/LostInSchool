@@ -74,7 +74,7 @@ public class LoginController {
                 hexString.append(hex);
             }
             String pwd_crypted =  hexString.toString();
-            users.insert("{userID: " + "'" + user + "', password: " + "'" + pwd_crypted + "', inventory: []}");
+            users.insert("{userID: " + "'" + user + "', password: " + "'" + pwd_crypted + "', inventory: [], actions: []}");
             return status;
         }
         else{
@@ -83,14 +83,15 @@ public class LoginController {
         }
     }
 
-    @RequestMapping("/save/{user}/{inventory}/{current_view}")
+    @RequestMapping("/save/{user}/{inventory}/{current_view}/{actions}")
     @ResponseBody
-    public String save(@PathVariable String user, @PathVariable String inventory, @PathVariable String current_view) throws UnknownHostException, NoSuchAlgorithmException, UnsupportedEncodingException {
+    public String save(@PathVariable String user, @PathVariable String inventory, @PathVariable String current_view, @PathVariable String actions) throws UnknownHostException, NoSuchAlgorithmException, UnsupportedEncodingException {
         DB db = new MongoClient().getDB("LostInSchool");
         Jongo jongo = new Jongo(db);
         MongoCollection users = jongo.getCollection("users");
         users.update("{userID: " + "'" + user + "'}").with("{$set: {inventory :" + inventory + "}}");
         users.update("{userID: " + "'" + user + "'}").with("{$set: {current_view :" + "'" + current_view + "'" + "}}");
+        users.update("{userID: " + "'" + user + "'}").with("{$set: {actions :" + actions + "}}");
         return "ok";
     }
 

@@ -6,31 +6,47 @@
 <img id="Spitter" src="../../img/Spitter.png" width="78px" style="left: 350px; top: 320px; z-index: 2" onclick="crache()"/>
 <script type="text/javascript">
 	function crache(){
-		if(isSelected("cake")){
-			var texte = "Oh, tu as du cake!";
-			var zone = document.createElement("div");
-			zone.setAttribute("id", "zone_texte");
+        if(fait("feed_spitter")){
+            var texte = "Merci pour le cake!";
+            var zone = document.createElement("div");
+            zone.setAttribute("id", "zone_texte");
             document.getElementById("ecran_principal").appendChild(zone);
-			zone.innerHTML = texte;
-			zone.style.backgroundColor = "black";
-			zone.style.color = "red";
-			zone.style.width = "785px";
-			zone.style.position = "absolute";
-			zone.style.top = "450px";
-			zone.style.zIndex = "3";
-            remove_object("cake");
-		}
-		else{
-			var tache = document.createElement("img");
-			tache.setAttribute("id", "tache");
-			tache.setAttribute("src", "../../img/tache.png");
-			tache.style.width = "235px";
-			tache.style.top = "100px";
-			tache.style.left = "400px";
-			tache.style.zIndex = "3";
-			tache.setAttribute("onclick", "effaceTache()");
-            document.getElementById("ecran_principal").appendChild(tache);
-		}
+            zone.innerHTML = texte;
+            zone.style.backgroundColor = "black";
+            zone.style.color = "red";
+            zone.style.width = "785px";
+            zone.style.position = "absolute";
+            zone.style.top = "450px";
+            zone.style.zIndex = "3";
+        }
+        else{
+            if(isSelected("cake")){
+                var texte = "Merci pour le cake!";
+                var zone = document.createElement("div");
+                zone.setAttribute("id", "zone_texte");
+                document.getElementById("ecran_principal").appendChild(zone);
+                zone.innerHTML = texte;
+                zone.style.backgroundColor = "black";
+                zone.style.color = "red";
+                zone.style.width = "785px";
+                zone.style.position = "absolute";
+                zone.style.top = "450px";
+                zone.style.zIndex = "3";
+                remove_object("cake");
+                add_action("feed_spitter");
+            }
+            else{
+                var tache = document.createElement("img");
+                tache.setAttribute("id", "tache");
+                tache.setAttribute("src", "../../img/tache.png");
+                tache.style.width = "235px";
+                tache.style.top = "100px";
+                tache.style.left = "400px";
+                tache.style.zIndex = "3";
+                tache.setAttribute("onclick", "effaceTache()");
+                document.getElementById("ecran_principal").appendChild(tache);
+            }
+        }
 	}
 </script>
 

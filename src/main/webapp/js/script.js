@@ -1,6 +1,7 @@
 ﻿var ecran;
 var current_user;
 var current_view;
+var actions;
 
 function selection(obj){					
 	var objs = document.getElementsByClassName("obj");
@@ -115,8 +116,9 @@ function subscribe(user, pwd){
 
 function save(){
     var inventory = getInventory();
+    var actionsString = getActions();
     $.ajax({type: "POST",
-        url: "/save/" + current_user + "/" + inventory + "/" + current_view,
+        url: "/save/" + current_user + "/" + inventory + "/" + current_view + "/" + actionsString,
         dataType: "text",
         success: function(status) {
             if(status === "ok"){
@@ -147,6 +149,18 @@ function getInventory(){
     return inventoryString;
 }
 
+function getActions(){
+    var actionsJSON = [];
+    for(var i=0; i<actions.length; i++) {
+        var name = actions[i];
+        actionsJSON.push({"name": name});
+    }
+    var actionsString = JSON.stringify(actionsJSON);
+    return actionsString;
+}
+
+
+
 function load_game(){
 
     $.ajax({type: "POST",
@@ -157,6 +171,8 @@ function load_game(){
             var inventory = json['inventory'];
             load_inventory(inventory);
             chargeView(json['current_view']);
+            var actionsJSON = json['actions'];
+            load_actions(actionsJSON);
         },
         error: function (xhr, ajaxOptions, thrownError) {
             alert(xhr.status);
@@ -184,6 +200,14 @@ function load_inventory(inventory){
 
 }
 
+function load_actions(actionsJSON){
+    for(var i=0;i<actionsJSON.length;i++){
+        var nom = actionsJSON[i].name;
+        actions.push(nom);
+    }
+}
+
+
 function add_object(source,nom){
     var tr = document.createElement("tr");
     var td = document.createElement("td");
@@ -205,9 +229,21 @@ function remove_object(name){
     liste.removeChild(objs[indexSelected(name)].parentNode.parentNode);
 }
 
+function add_action(action){
+    actions.push(action);
+}
 
+function fait(action){
+    for(var i=0;i<actions.length;i++){
+        if(action === actions[i]){
+            return true;
+        }
+    }
+    return false;
+}
 
 $(document).ready(function() {
 	ecran = $("#ecran_principal");
+    actions = [];
 	chargeView('login');
 });

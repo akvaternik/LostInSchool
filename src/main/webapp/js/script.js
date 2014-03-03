@@ -14,14 +14,13 @@ function selection(obj){
 }
 
 function isSelected(name){
-	
-	var objs = document.getElementsByName(name);
+    var objs = document.getElementsByClassName("obj");
     var bool = false;
 	if(objs.length == 0){
 		return false;
 	}
     for(var i=0; i<objs.length; i++){
-        if(objs[i].style.borderColor == "blue"){
+        if((objs[i].style.borderColor == "blue") && (objs[i].name == name)){
             bool = true;
         }
     }
@@ -29,8 +28,8 @@ function isSelected(name){
 	return bool;
 }
 
-function indexSelected(name){
-    var objs = document.getElementsByName(name);
+function indexSelected(){
+    var objs = document.getElementsByClassName("obj");
     for(var i=0; i<objs.length; i++){
         if(objs[i].style.borderColor == "blue"){
             return i;
@@ -223,10 +222,10 @@ function add_object(source,nom){
     liste.insertBefore(tr, liste.firstChild);
 }
 
-function remove_object(name){
+function remove_selected_object(){
     var liste = document.getElementById("liste");
-    var objs = document.getElementsByName(name);
-    liste.removeChild(objs[indexSelected(name)].parentNode.parentNode);
+    var objs = document.getElementsByClassName("obj");
+    liste.removeChild(objs[indexSelected()].parentNode.parentNode);
 }
 
 function add_action(action){

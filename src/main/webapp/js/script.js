@@ -250,6 +250,47 @@ function achievements_screen(){
         achievements_screen.style.display = "none";
     }
 }
+/*
+function unlock_achievement(name){
+    $.ajax({type: "GET",
+        url: "/unlock_achievement/" + name,
+        dataType: "text",
+        success: function(source) {
+            var achievement = getAchievement(name);
+            achievement.src = source;
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert(xhr.status);
+            alert(thrownError);
+        }
+    });
+}
+*/
+
+function unlock_achievement(name){
+    var source = "../../img/smile.jpg"
+    var achievement = getAchievement(name);
+    achievement.src = source;
+}
+
+function getAchievement(name){
+    var achievements_table = document.getElementById("achievements_table");
+    var lines = achievements_table.children;
+    for(var i=0;i<lines.length;i++){
+        var line = lines[i];
+        var cells = line.children;
+        for(var j=0;j<cells.length;j++){
+            var cell = cells[j];
+            var img = cell.children[0];
+            if(img.name == name){
+                return img;
+            }
+        }
+    }
+    return null;
+}
+
+
 
 
 

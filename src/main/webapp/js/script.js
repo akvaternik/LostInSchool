@@ -250,7 +250,7 @@ function achievements_screen(){
         achievements_screen.style.display = "none";
     }
 }
-/*
+
 function unlock_achievement(name){
     $.ajax({type: "GET",
         url: "/unlock_achievement/" + name,
@@ -264,13 +264,6 @@ function unlock_achievement(name){
             alert(thrownError);
         }
     });
-}
-*/
-
-function unlock_achievement(name){
-    var source = "../../img/smile.jpg"
-    var achievement = getAchievement(name);
-    achievement.src = source;
 }
 
 function getAchievement(name){

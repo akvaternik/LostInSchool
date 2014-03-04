@@ -32,4 +32,23 @@ public class IndexController {
 
         return  jsonObject.toJSONString();
     }
+
+    @RequestMapping("/unlock_achievement/{name}")
+    @ResponseBody
+    public String unlock_achievement(@PathVariable String name) throws UnknownHostException {
+        DB db = new MongoClient().getDB("LostInSchool");
+        Jongo jongo = new Jongo(db);
+        MongoCollection achievements = jongo.getCollection("achievements");
+        JSONObject jsonObject = achievements.findOne("{name: " + "'" + name + "'}").projection("{_id:0}").as(JSONObject.class);
+        String source = (String) jsonObject.get("src");
+        return source;
+    }
+
+
+
+
+
+
+
+
 }

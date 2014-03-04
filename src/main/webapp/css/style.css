@@ -68,3 +68,46 @@ body{
     left: 1000px;
     position: absolute;
 }
+
+#achievements{
+    left: -100px;
+    position: absolute;
+}
+
+
+#achievements_screen{
+    height: 588px;
+    width: 785px;
+    position: absolute;
+    background-color: black;
+    z-index: 5;
+}
+
+
+#achievements_table{
+    height: 588px;
+    width: 785px;
+    position: absolute;
+    vertical-align : top;
+}
+
+
+.achievement{
+    width: 78px;
+    height: 78px;
+    z-index: 6;
+}
+
+#achievements_table tr{
+    height: 80px;
+}
+
+#achievements_table td{
+    width: 78px;
+}
+
+#achievements_screen table{
+    height: 588px;
+    width: 785px;
+    border-collapse: collapse;
+}

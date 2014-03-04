@@ -25,7 +25,96 @@
 			<div id="sauvegarde" hidden>
                 <input type="button" value="Save" onclick="save()">
 			</div>
-			
+			<div id="achievements">
+                <input type="button" value="Succ&egrave;s" onclick="achievements_screen()">
+			</div>
+            <div id="achievements_screen" style="display: none">
+                <table>
+                    <tbody id="achievements_table">
+                        <tr>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                        </tr>
+                        <tr>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                            <td><img src="../../img/inconnu.png"></td>
+                        </tr>
+
+
+
+
+                    </tbody>
+                </table>
+            </div>
 		</div>
 		
 		

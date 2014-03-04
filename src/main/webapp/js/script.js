@@ -241,6 +241,20 @@ function fait(action){
     return false;
 }
 
+function achievements_screen(){
+    var achievements_screen = document.getElementById("achievements_screen");
+    if(achievements_screen.style.display == "none"){
+        achievements_screen.style.display = "block";
+    }
+    else{
+        achievements_screen.style.display = "none";
+    }
+}
+
+
+
+
+
 $(document).ready(function() {
 	ecran = $("#ecran_principal");
     actions = [];

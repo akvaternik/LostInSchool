@@ -111,9 +111,6 @@
                     </tbody>
                 </table>
             </div>
-            <div id="unlock">
-                <input type="button" value="Unlock" onclick="unlock_achievement('smile')">
-            </div>
 		</div>
 		
 		

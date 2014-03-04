@@ -111,9 +111,3 @@ body{
     width: 785px;
     border-collapse: collapse;
 }
-
-#unlock{
-    left: -100px;
-    top: 200px;
-    position: absolute;
-}

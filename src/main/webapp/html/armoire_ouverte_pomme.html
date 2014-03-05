@@ -1,0 +1,36 @@
+<img id="vue" src="../../img/armoire_ouverte_pomme.jpg"/>
+<img src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('sortie_pomme')"/>
+
+<img id="cle" src="../../img/cle_pomme.png" style="display: none; left: 525px; top: 516px; z-index: 2" onclick="add_object('../../img/cle_pomme_inventaire.png','cle_pomme'); remove(this); add_action('get_cle_pomme')"/>
+<img id="sucre" src="../../img/sucre.png" style="display: none; left: 211px; top: 94px; z-index: 2" onclick="add_object('../../img/sucre_inventaire.png','sucre'); remove(this); add_action('get_sucre')"/>
+<img id="farine" src="../../img/farine.png" style="display: none; left: 542px; top: 208px; z-index: 2" onclick="add_object('../../img/farine.png','farine'); remove(this); add_action('get_farine')"/>
+<img src="../../img/etagere.png" style="left: 166px; top: 162px; z-index:2 " />
+<img src="../../img/boite.png" style="left: 511px; top: 267px; z-index:2 " />
+
+<script>
+var sucre = document.getElementById("sucre");
+if(fait('get_sucre')){
+	remove(sucre);
+}
+else{
+	sucre.style.display="block";
+}
+
+
+var farine = document.getElementById("farine");
+if(fait('get_farine')){
+	remove(farine);
+}
+else{
+	farine.style.display="block";
+}
+
+var cle = document.getElementById("cle");
+if(fait('get_cle_pomme')){
+	remove(cle);
+}
+else{
+	cle.style.display="block";
+}
+
+</script>

@@ -93,7 +93,7 @@ function subscribe(user, pwd){
             dataType: "text",
             success: function(status) {
                 if(status === "ok"){
-                    current_view = "Ping";
+                    current_view = "ping_pomme";
                     chargeView(current_view);
                     current_user = user;
                     document.getElementById("sauvegarde").setAttribute("style", "display: block");
@@ -196,7 +196,7 @@ function load_game(){
 function load_inventory(inventory){
     for(var i=0;i<inventory.length;i++){
         var nom = inventory[i].name;
-        var source = "../../img/".concat(inventory[i].src,".jpg");
+        var source = "../../img/".concat(inventory[i].src,".png");
         var tr = document.createElement("tr");
         var td = document.createElement("td");
         var img = document.createElement("img");
@@ -299,6 +299,10 @@ function getAchievement(name){
         }
     }
     return null;
+}
+
+function remove(element){
+    element.parentNode.removeChild(element);
 }
 
 $(document).ready(function() {

@@ -3,5 +3,12 @@
     {"name": "Ping", "html": "../../html/Ping.html"},
     {"name": "Sortie", "html": "../../html/Sortie.html"},
     {"name": "Tableau", "html": "../../html/Tableau.html"},
-    {"name": "Mur", "html": "../../html/Mur.html"}
+    {"name": "Mur", "html": "../../html/Mur.html"},
+    {"name": "armoire_close_pomme", "html": "../../html/armoire_close_pomme.html"},
+    {"name": "armoire_ouverte_pomme", "html": "../../html/armoire_ouverte_pomme.html"},
+    {"name": "machine_pomme", "html": "../../html/machine_pomme.html"},
+    {"name": "mur_pomme", "html": "../../html/mur_pomme.html"},
+    {"name": "ping_pomme", "html": "../../html/ping_pomme.html"},
+    {"name": "sortie_pomme", "html": "../../html/sortie_pomme.html"},
+    {"name": "tableau_pomme", "html": "../../html/tableau_pomme.html"}
 ]

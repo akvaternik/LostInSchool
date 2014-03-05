@@ -32,81 +32,81 @@
                 <table>
                     <tbody id="achievements_table">
                         <tr>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
                         </tr>
                         <tr>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="smile"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="smile"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
                         </tr>
                         <tr>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
                         </tr>
                         <tr>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
                         </tr>
                         <tr>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
                         </tr>
                         <tr>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
                         </tr>
                         <tr>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
-                            <td><img src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="test"></td>
                         </tr>
                     </tbody>
                 </table>

@@ -291,17 +291,11 @@ function unlock_achievement(name){
 }
 
 function getAchievement(name){
-    var achievements_table = document.getElementById("achievements_table");
-    var lines = achievements_table.children;
-    for(var i=0;i<lines.length;i++){
-        var line = lines[i];
-        var cells = line.children;
-        for(var j=0;j<cells.length;j++){
-            var cell = cells[j];
-            var img = cell.children[0];
-            if(img.name == name){
+    var all_achievements = document.getElementsByClassName("achievement");
+    for(var i=0;i<all_achievements.length;i++){
+        var img = all_achievements[i];
+        if(img.name == name){
                 return img;
-            }
         }
     }
     return null;

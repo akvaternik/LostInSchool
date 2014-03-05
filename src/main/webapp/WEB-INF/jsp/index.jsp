@@ -5,8 +5,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <link rel="stylesheet" href="../../css/style.css" type="text/css" />
         <script type="text/javascript" src="../../js/jquery-2.0.3.min.js"></script>
-	<script type="text/javascript" src="../../js/script.js"></script>
-	
+	    <script type="text/javascript" src="../../js/script.js"></script>
+        <script type="text/javascript" src="../../soundmanager/script/soundmanager2.js"></script>
+        <script type="text/javascript">
+            soundManager.url = "../../soundmanager/swf/";
+            soundManager.debugMode = false;
+        </script>
         <title>Lost In School</title>
     </head>
     <body>
@@ -111,6 +115,7 @@
                     </tbody>
                 </table>
             </div>
+
 		</div>
 		
 		

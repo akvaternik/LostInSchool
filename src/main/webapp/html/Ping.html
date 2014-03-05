@@ -17,7 +17,14 @@
         zone.style.position = "absolute";
         zone.style.top = "450px";
         zone.style.zIndex = "3";
+        itsMeMario.play();
     }
+    var itsMeMario;
+    itsMeMario = soundManager.createSound(
+            {
+                id : "itsMeMario",
+                url : "../../soundmanager/musique/sm64_mario_its_me.wav"
+            });
 </script>
 
 <img id="oui" src="../../img/oui.jpg" width="55px" style="right: 0px; z-index: 2" onclick="disparait()"/>

@@ -1,8 +1,8 @@
 ﻿var ecran;
 var current_user;
 var current_view;
-var actions;
-var achievements;
+var actions = [];
+var achievements = [];
 
 function selection(obj){					
 	var objs = document.getElementsByClassName("obj");
@@ -309,7 +309,5 @@ function getAchievement(name){
 
 $(document).ready(function() {
 	ecran = $("#ecran_principal");
-    actions = [];
-    achievements = [];
 	chargeView('login');
 });

@@ -68,7 +68,9 @@ function login(user, pwd){
                 if (access === "ok"){
                     current_user = user;
                     document.getElementById("sauvegarde").setAttribute("style", "display: block");
+                    document.getElementById("logout").setAttribute("style", "display: block");
                     load_game();
+                    createCookie("userID",current_user,1);
                 }
                 else{
                     alert("Either user name or password is wrong.");
@@ -81,7 +83,7 @@ function login(user, pwd){
         });
     }
     else{
-        alert("Either user name or password is invalid.")
+        alert("Either user name or password is invalid.");
     }
 }
 
@@ -97,6 +99,8 @@ function subscribe(user, pwd){
                     chargeView(current_view);
                     current_user = user;
                     document.getElementById("sauvegarde").setAttribute("style", "display: block");
+                    document.getElementById("logout").setAttribute("style", "display: block");
+                    createCookie("userID",current_user,1);
                     save();
                 }
                 else{
@@ -110,8 +114,13 @@ function subscribe(user, pwd){
         });
     }
     else{
-        alert("Either user name or password is invalid.")
+        alert("Either user name or password is invalid.");
     }
+}
+
+function logout(){
+    eraseCookie("userID");
+    location.reload();
 }
 
 function save(){
@@ -303,6 +312,31 @@ function getAchievement(name){
 
 function remove(element){
     element.parentNode.removeChild(element);
+}
+
+function createCookie(name,value,days) {
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime()+(days*24*60*60*1000));
+        var expires = "; expires="+date.toGMTString();
+    }
+    else var expires = "";
+    document.cookie = name+"="+value+expires+"; path=/";
+}
+
+function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+function eraseCookie(name) {
+    createCookie(name,"",-1);
 }
 
 $(document).ready(function() {

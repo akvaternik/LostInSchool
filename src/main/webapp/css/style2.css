@@ -69,6 +69,12 @@ border-collapse: collapse;
     position: absolute;
 }
 
+#logout{
+    left: 1100px;
+    top: 100px;
+    position: absolute;
+}
+
 #achievements{
     left: -100px;
     position: absolute;

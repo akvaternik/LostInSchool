@@ -1,4 +1,4 @@
-<form id="login"  method="post" style="margin-left: 275px; margin-top: 200px;">
+<form id="login"  method="post" style="margin-left: 275px; margin-top: 200px; display: none">
     Username: <input type="text" name="user">
     <br>
     Password: <input type="password" name="pwd">
@@ -6,3 +6,17 @@
     <input type="button" value="Login" onclick="login(user.value,pwd.value)">
     <input type="button" value="Subscribe" onclick="subscribe(user.value,pwd.value)">
 </form>
+
+<script>
+    var user = readCookie("userID");
+    if (user) {
+        current_user = user;
+        document.getElementById("sauvegarde").setAttribute("style", "display: block");
+        document.getElementById("logout").setAttribute("style", "display: block");
+        load_game();
+        createCookie("userID",current_user,1);
+    }
+    else{
+        document.getElementById("login").style.display = "block";
+    }
+</script>

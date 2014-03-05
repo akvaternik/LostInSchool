@@ -2,6 +2,7 @@
 var current_user;
 var current_view;
 var actions;
+var achievements;
 
 function selection(obj){					
 	var objs = document.getElementsByClassName("obj");
@@ -116,8 +117,9 @@ function subscribe(user, pwd){
 function save(){
     var inventory = getInventory();
     var actionsString = getActions();
+    var achievementsString = getAchievements();
     $.ajax({type: "POST",
-        url: "/save/" + current_user + "/" + inventory + "/" + current_view + "/" + actionsString,
+        url: "/save/" + current_user + "/" + inventory + "/" + current_view + "/" + actionsString + "/" + achievementsString,
         dataType: "text",
         success: function(status) {
             if(status === "ok"){
@@ -158,6 +160,15 @@ function getActions(){
     return actionsString;
 }
 
+function getAchievements(){
+    var achievementsJSON = [];
+    for(var i=0; i<achievements.length; i++) {
+        var name = achievements[i];
+        achievementsJSON.push({"name": name});
+    }
+    var achievementsString = JSON.stringify(achievementsJSON);
+    return achievementsString;
+}
 
 
 function load_game(){
@@ -171,7 +182,9 @@ function load_game(){
             load_inventory(inventory);
             chargeView(json['current_view']);
             var actionsJSON = json['actions'];
+            var achievementsJSON = json['achievements'];
             load_actions(actionsJSON);
+            load_achievements(achievementsJSON);
         },
         error: function (xhr, ajaxOptions, thrownError) {
             alert(xhr.status);
@@ -206,6 +219,12 @@ function load_actions(actionsJSON){
     }
 }
 
+function load_achievements(achievementsJSON){
+    for(var i=0;i<achievementsJSON.length;i++){
+        var nom = achievementsJSON[i].name;
+        unlock_achievement(nom);
+    }
+}
 
 function add_object(source,nom){
     var tr = document.createElement("tr");
@@ -230,6 +249,10 @@ function remove_selected_object(){
 
 function add_action(action){
     actions.push(action);
+}
+
+function add_achievement(achievement){
+    achievements.push(achievement);
 }
 
 function fait(action){
@@ -258,6 +281,7 @@ function unlock_achievement(name){
         success: function(source) {
             var achievement = getAchievement(name);
             achievement.src = source;
+            add_achievement(name);
         },
         error: function (xhr, ajaxOptions, thrownError) {
             alert(xhr.status);
@@ -283,14 +307,9 @@ function getAchievement(name){
     return null;
 }
 
-
-
-
-
-
-
 $(document).ready(function() {
 	ecran = $("#ecran_principal");
     actions = [];
+    achievements = [];
 	chargeView('login');
 });

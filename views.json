@@ -10,5 +10,6 @@
     {"name": "mur_pomme", "html": "../../html/mur_pomme.html"},
     {"name": "ping_pomme", "html": "../../html/ping_pomme.html"},
     {"name": "sortie_pomme", "html": "../../html/sortie_pomme.html"},
-    {"name": "tableau_pomme", "html": "../../html/tableau_pomme.html"}
+    {"name": "tableau_pomme", "html": "../../html/tableau_pomme.html"},
+    {"name": "arrivee_escalierrdc", "html": "../../html/arrivee_escalierrdc.html"}
 ]

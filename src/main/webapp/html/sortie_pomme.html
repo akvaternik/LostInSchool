@@ -1,5 +1,47 @@
+
+
 <img id="vue" src="../../img/sortie_pomme.jpg"/>
 <img src="../../img/Fleche_g.png" width="78px" style="left: 325px; bottom: 0px; z-index: 2" onclick="chargeView('mur_pomme')"/>
 <img src="../../img/Fleche_d.png" width="78px" style="left: 481px; bottom: 0px; z-index: 2" onclick="chargeView('tableau_pomme')"/>
 <img src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('ping_pomme')"/>
+
 <img src="../../img/armoire.png"  style="left: 267px; top: 207px; z-index: 2" onclick="chargeView('armoire_close_pomme')"/>
+<img src="../../img/porte_sortie_pomme.png"  style="left: 574px; top: 211px; z-index: 2" onclick="sortie()"/>
+<img src="../../img/mac_pomme_dvt_porte.png"  style="left: 626px; top: 315px; z-index: 2" />
+
+<script>
+function sortie(){
+	if(fait('get_cle_pomme')){
+		if(fait('unlock_apple_door')){
+			chargeView('arrivee_escalierrdc');
+		}
+		else{
+			add_action('unlock_apple_door');
+		}
+	}
+	else{
+		alert("Ca a l'air fermé! Contrairement à tes fesses! Slut! ");
+	}
+
+}
+</script>
+
+</div>
+<div id="inventaire">
+
+<table>
+<tbody id="liste">
+</tbody>
+</table>
+
+</div>	
+<div id="sauvegarde" hidden>
+                <input type="button" value="Save" onclick="save()">
+</div>
+
+            
+</div>
+
+
+    </body>
+</html>

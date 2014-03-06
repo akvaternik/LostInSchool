@@ -3,11 +3,11 @@
 <img src="../../img/Fleche_d.png" width="78px" style="left: 481px; bottom: 0px; z-index: 2" onclick="chargeView('sortie_pomme')"/>
 <img src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('tableau_pomme')"/>
 
-<img id="choco" src="../../img/choco.png" style="left: 7px; top: 445px; z-index: 2; display: none" onclick="add_object('../../img/choco.png','choco'); add_action('get_choco'); remove(this)" />
+<img id="chocolat" src="../../img/choco.png" style="left: 7px; top: 445px; z-index: 2; display: none" onclick="add_object('../../img/choco.png','Chocolat'); add_action('get_chocolat'); remove(this)" />
 
 <script>
-var element = document.getElementById("choco");
-if(fait('get_choco')){
+var element = document.getElementById("chocolat");
+if(fait('get_chocolat')){
 	remove(element);
 }
 else{

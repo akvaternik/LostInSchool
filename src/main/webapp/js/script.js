@@ -260,6 +260,19 @@ function remove_selected_object(){
     liste.removeChild(objs[indexSelected()].parentNode.parentNode);
 }
 
+
+function remove_object(name){
+    var liste = document.getElementById("liste");
+    var objs = document.getElementsByClassName("obj");
+
+    for(var i=0; i<objs.length; i++){
+        if(objs[i].name == name){
+            liste.removeChild(objs[i].parentNode.parentNode);
+        }
+    }
+
+}
+
 function add_action(action){
     actions.push(action);
 }

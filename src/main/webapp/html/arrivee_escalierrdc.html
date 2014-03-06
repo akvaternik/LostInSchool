@@ -1,0 +1,20 @@
+<img id="vue" src="../../img/arrivee_escalierrdc.jpg"/>
+<img src="../../img/descendre_escalierrdc.png"  style="left: 511px; top: 356px; z-index: 2" onclick="chargeView('ping_pomme')"/>
+<img src="../../img/monter_escalierrdc.png"  style="left: 711px; top: 173px; z-index: 2" onclick="alert('Destination à ajouter')"/>
+<img src="../../img/porte_cdi_escalierrdc.png"  style="left: 247px; top: 230px; z-index: 2" onclick="alert('Destination à ajouter')"/>
+<img id="boo" src="../../img/boo_invisible.png"  style="left: 25px; top: 352px; z-index: 2; display: none" onclick="visible()"/>
+<script>
+    var boo = document.getElementById("boo");
+    if(fait("boo_appeared")){
+        boo.setAttribute("src","../../img/boo_visible.png");
+    }
+    boo.style.display = "block";
+    function visible(){
+        if(isSelected("Farine")){
+            var boo = document.getElementById("boo");
+            boo.setAttribute("src","../../img/boo_visible.png");
+            add_action("boo_appeared");
+            remove_selected_object();
+        }
+    }
+</script>

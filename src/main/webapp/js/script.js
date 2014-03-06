@@ -216,6 +216,7 @@ function load_inventory(inventory){
         img.setAttribute("style","border: none");
         img.setAttribute("onclick","selection(this)");
         img.setAttribute("name",nom);
+        img.setAttribute("title",nom);
         td.appendChild(img);
         tr.appendChild(td);
         document.getElementById("liste").appendChild(tr);
@@ -246,6 +247,7 @@ function add_object(source,nom){
     img.setAttribute("style","border: none");
     img.setAttribute("onclick","selection(this)");
     img.setAttribute("name",nom);
+    img.setAttribute("title",nom);
     td.appendChild(img);
     tr.appendChild(td);
     var liste = document.getElementById("liste");
@@ -292,6 +294,7 @@ function unlock_achievement(name){
         success: function(source) {
             var achievement = getAchievement(name);
             achievement.src = source;
+            achievement.title = name;
             add_achievement(name);
             pop_up_achievement(name,source);
         },

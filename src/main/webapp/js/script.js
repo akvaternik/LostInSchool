@@ -291,6 +291,7 @@ function unlock_achievement(name){
             var achievement = getAchievement(name);
             achievement.src = source;
             add_achievement(name);
+            pop_up_achievement(name,source);
         },
         error: function (xhr, ajaxOptions, thrownError) {
             alert(xhr.status);
@@ -308,6 +309,22 @@ function getAchievement(name){
         }
     }
     return null;
+}
+
+function pop_up_achievement(name,source){
+    var div = document.createElement("div");
+    div.setAttribute("id","pop_up_achievement");
+    var text = "Vous avez débloqué le succès: " + name;
+    div.style.color = "white";
+    div.innerHTML = text;
+    var img = document.createElement("img");
+    img.setAttribute("id","img_pop_up_achievement");
+    img.setAttribute("src",source);
+    div.appendChild(img);
+    div.setAttribute("onclick","achievements_screen()");
+    document.getElementById("ecran_principal").appendChild(div);
+    $("#pop_up_achievement").fadeOut(3000);
+    setTimeout("remove(document.getElementById('pop_up_achievement'))",3000);
 }
 
 function remove(element){

@@ -35,6 +35,9 @@
 			<div id="achievements">
                 <input type="button" value="Succ&egrave;s" onclick="achievements_screen()">
 			</div>
+            <div id="unlock">
+                <input type="button" value="Unlock" onclick="unlock_achievement('smile')">
+            </div>
             <div id="achievements_screen" style="display: none">
                 <table>
                     <tbody id="achievements_table">

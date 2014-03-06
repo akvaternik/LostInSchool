@@ -117,3 +117,26 @@ border-collapse: collapse;
     width: 900px;
     border-collapse: collapse;
 }
+
+#unlock{
+    left: -100px;
+    top: 100px;
+    position: absolute;
+}
+
+#pop_up_achievement{
+    height: 88px;
+    width: 900px;
+    background-color: black;
+    z-index: 3;
+    position: absolute;
+    padding-top: 5px;
+}
+
+#img_pop_up_achievement{
+    right: 0px;
+    height: 78px;
+    width: 78px;
+    z-index: 4;
+    position: absolute;
+}

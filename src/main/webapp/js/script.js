@@ -48,8 +48,10 @@ function chargeView(destination){
             dataType: "text",
             success: function(newViewString) {
                 var newView = jQuery.parseJSON(newViewString);
+                document.getElementById("ecran_principal").style.display = "none";
                 ecran.load(newView.html);
                 current_view = newView.name;
+                ecran.onload = document.getElementById("ecran_principal").style.display = "block";
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 alert(xhr.status);

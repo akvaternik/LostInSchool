@@ -97,7 +97,7 @@ function subscribe(user, pwd){
             dataType: "text",
             success: function(status) {
                 if(status === "ok"){
-                    current_view = "ping_pomme";
+                    current_view = "sortie_pomme_normal";
                     chargeView(current_view);
                     current_user = user;
                     document.getElementById("sauvegarde").setAttribute("style", "display: block");
@@ -340,9 +340,11 @@ function pop_up_achievement(name,source){
     img.setAttribute("src",source);
     div.appendChild(img);
     div.setAttribute("onclick","achievements_screen()");
-    document.getElementById("ecran_principal").appendChild(div);
-    $("#pop_up_achievement").fadeOut(3000);
-    setTimeout("remove(document.getElementById('pop_up_achievement'))",3000);
+    div.style.display = "none";
+    document.getElementById("jeu").appendChild(div);
+    $("#pop_up_achievement").fadeIn(1000);
+    setTimeout('$("#pop_up_achievement").fadeOut(5000)',2000);
+    setTimeout("remove(document.getElementById('pop_up_achievement'))",7000);
 }
 
 function remove(element){

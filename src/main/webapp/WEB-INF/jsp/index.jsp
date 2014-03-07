@@ -42,7 +42,7 @@
                 <table>
                     <tbody id="achievements_table">
                         <tr>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="Bienvenue_dans_le_monde_virtuel!" title="?"></td>
                             <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
                             <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
                             <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>

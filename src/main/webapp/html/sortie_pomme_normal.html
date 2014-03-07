@@ -1,16 +1,20 @@
 
-
-<img id="vue" src="../../img/sortie_pomme.jpg"/>
+<img id="vue" src="../../img/sortie_pomme_normal.jpg"/>
 
 <img src="../../img/totoro.png"  style="left: 419px; top: 312px; z-index: 2" onclick="totorospeach()"/>
-<img id="Fleche_b" src="../../img/Fleche_b.png"  width="78px" style="left: 403px; bottom: 0px; z-index: 2; display:none " onclick="chargeView('ping_pomme')"/>
+<img id="Fleche_b" src="../../img/Fleche_b.png"  width="78px" style="left: 403px; bottom: 0px; z-index: 2; display: none" onclick="chargeView('ping_pomme_normal')"/>
 
 <script>
+    if(fait("talk_totoro")){
+        var element = document.getElementById("Fleche_b");
+        element.style.display="block";
+    }
 
-function totorospeach(){
-	alert("totoro");
-	var element = document.getElementById("Fleche_b");
-	element.style.display="block";
-}
+    function totorospeach(){
+        alert("totoro");
+        var element = document.getElementById("Fleche_b");
+        element.style.display="block";
+        add_action("talk_totoro");
+    }
 
 </script>

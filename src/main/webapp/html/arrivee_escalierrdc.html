@@ -1,9 +1,12 @@
 <img id="vue" src="../../img/arrivee_escalierrdc.jpg"/>
-<img src="../../img/descendre_escalierrdc.png"  style="left: 511px; top: 356px; z-index: 2" onclick="chargeView('ping_pomme')"/>
-<img src="../../img/monter_escalierrdc.png"  style="left: 711px; top: 173px; z-index: 2" onclick="alert('Destination à ajouter')"/>
-<img src="../../img/porte_cdi_escalierrdc.png"  style="left: 247px; top: 230px; z-index: 2" onclick="alert('Destination à ajouter')"/>
-<img id="boo" src="../../img/boo_invisible.png"  style="left: 25px; top: 352px; z-index: 2; display: none" onclick="visible()"/>
+<img id="descendre" src="../../img/descendre_escalierrdc.png"  style="left: 511px; top: 376px; z-index: 2" onclick="chargeView('ping_pomme')"/>
+<img id="monter" src="../../img/monter_escalierrdc.png"  style="right: 0px; top: 0px; z-index: 2" onclick="alert('Destination à ajouter')"/>
+<img id="porte_cdi" src="../../img/porte_cdi_escalierrdc.jpg"  style="left: 244px; top: 228px; z-index: 2; display: none" onclick="alert('Destination à ajouter')"/>
+<img id="boo" src="../../img/boo_invisible.png"  style="left: 25px; top: 352px; z-index: 2; display: none;" onclick="visible()"/>
 <script>
+    var descendre = document.getElementById("descendre");
+    var monter = document.getElementById("monter");
+    var porte_cdi = document.getElementById("porte_cdi");
     var boo = document.getElementById("boo");
     if(fait("boo_appeared")){
         boo.setAttribute("src","../../img/boo_visible.png");
@@ -11,10 +14,81 @@
     boo.style.display = "block";
     function visible(){
         if(isSelected("Farine")){
-            var boo = document.getElementById("boo");
             boo.setAttribute("src","../../img/boo_visible.png");
             add_action("boo_appeared");
             remove_selected_object();
+            dialogue_boo();
         }
     }
+
+    function dialogue_boo(){
+        descendre.style.display = "none";
+        monter.style.display = "none";
+
+        var B = document.createElement("div");
+        B.setAttribute("id", "B");
+        document.getElementById("ecran_principal").appendChild(B);
+        B.innerHTML = "Atchoum!! Tiens tu me vois?! Qu'est-ce que tu veux?";
+        B.style.backgroundColor = "black";
+        B.style.color = "red";
+        B.style.width = "900px";
+        B.style.position = "absolute";
+        B.style.top = "480px";
+        B.style.zIndex = "3";
+
+        var R1 = document.createElement("div");
+        R1.setAttribute("id", "R1");
+        document.getElementById("ecran_principal").appendChild(R1);
+        R1.innerHTML = "Je cherche à sauver Zac, tu pourrais m'aider?";
+        R1.style.backgroundColor = "black";
+        R1.style.color = "red";
+        R1.style.width = "300px";
+        R1.style.position = "absolute";
+        R1.style.top = "550px";
+        R1.style.zIndex = "3";
+        R1.style.textAlign = "center";
+        R1.setAttribute("onclick","reponse1()");
+
+        var R2 = document.createElement("div");
+        R2.setAttribute("id", "R2");
+        document.getElementById("ecran_principal").appendChild(R2);
+        R2.innerHTML = "Il paraît que Zac est mort, bon débarras!";
+        R2.style.backgroundColor = "black";
+        R2.style.color = "red";
+        R2.style.width = "300px";
+        R2.style.position = "absolute";
+        R2.style.top = "550px";
+        R2.style.right = "0px";
+        R2.style.zIndex = "3";
+        R2.style.textAlign = "center";
+        R2.setAttribute("onclick","reponse2()");
+    }
+
+    function reponse1(){
+        var B = document.getElementById("B");
+        var R1 = document.getElementById("R1");
+        var R2 = document.getElementById("R2");
+        B.innerHTML = "Moi? T'aider à sauver ce tas de circuits dépressif?? Tu rêves! Tu n'y arriveras jamais, j’ai caché sa carte mère dans le coin le moins fréquenté de l'école.";
+        remove(R1);
+        remove(R2);
+        descendre.style.display = "block";
+        monter.style.display = "block";
+        porte_cdi.style.display = "block";
+        //bruit de boo
+        //succès ange
+    }
+
+    function reponse2(){
+        var B = document.getElementById("B");
+        var R1 = document.getElementById("R1");
+        var R2 = document.getElementById("R2");
+        B.innerHTML = "Toi je t'aime bien... Tiens je peux te le dire, je lui ai joué un vilain tour, j’ai caché sa carte mère au CDI comme ça on est sûrs de ne plus jamais le revoir! Hee hee hee!";
+        remove(R1);
+        remove(R2);
+        descendre.style.display = "block";
+        monter.style.display = "block";
+        porte_cdi.style.display = "block";
+        //succès démon
+    }
+
 </script>

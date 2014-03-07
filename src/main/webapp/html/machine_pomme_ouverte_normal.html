@@ -1,0 +1,21 @@
+
+<img id="vue" src="../../img/machine_pomme_ouverte_normal.jpg"/>
+
+<img src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('machine_pomme_normal')"/>
+<img src="../../img/lunettes.png" style="left: 321px; top: 437px; z-index: 2" onclick="lunettes()"/>
+
+<script>
+    function lunettes(){
+        ///Achievement + musique
+        var yeah;
+        yeah = soundManager.createSound(
+        {
+            id :"yeah",
+            url:"../../soundmanager/musique/yeah.mp3"
+        });
+        yeah.play();
+        chargeView('machine_pomme_ouverte');
+        unlock_achievement("Bienvenue_dans_le_monde_virtuel!");
+    }
+
+</script>

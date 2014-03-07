@@ -330,21 +330,24 @@ function getAchievement(name){
 }
 
 function pop_up_achievement(name,source){
-    var div = document.createElement("div");
-    div.setAttribute("id","pop_up_achievement");
-    var text = "Vous avez débloqué le succès: " + name;
-    div.style.color = "white";
-    div.innerHTML = text;
+    var achievement_div = document.createElement("div");
+    achievement_div.setAttribute("id","pop_up_achievement");
+    var text = "Vous avez débloqué le succès: " + "<br/>" + "<strong>" + "<p style='color: green'>" + name.replace(/_/g," ") +"</p>" + "</strong>";
+    var text_div = document.createElement("div");
+    text_div.setAttribute("id","text_pop_up_achievement");
+    text_div.style.color = "white";
+    text_div.innerHTML = text;
     var img = document.createElement("img");
     img.setAttribute("id","img_pop_up_achievement");
     img.setAttribute("src",source);
-    div.appendChild(img);
-    div.setAttribute("onclick","achievements_screen()");
-    div.style.display = "none";
-    document.getElementById("jeu").appendChild(div);
+    achievement_div.appendChild(img);
+    achievement_div.appendChild(text_div);
+    achievement_div.setAttribute("onclick","achievements_screen()");
+    achievement_div.style.display = "none";
+    document.getElementById("jeu").appendChild(achievement_div);
     $("#pop_up_achievement").fadeIn(1000);
-    setTimeout('$("#pop_up_achievement").fadeOut(5000)',2000);
-    setTimeout("remove(document.getElementById('pop_up_achievement'))",7000);
+    setTimeout('$("#pop_up_achievement").fadeOut(4000)',2000);
+    setTimeout("remove(document.getElementById('pop_up_achievement'))",6000);
 }
 
 function remove(element){

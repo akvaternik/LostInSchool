@@ -140,3 +140,8 @@ border-collapse: collapse;
     z-index: 4;
     position: absolute;
 }
+
+#text_pop_up_achievement{
+    z-index: 4;
+    position: absolute;
+}

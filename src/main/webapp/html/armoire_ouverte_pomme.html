@@ -1,7 +1,4 @@
-
-
 <img id="vue" src="../../img/armoire_ouverte_pomme.jpg"/>
-
 
 <img src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('sortie_pomme')"/>
 
@@ -17,56 +14,56 @@
 
 <script>
 	
-function mystere(){
-	add_action('get_mystere');
-	if(!fait('get_gateau')){
-		add_object('../../img/mystere.png','Poudre_mystère');
-		 
-	}
-	else{
-		add_object('../../img/gateau_bleu.png','Gateau_bleu');
-		add_action('get_gateau_bleu');
-		remove_object('Gateau');
-	}
-}
+    function mystere(){
+        add_action('get_mystere');
+        if(!fait('get_gateau')){
+            add_object('../../img/mystere.png','Poudre_mystère');
+        }
+        else{
+            add_object('../../img/gateau_bleu.png','Gateau_bleu');
+            add_action('get_gateau_bleu');
+            remove_object('Gateau');
+        }
+    }
 
-var sucre = document.getElementById("sucre");
-if(fait('get_sucre')){
-	remove(sucre);
-}
-else{
-	sucre.style.display="block";
-}
+    var sucre = document.getElementById("sucre");
+    if(fait('get_sucre')){
+        remove(sucre);
+    }
+    else{
+        sucre.style.display = "block";
+    }
 
 
-var farine = document.getElementById("farine");
-if(fait('get_farine')){
-	remove(farine);
-}
-else{
-	farine.style.display="block";
-}
+    var farine = document.getElementById("farine");
+    if(fait('get_farine')){
+        remove(farine);
+    }
+    else{
+        farine.style.display = "block";
+    }
 
-var cle = document.getElementById("cle");
-if(fait('get_cle_pomme')){
-	remove(cle);
-}
-else{
-	cle.style.display="block";
-}
-var poudre_mystere = document.getElementById("poudre_mystere");
-if(fait('get_mystere')){
-	remove(poudre_mystere);
-}
-else{
-    poudre_mystere.style.display="block";
-}
+    var cle = document.getElementById("cle");
+    if(fait('get_cle_pomme')){
+        remove(cle);
+    }
+    else{
+        cle.style.display = "block";
+    }
 
-var tasse = document.getElementById("tasse");
-if(fait('get_tasse')){
-	remove(tasse);
-}
-else{
-	tasse.style.display="block";
-}
+    var poudre_mystere = document.getElementById("poudre_mystere");
+    if(fait('get_mystere')){
+        remove(poudre_mystere);
+    }
+    else{
+        poudre_mystere.style.display = "block";
+    }
+
+    var tasse = document.getElementById("tasse");
+    if(fait('get_tasse')){
+        remove(tasse);
+    }
+    else{
+        tasse.style.display = "block";
+    }
 </script>

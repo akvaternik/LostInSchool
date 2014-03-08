@@ -8,9 +8,15 @@
     var monter = document.getElementById("monter");
     var porte_cdi = document.getElementById("porte_cdi");
     var boo = document.getElementById("boo");
+
     if(fait("boo_appeared")){
         boo.setAttribute("src","../../img/boo_visible.png");
     }
+
+    if(fait("talk_boo")){
+        porte_cdi.style.display = "block";
+    }
+
     boo.style.display = "block";
     function visible(){
         if(isSelected("Farine")){
@@ -74,6 +80,7 @@
         descendre.style.display = "block";
         monter.style.display = "block";
         porte_cdi.style.display = "block";
+        add_action("talk_boo");
         //bruit de boo
         //succès ange
     }
@@ -88,6 +95,7 @@
         descendre.style.display = "block";
         monter.style.display = "block";
         porte_cdi.style.display = "block";
+        add_action("talk_boo");
         //succès démon
     }
 

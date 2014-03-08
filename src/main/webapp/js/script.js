@@ -69,6 +69,7 @@ function login(user, pwd){
             success: function(access) {
                 if (access === "ok"){
                     current_user = user;
+                    document.getElementById("inventaire").setAttribute("style", "display: block");
                     document.getElementById("sauvegarde").setAttribute("style", "display: block");
                     document.getElementById("logout").setAttribute("style", "display: block");
                     load_game();
@@ -100,6 +101,7 @@ function subscribe(user, pwd){
                     current_view = "sortie_pomme_normal";
                     chargeView(current_view);
                     current_user = user;
+                    document.getElementById("inventaire").setAttribute("style", "display: block");
                     document.getElementById("sauvegarde").setAttribute("style", "display: block");
                     document.getElementById("logout").setAttribute("style", "display: block");
                     createCookie("userID",current_user,1);
@@ -234,7 +236,7 @@ function load_actions(actionsJSON){
 function load_achievements(achievementsJSON){
     for(var i=0;i<achievementsJSON.length;i++){
         var nom = achievementsJSON[i].name;
-        unlock_achievement(nom);
+        load_achievement(nom);
     }
 }
 
@@ -310,6 +312,23 @@ function unlock_achievement(name){
             achievement.title = name.replace(/_/g," ");
             add_achievement(name);
             pop_up_achievement(name,source);
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert(xhr.status);
+            alert(thrownError);
+        }
+    });
+}
+
+function load_achievement(name){
+    $.ajax({type: "GET",
+        url: "/unlock_achievement/" + name,
+        dataType: "text",
+        success: function(source) {
+            var achievement = getAchievement(name);
+            achievement.src = source;
+            achievement.title = name.replace(/_/g," ");
+            add_achievement(name);
         },
         error: function (xhr, ajaxOptions, thrownError) {
             alert(xhr.status);

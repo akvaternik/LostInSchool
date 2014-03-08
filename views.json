@@ -1,9 +1,5 @@
 ﻿[
     {"name": "login", "html": "../../html/login.html"},
-    {"name": "Ping", "html": "../../html/Ping.html"},
-    {"name": "Sortie", "html": "../../html/Sortie.html"},
-    {"name": "Tableau", "html": "../../html/Tableau.html"},
-    {"name": "Mur", "html": "../../html/Mur.html"},
     {"name": "armoire_close_pomme", "html": "../../html/armoire_close_pomme.html"},
     {"name": "armoire_ouverte_pomme", "html": "../../html/armoire_ouverte_pomme.html"},
     {"name": "machine_pomme", "html": "../../html/machine_pomme.html"},

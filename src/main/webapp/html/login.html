@@ -11,6 +11,7 @@
     var user = readCookie("userID");
     if (user) {
         current_user = user;
+        document.getElementById("inventaire").setAttribute("style", "display: block");
         document.getElementById("sauvegarde").setAttribute("style", "display: block");
         document.getElementById("logout").setAttribute("style", "display: block");
         load_game();

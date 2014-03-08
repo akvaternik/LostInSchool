@@ -1,71 +1,77 @@
 body{
-	background-color: #999999;
-	margin: 0px;
+background-color: #999999;
+margin: 0px;
 }
 
 
 #jeu{
-	top: 35px;
-	margin-right: auto;
-	margin-left: auto;
-	width: 885px;
-	height: 588px;
-	position: relative;
+top: 35px;
+margin-right: auto;
+margin-left: auto;
+width: 1025px;
+height: 598px;
+position: relative;
 }
 
 #jeu img{
-	position: absolute;
+position: absolute;
 }
  
 #vue{
-	height: 588px;
-	width: 785px;
-	z-index: 1;
+height: 598px;
+width: 900px;
+z-index: 1;
 }
 
 #ecran_principal{
-	width: 785px;
-	height: 588px;
-	position: absolute;
+width: 900px;
+height: 598px;
+position: absolute;
 }
 
 #inventaire{
-	left: 800px;
-	width: 110px;
-	height: 588px;
-	position: absolute;
-	background-color: black;
+left: 915px;
+width: 110px;
+height: 598px;
+position: absolute;
+background-color: black;
 }
 
 
 #liste{
-	left: 7px;
-	height: 588px;
-	width: 103px;
-	position: absolute;
-	overflow: auto;
-	vertical-align : top;
+left: 7px;
+height: 598px;
+width: 103px;
+position: absolute;
+overflow: auto;
+vertical-align : top;
 }
 
 
 .obj{
-	width: 78px;
-	height: 78px;
-	z-index: 2;
+width: 78px;
+height: 78px;
+z-index: 2;
 }
 
 #liste tr{
-	height: 78px;
+height: 78px;
 }
 
 #inventaire table{
-	height: 588px;
-	width: 110px;
-	border-collapse: collapse;
+height: 598px;
+width: 110px;
+border-collapse: collapse;
 }
 
 #sauvegarde{
-    left: 1000px;
+    left: 1100px;
+    position: absolute;
+}
+
+#logout{
+    left: 1100px;
+    top: 100px;
     position: absolute;
 }
 
@@ -76,17 +82,17 @@ body{
 
 
 #achievements_screen{
-    height: 588px;
-    width: 785px;
+    height: 598px;
+    width: 900px;
     position: absolute;
     background-color: black;
-    z-index: 5;
+    z-index: 50;
 }
 
 
 #achievements_table{
-    height: 588px;
-    width: 785px;
+    height: 598px;
+    width: 900px;
     position: absolute;
     vertical-align : top;
 }
@@ -95,7 +101,7 @@ body{
 .achievement{
     width: 78px;
     height: 78px;
-    z-index: 6;
+    z-index: 51;
 }
 
 #achievements_table tr{
@@ -107,7 +113,29 @@ body{
 }
 
 #achievements_screen table{
-    height: 588px;
-    width: 785px;
+    height: 598px;
+    width: 900px;
     border-collapse: collapse;
+}
+
+#pop_up_achievement{
+    height: 88px;
+    width: 900px;
+    background-color: black;
+    z-index: 10;
+    position: absolute;
+    padding-top: 5px;
+}
+
+#img_pop_up_achievement{
+    right: 0px;
+    height: 78px;
+    width: 78px;
+    z-index: 11;
+    position: absolute;
+}
+
+#text_pop_up_achievement{
+    z-index: 11;
+    position: absolute;
 }

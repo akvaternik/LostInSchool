@@ -6,11 +6,11 @@
 <img id="chocolat" src="../../img/choco.png" style="left: 7px; top: 445px; z-index: 2; display: none" onclick="add_object('../../img/choco.png','Chocolat'); add_action('get_chocolat'); remove(this)" />
 
 <script>
-var element = document.getElementById("chocolat");
-if(fait('get_chocolat')){
-	remove(element);
-}
-else{
-	element.style.display="block";
-}
+    var choco = document.getElementById("chocolat");
+    if(fait('get_chocolat')){
+        remove(choco);
+    }
+    else{
+        choco.style.display="block";
+    }
 </script>

@@ -86,7 +86,7 @@ border-collapse: collapse;
     width: 900px;
     position: absolute;
     background-color: black;
-    z-index: 5;
+    z-index: 50;
 }
 
 
@@ -101,7 +101,7 @@ border-collapse: collapse;
 .achievement{
     width: 78px;
     height: 78px;
-    z-index: 6;
+    z-index: 51;
 }
 
 #achievements_table tr{
@@ -128,7 +128,7 @@ border-collapse: collapse;
     height: 88px;
     width: 900px;
     background-color: black;
-    z-index: 3;
+    z-index: 10;
     position: absolute;
     padding-top: 5px;
 }
@@ -137,11 +137,11 @@ border-collapse: collapse;
     right: 0px;
     height: 78px;
     width: 78px;
-    z-index: 4;
+    z-index: 11;
     position: absolute;
 }
 
 #text_pop_up_achievement{
-    z-index: 4;
+    z-index: 11;
     position: absolute;
 }

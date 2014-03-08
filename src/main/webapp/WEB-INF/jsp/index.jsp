@@ -10,6 +10,11 @@
         <script type="text/javascript">
             soundManager.url = "../../soundmanager/swf/";
             soundManager.debugMode = false;
+            soundManager.setup({
+                defaultOptions: {
+                    autoLoad: true
+                }
+            });
         </script>
         <title>Lost In School</title>
     </head>

@@ -52,6 +52,9 @@ function chargeView(destination){
                 ecran.load(newView.html);
                 current_view = newView.name;
                 ecran.onload = document.getElementById("ecran_principal").style.display = "block";
+                if(current_view != "login"){
+                    save();
+                }
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 alert(xhr.status);
@@ -99,13 +102,12 @@ function subscribe(user, pwd){
             success: function(status) {
                 if(status === "ok"){
                     current_view = "sortie_pomme_normal";
-                    chargeView(current_view);
                     current_user = user;
+                    chargeView(current_view);
                     document.getElementById("inventaire").setAttribute("style", "display: block");
                     document.getElementById("sauvegarde").setAttribute("style", "display: block");
                     document.getElementById("logout").setAttribute("style", "display: block");
                     createCookie("userID",current_user,1);
-                    save();
                 }
                 else{
                     alert("User name is already used, please choose another one.");
@@ -136,7 +138,7 @@ function save(){
         dataType: "text",
         success: function(status) {
             if(status === "ok"){
-                alert("Game saved!");
+                //alert("Game saved!");
             }
             else{
                 alert("Save error!");
@@ -254,12 +256,14 @@ function add_object(source,nom){
     tr.appendChild(td);
     var liste = document.getElementById("liste");
     liste.insertBefore(tr, liste.firstChild);
+    save();
 }
 
 function remove_selected_object(){
     var liste = document.getElementById("liste");
     var objs = document.getElementsByClassName("obj");
     liste.removeChild(objs[indexSelected()].parentNode.parentNode);
+    save();
 }
 
 
@@ -272,15 +276,17 @@ function remove_object(name){
             liste.removeChild(objs[i].parentNode.parentNode);
         }
     }
-
+    save();
 }
 
 function add_action(action){
     actions.push(action);
+    save();
 }
 
 function add_achievement(achievement){
     achievements.push(achievement);
+    save();
 }
 
 function fait(action){

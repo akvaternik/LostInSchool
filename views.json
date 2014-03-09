@@ -12,5 +12,7 @@
     {"name": "sortie_pomme", "html": "../../html/sortie_pomme.html"},
     {"name": "sortie_pomme_normal", "html": "../../html/sortie_pomme_normal.html"},
     {"name": "tableau_pomme", "html": "../../html/tableau_pomme.html"},
+    {"name": "entree_couloir_pomme", "html": "../../html/entree_couloir_pomme.html"},
+    {"name": "sortie_couloir_pomme", "html": "../../html/sortie_couloir_pomme.html"},
     {"name": "arrivee_escalierrdc", "html": "../../html/arrivee_escalierrdc.html"}
 ]

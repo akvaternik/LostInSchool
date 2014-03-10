@@ -3,6 +3,8 @@ var current_user;
 var current_view;
 var actions = [];
 var achievements = [];
+var xhr;
+var ajaxSave = 0;
 
 function selection(obj){					
 	var objs = document.getElementsByClassName("obj");
@@ -42,7 +44,6 @@ function indexSelected(){
 
 
 function chargeView(destination){
-
     $.ajax({type: "GET",
             url: "/getJSON/" + destination,
             dataType: "text",
@@ -57,8 +58,8 @@ function chargeView(destination){
                 }
             },
             error: function (xhr, ajaxOptions, thrownError) {
-                alert(xhr.status);
-                alert(thrownError);
+                console.log(xhr.status);
+                console.log(thrownError);
             }
     });
 }
@@ -83,8 +84,8 @@ function login(user, pwd){
                 }
             },
             error: function (xhr, ajaxOptions, thrownError) {
-                alert(xhr.status);
-                alert(thrownError);
+                console.log(xhr.status);
+                console.log(thrownError);
             }
         });
     }
@@ -114,8 +115,8 @@ function subscribe(user, pwd){
                 }
             },
             error: function (xhr, ajaxOptions, thrownError) {
-                alert(xhr.status);
-                alert(thrownError);
+                console.log(xhr.status);
+                console.log(thrownError);
             }
         });
     }
@@ -130,12 +131,16 @@ function logout(){
 }
 
 function save(){
+    if(ajaxSave > 0){
+        xhr.abort();
+    }
     var inventory = getInventory();
     var actionsString = getActions();
     var achievementsString = getAchievements();
-    $.ajax({type: "POST",
+    xhr = $.ajax({type: "POST",
         url: "/save/" + current_user + "/" + inventory + "/" + current_view + "/" + actionsString + "/" + achievementsString,
         dataType: "text",
+        beforeSend: function(){ajaxSave++;},
         success: function(status) {
             if(status === "ok"){
                 //alert("Game saved!");
@@ -143,10 +148,12 @@ function save(){
             else{
                 alert("Save error!");
             }
+            ajaxSave--;
         },
         error: function (xhr, ajaxOptions, thrownError) {
-            alert(xhr.status);
-            alert(thrownError);
+            console.log(xhr.status);
+            console.log(thrownError);
+            ajaxSave--;
         }
     });
 }
@@ -187,7 +194,6 @@ function getAchievements(){
 
 
 function load_game(){
-
     $.ajax({type: "POST",
         url: "/load_game/" + current_user,
         dataType: "text",
@@ -202,8 +208,8 @@ function load_game(){
             load_achievements(achievementsJSON);
         },
         error: function (xhr, ajaxOptions, thrownError) {
-            alert(xhr.status);
-            alert(thrownError);
+            console.log(xhr.status);
+            console.log(thrownError);
         }
     });
 }
@@ -320,8 +326,8 @@ function unlock_achievement(name){
             pop_up_achievement(name,source);
         },
         error: function (xhr, ajaxOptions, thrownError) {
-            alert(xhr.status);
-            alert(thrownError);
+            console.log(xhr.status);
+            console.log(thrownError);
         }
     });
 }
@@ -337,8 +343,8 @@ function load_achievement(name){
             add_achievement(name);
         },
         error: function (xhr, ajaxOptions, thrownError) {
-            alert(xhr.status);
-            alert(thrownError);
+            console.log(xhr.status);
+            console.log(thrownError);
         }
     });
 }

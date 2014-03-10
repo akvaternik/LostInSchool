@@ -7,15 +7,25 @@
 <img src="../../img/porte_sortie_pomme.png"  style="left: 574px; top: 211px; z-index: 2" onclick="sortie()"/>
 <img src="../../img/mac_pomme_dvt_porte.png"  style="left: 626px; top: 315px; z-index: 2" />
 
+
 <script>
+	var open_door;
+	open_door=soundManager.createSound(
+	{
+		id:"open_door",
+		url:"../../soundmanager/musique/serrure.mp3"
+	});
+	
 function sortie(){
-	if(fait('get_cle_pomme')){
-		if(fait('unlock_apple_door')){
-			chargeView('sortie_couloir_pomme');
-		}
-		else{
-			add_action('unlock_apple_door');
-		}
+	if(fait('unlock_apple_door')){
+		chargeView('sortie_couloir_pomme');
+		
+	}
+	else if(isSelected('Cle_pomme')){
+		
+		add_action('unlock_apple_door');
+		remove_object('Cle_pomme');
+		open_door.play();
 	}
 	else{
 		alert("Ca a l'air fermé! Contrairement à tes fesses! Slut! ");
@@ -23,23 +33,3 @@ function sortie(){
 
 }
 </script>
-
-</div>
-<div id="inventaire">
-
-<table>
-<tbody id="liste">
-</tbody>
-</table>
-
-</div>	
-<div id="sauvegarde" hidden>
-                <input type="button" value="Save" onclick="save()">
-</div>
-
-            
-</div>
-
-
-    </body>
-</html>

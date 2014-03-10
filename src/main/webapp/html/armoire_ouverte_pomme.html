@@ -2,7 +2,7 @@
 
 <img src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('sortie_pomme')"/>
 
-<img id="cle" src="../../img/cle_pomme.png" style="display: none; left: 525px; top: 516px; z-index: 2" onclick="add_object('../../img/cle_pomme_inventaire.png','Cle_pomme'); remove(this); add_action('get_cle_pomme')"/>
+<img id="cle" src="../../img/cle_pomme.png" style="display: none; left: 525px; top: 516px; z-index: 2" onclick="add_object('../../img/cle_pomme_inventaire.png','Cle_pomme');get_key.play(); remove(this); add_action('get_cle_pomme')"/>
 <img id="sucre" src="../../img/sucre.png" style="display: none; left: 211px; top: 94px; z-index: 2" onclick="add_object('../../img/sucre_inventaire.png','Sucre'); remove(this); add_action('get_sucre')"/>
 <img id="farine" src="../../img/farine.png" style="display: none; left: 542px; top: 208px; z-index: 2" onclick="add_object('../../img/farine.png','Farine'); remove(this); add_action('get_farine')"/>
 <img src="../../img/etagere.png" style="left: 166px; top: 162px; z-index:2 " />
@@ -13,6 +13,12 @@
 <img src="../../img/porte_droite_armoire_pomme.png" style="left: 664px; top: 13px; z-index:2 " onclick="chargeView('armoire_close_pomme')" />
 
 <script>
+	var get_key;
+	get_key=soundManager.createSound(
+	{
+		id:"get_key",
+		url:"../../soundmanager/musique/ramasse_cle.wav"
+	});
 	
     function mystere(){
         add_action('get_mystere');

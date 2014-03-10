@@ -2,72 +2,88 @@
 <img id="descendre" src="../../img/descendre_escalierrdc.png"  style="left: 511px; top: 376px; z-index: 2" onclick="chargeView('entree_couloir_pomme')"/>
 <img id="monter" src="../../img/monter_escalierrdc.png"  style="right: 0px; top: 0px; z-index: 2" onclick="alert('Destination à ajouter')"/>
 <img id="porte_cdi" src="../../img/porte_cdi_escalierrdc.jpg"  style="left: 244px; top: 228px; z-index: 2; display: none" onclick="alert('Destination à ajouter')"/>
-<img id="boo" src="../../img/boo_invisible.png"  style="left: 25px; top: 352px; z-index: 2; display: none;" onclick="visible()"/>
+<img id="boo_invisible" src="../../img/boo_invisible.png"  style="left: 25px; top: 352px; z-index: 2; display: none;" onclick="visible()"/>
+<img id="boo_visible" src="../../img/boo_visible.png"  style="left: 25px; top: 352px; z-index: 2; display: none;" onclick="dialogue_boo()"/>
+
+
+
+
 <script>
     var descendre = document.getElementById("descendre");
     var monter = document.getElementById("monter");
     var porte_cdi = document.getElementById("porte_cdi");
-    var boo = document.getElementById("boo");
+    var boo_invisible = document.getElementById("boo_invisible");
+    var boo_visible = document.getElementById("boo_visible");
+
+    var in_talk = false;
 
     if(fait("boo_appeared")){
-        boo.setAttribute("src","../../img/boo_visible.png");
+        remove(boo_invisible);
+        if(fait("talk_boo")){
+            porte_cdi.style.display = "block";
+            remove(boo_visible);
+        }
+        else{
+            boo_visible.style.display = "block";
+        }
+    }
+    else{
+        boo_invisible.style.display = "block";
     }
 
-    if(fait("talk_boo")){
-        porte_cdi.style.display = "block";
-    }
-
-    boo.style.display = "block";
     function visible(){
         if(isSelected("Farine")){
-            boo.setAttribute("src","../../img/boo_visible.png");
+            remove(boo_invisible);
+            boo_visible.style.display = "block";
             add_action("boo_appeared");
             remove_selected_object();
-            dialogue_boo();
         }
     }
 
     function dialogue_boo(){
-        descendre.style.display = "none";
-        monter.style.display = "none";
+        if(!in_talk && !fait("talk_boo")){
+            in_talk = true;
+            descendre.style.display = "none";
+            monter.style.display = "none";
 
-        var B = document.createElement("div");
-        B.setAttribute("id", "B");
-        document.getElementById("ecran_principal").appendChild(B);
-        B.innerHTML = "Atchoum!! Tiens tu me vois?! Qu'est-ce que tu veux?";
-        B.style.backgroundColor = "black";
-        B.style.color = "red";
-        B.style.width = "900px";
-        B.style.position = "absolute";
-        B.style.top = "480px";
-        B.style.zIndex = "3";
+            var B = document.createElement("div");
+            B.setAttribute("id", "B");
+            document.getElementById("ecran_principal").appendChild(B);
+            B.innerHTML = "Atchoum!! Tiens tu me vois?! Qu'est-ce que tu veux?";
+            B.style.backgroundColor = "black";
+            B.style.color = "red";
+            B.style.width = "900px";
+            B.style.position = "absolute";
+            B.style.top = "480px";
+            B.style.zIndex = "3";
 
-        var R1 = document.createElement("div");
-        R1.setAttribute("id", "R1");
-        document.getElementById("ecran_principal").appendChild(R1);
-        R1.innerHTML = "Je cherche à sauver Zac, tu pourrais m'aider?";
-        R1.style.backgroundColor = "black";
-        R1.style.color = "red";
-        R1.style.width = "300px";
-        R1.style.position = "absolute";
-        R1.style.top = "550px";
-        R1.style.zIndex = "3";
-        R1.style.textAlign = "center";
-        R1.setAttribute("onclick","reponse1()");
+            var R1 = document.createElement("div");
+            R1.setAttribute("id", "R1");
+            document.getElementById("ecran_principal").appendChild(R1);
+            R1.innerHTML = "Je cherche à sauver Zac, tu pourrais m'aider?";
+            R1.style.backgroundColor = "black";
+            R1.style.color = "red";
+            R1.style.width = "300px";
+            R1.style.position = "absolute";
+            R1.style.top = "550px";
+            R1.style.zIndex = "3";
+            R1.style.textAlign = "center";
+            R1.setAttribute("onclick","reponse1()");
 
-        var R2 = document.createElement("div");
-        R2.setAttribute("id", "R2");
-        document.getElementById("ecran_principal").appendChild(R2);
-        R2.innerHTML = "Il paraît que Zac est mort, bon débarras!";
-        R2.style.backgroundColor = "black";
-        R2.style.color = "red";
-        R2.style.width = "300px";
-        R2.style.position = "absolute";
-        R2.style.top = "550px";
-        R2.style.right = "0px";
-        R2.style.zIndex = "3";
-        R2.style.textAlign = "center";
-        R2.setAttribute("onclick","reponse2()");
+            var R2 = document.createElement("div");
+            R2.setAttribute("id", "R2");
+            document.getElementById("ecran_principal").appendChild(R2);
+            R2.innerHTML = "Il paraît que Zac est mort, bon débarras!";
+            R2.style.backgroundColor = "black";
+            R2.style.color = "red";
+            R2.style.width = "300px";
+            R2.style.position = "absolute";
+            R2.style.top = "550px";
+            R2.style.right = "0px";
+            R2.style.zIndex = "3";
+            R2.style.textAlign = "center";
+            R2.setAttribute("onclick","reponse2()");
+        }
     }
 
     function reponse1(){
@@ -81,6 +97,7 @@
         monter.style.display = "block";
         porte_cdi.style.display = "block";
         add_action("talk_boo");
+        in_talk = false;
         //bruit de boo
         //succès ange
     }
@@ -96,6 +113,7 @@
         monter.style.display = "block";
         porte_cdi.style.display = "block";
         add_action("talk_boo");
+        in_talk = false;
         //succès démon
     }
 

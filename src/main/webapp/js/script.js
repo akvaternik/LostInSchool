@@ -74,7 +74,6 @@ function login(user, pwd){
                 if (access === "ok"){
                     current_user = user;
                     document.getElementById("inventaire").setAttribute("style", "display: block");
-                    document.getElementById("sauvegarde").setAttribute("style", "display: block");
                     document.getElementById("logout").setAttribute("style", "display: block");
                     load_game();
                     createCookie("userID",current_user,1);
@@ -106,7 +105,6 @@ function subscribe(user, pwd){
                     current_user = user;
                     chargeView(current_view);
                     document.getElementById("inventaire").setAttribute("style", "display: block");
-                    document.getElementById("sauvegarde").setAttribute("style", "display: block");
                     document.getElementById("logout").setAttribute("style", "display: block");
                     createCookie("userID",current_user,1);
                 }
@@ -151,8 +149,10 @@ function save(){
             ajaxSave--;
         },
         error: function (xhr, ajaxOptions, thrownError) {
-            console.log(xhr.status);
-            console.log(thrownError);
+            if(xhr.status != 0){
+                console.log(xhr.status);
+                console.log(thrownError);
+            }
             ajaxSave--;
         }
     });

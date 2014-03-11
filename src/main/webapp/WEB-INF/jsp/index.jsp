@@ -30,9 +30,6 @@
 					</tbody>
 				</table>
 
-			</div>	
-			<div id="sauvegarde" hidden>
-                <input type="button" value="Save" onclick="save()">
 			</div>
             <div id="logout" hidden>
                 <input type="button" value="Logout" onclick="logout()">

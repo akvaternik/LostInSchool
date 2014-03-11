@@ -85,7 +85,7 @@ public class LoginController {
 
     @RequestMapping("/save/{user}/{inventory}/{current_view}/{actions}/{achievements}")
     @ResponseBody
-    public String save(@PathVariable String user, @PathVariable String inventory, @PathVariable String current_view, @PathVariable String actions, @PathVariable String achievements) throws UnknownHostException, NoSuchAlgorithmException, UnsupportedEncodingException {
+    public String save(@PathVariable String user, @PathVariable String inventory, @PathVariable String current_view, @PathVariable String actions, @PathVariable String achievements) throws UnknownHostException {
         DB db = new MongoClient().getDB("LostInSchool");
         Jongo jongo = new Jongo(db);
         MongoCollection users = jongo.getCollection("users");
@@ -99,11 +99,11 @@ public class LoginController {
 
     @RequestMapping("/load_game/{user}")
     @ResponseBody
-    public String load_game(@PathVariable String user) throws UnknownHostException, NoSuchAlgorithmException, UnsupportedEncodingException {
+    public String load_game(@PathVariable String user) throws UnknownHostException {
         DB db = new MongoClient().getDB("LostInSchool");
         Jongo jongo = new Jongo(db);
         MongoCollection users = jongo.getCollection("users");
-        JSONObject jsonObject = users.findOne("{userID: " + "'" + user + "'}").projection("{_id:0}").as(JSONObject.class);
+        JSONObject jsonObject = users.findOne("{userID: " + "'" + user + "'}").projection("{_id:0, userID:0, password:0}").as(JSONObject.class);
 
         return jsonObject.toJSONString();
     }

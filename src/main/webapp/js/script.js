@@ -194,7 +194,7 @@ function getAchievements(){
 
 
 function load_game(){
-    $.ajax({type: "POST",
+    $.ajax({type: "GET",
         url: "/load_game/" + current_user,
         dataType: "text",
         success: function(jsonString) {

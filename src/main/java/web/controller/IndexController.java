@@ -1,6 +1,5 @@
 package web.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
 import org.jongo.Jongo;
@@ -24,7 +23,7 @@ public class IndexController {
 
     @RequestMapping("/getJSON/{destination}")
     @ResponseBody
-    public String getJSON(@PathVariable String destination) throws UnknownHostException, JsonProcessingException {
+    public String getJSON(@PathVariable String destination) throws UnknownHostException {
         DB db = new MongoClient().getDB("LostInSchool");
         Jongo jongo = new Jongo(db);
         MongoCollection views = jongo.getCollection("views");

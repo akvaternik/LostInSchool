@@ -468,12 +468,14 @@ function eraseCookie(name) {
     createCookie(name,"",-1);
 }
 
-function discut(name, text){
+function discut(name, text,t){
+
+    var t_N = t;
     var N = document.createElement("div");
     N.setAttribute("id","N");
     N.innerHTML = name;
     N.style.position = "absolute";
-    N.style.top = "398px";
+    N.style.top = t_N.toString() + "px";
     N.style.background = "white";
     N.style.zIndex = "3";
     N.style.left = "25px";
@@ -482,15 +484,17 @@ function discut(name, text){
     N.style.cursor = "default";
     document.getElementById("ecran_principal").appendChild(N);
 
+    var t_I = t + 431 - 398;
     var I = document.createElement("img");
     I.setAttribute("id","I");
     I.setAttribute("src","../../img/bandeau_discussion.png");
     I.style.width = "900px";
     I.style.height = "154px";
-    I.style.top = "431px";
+    I.style.top = t_I.toString() + "px";
     I.style.zIndex = "3";
     document.getElementById("ecran_principal").appendChild(I);
 
+    var t_T = t + 450 - 398;
     var T = document.createElement("div");
     T.setAttribute("id", "T");
     T.style.width = "858px";
@@ -498,18 +502,19 @@ function discut(name, text){
     T.innerHTML = text;
     T.style.overflow = "auto";
     T.style.position = "absolute";
-    T.style.top = "450px";
+    T.style.top = t_T.toString() + "px";
     T.style.left = "25px";
     T.style.zIndex = "3";
     T.style.cursor = "default";
     document.getElementById("ecran_principal").appendChild(T);
 
+    var t_C = t + 404 - 398;
     var C = document.createElement("img");
     C.setAttribute("id","C");
     C.setAttribute("src","../../img/croix.png");
     C.style.zIndex = "3";
     C.style.width = "45px";
-    C.style.top = "404px";
+    C.style.top = t_C.toString() + "px";
     C.style.right = "0px";
     C.setAttribute("onclick","quit_talk()");
     document.getElementById("ecran_principal").appendChild(C);

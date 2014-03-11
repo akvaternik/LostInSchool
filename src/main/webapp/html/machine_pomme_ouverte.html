@@ -1,5 +1,37 @@
 <img id="vue" src="../../img/machine_pomme_ouverte.jpg"/>
 
-<img src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('ping_pomme')"/>
-<img src="../../img/wheatley.png" style="left: 0px; top: 0px; z-index: 2" onclick="alert('Tu peux me voir maintenant!')"/>
+<img id="Fleche_b" src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2; display:none" onclick="chargeView('ping_pomme')"/>
+<img id="Wheatley" src="../../img/wheatley.png" style="left: 0px; top: 0px; z-index: 2; display:none" onclick="wheatley_talk()"/>
 
+<script>
+    var intalk = false;
+    var Wheatley = document.getElementById("Wheatley");
+
+    if(fait('welcome_by_wheatley')){
+        remove(Wheatley);
+        document.getElementById("Fleche_b").style.display = "block";
+    }
+    else{
+        document.getElementById("Wheatley").style.display = "block";
+    }
+
+    function wheatley_talk(){
+        if(!intalk){
+            intalk = true;
+            discut('Wheatley','He ho! He ho! Tu me vois? Il me voit, c’est pas trop tôt! Félicitation, tu as trouvé les lunettes Optilix! Avec elles tu vas pouvoir interagir avec ton nouvel environnement virtuel et les personnages qui le peuplent. Ils t’aideront sûrement à retrouver les morceaux de Zac.');
+        }
+    }
+
+    function quit_talk(){
+        remove(document.getElementById("N"));
+        remove(document.getElementById("T"));
+        remove(document.getElementById("C"));
+        remove(document.getElementById("I"));
+        remove(Wheatley);
+        intalk = false;
+        add_action('welcome_by_wheatley');
+        var Fleche_b = document.getElementById("Fleche_b");
+        Fleche_b.style.display = "block";
+    }
+
+</script>

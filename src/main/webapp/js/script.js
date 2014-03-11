@@ -49,10 +49,8 @@ function chargeView(destination){
             dataType: "text",
             success: function(newViewString) {
                 var newView = jQuery.parseJSON(newViewString);
-                document.getElementById("ecran_principal").style.display = "none";
                 ecran.load(newView.html);
                 current_view = newView.name;
-                ecran.onload = document.getElementById("ecran_principal").style.display = "block";
                 if(current_view != "login" && current_view != "unsubscribe"){
                     save();
                 }
@@ -468,6 +466,53 @@ function readCookie(name) {
 
 function eraseCookie(name) {
     createCookie(name,"",-1);
+}
+
+function discut(name, text){
+    var N = document.createElement("div");
+    N.setAttribute("id","N");
+    N.innerHTML = name;
+    N.style.position = "absolute";
+    N.style.top = "398px";
+    N.style.background = "white";
+    N.style.zIndex = "3";
+    N.style.left = "25px";
+    N.style.padding = "5px";
+    N.style.border = "solid 3px black";
+    N.style.cursor = "default";
+    document.getElementById("ecran_principal").appendChild(N);
+
+    var I = document.createElement("img");
+    I.setAttribute("id","I");
+    I.setAttribute("src","../../img/bandeau_discussion.png");
+    I.style.width = "900px";
+    I.style.height = "154px";
+    I.style.top = "431px";
+    I.style.zIndex = "3";
+    document.getElementById("ecran_principal").appendChild(I);
+
+    var T = document.createElement("div");
+    T.setAttribute("id", "T");
+    T.style.width = "858px";
+    T.style.height = "104px";
+    T.innerHTML = text;
+    T.style.overflow = "auto";
+    T.style.position = "absolute";
+    T.style.top = "450px";
+    T.style.left = "25px";
+    T.style.zIndex = "3";
+    T.style.cursor = "default";
+    document.getElementById("ecran_principal").appendChild(T);
+
+    var C = document.createElement("img");
+    C.setAttribute("id","C");
+    C.setAttribute("src","../../img/croix.png");
+    C.style.zIndex = "3";
+    C.style.width = "45px";
+    C.style.top = "404px";
+    C.style.right = "0px";
+    C.setAttribute("onclick","quit_talk()");
+    document.getElementById("ecran_principal").appendChild(C);
 }
 
 $(document).ready(function() {

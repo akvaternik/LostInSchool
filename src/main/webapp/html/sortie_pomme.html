@@ -7,29 +7,41 @@
 <img src="../../img/porte_sortie_pomme.png"  style="left: 574px; top: 211px; z-index: 2" onclick="sortie()"/>
 <img src="../../img/mac_pomme_dvt_porte.png"  style="left: 626px; top: 315px; z-index: 2" />
 
-
 <script>
+	var intalk = false;
 	var open_door;
-	open_door=soundManager.createSound(
+	open_door = soundManager.createSound(
 	{
-		id:"open_door",
-		url:"../../soundmanager/musique/serrure.mp3"
+		id: "open_door",
+		url: "../../soundmanager/musique/serrure.mp3"
 	});
 	
-function sortie(){
-	if(fait('unlock_apple_door')){
-		chargeView('sortie_couloir_pomme');
-		
-	}
-	else if(isSelected('Cle_pomme')){
-		
-		add_action('unlock_apple_door');
-		remove_object('Cle_pomme');
-		open_door.play();
-	}
-	else{
-		alert("Ca a l'air fermé! Contrairement à tes fesses! Slut! ");
-	}
-
-}
+    function sortie(){
+        if(!intalk){
+            if(fait('unlock_apple_door')){
+                chargeView('sortie_couloir_pomme');
+            }
+            else if(isSelected('Cle_pomme')){
+                add_action('unlock_apple_door');
+                remove_object('Cle_pomme');
+                open_door.play();
+            }
+            else{
+                intalk = true;
+                var T = document.createElement("div");
+                T.setAttribute("id","T");
+                document.getElementById("ecran_principal").appendChild(T);
+                T.innerHTML = "Hum on dirait que c’est fermé. Je vais devoir trouver la clé.";
+                T.style.position = "absolute";
+                T.style.top = "150px";
+                T.style.background = "white";
+                T.style.zIndex = "3";
+                T.style.left = "550px";
+                T.style.padding = "5px";
+                T.style.border = "solid 3px black";
+                T.style.cursor = "default";
+                T.setAttribute("onclick","remove(T); intalk = false;");
+            }
+        }
+    }
 </script>

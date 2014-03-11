@@ -108,6 +108,46 @@ public class LoginController {
         return jsonObject.toJSONString();
     }
 
+    @RequestMapping("/unsubscribe/{user}/{pwd}")
+    @ResponseBody
+    public String unsubscribe(@PathVariable String user, @PathVariable String pwd) throws UnknownHostException, NoSuchAlgorithmException, UnsupportedEncodingException {
+        String status = "";
+
+        DB db = new MongoClient().getDB("LostInSchool");
+        Jongo jongo = new Jongo(db);
+        MongoCollection users = jongo.getCollection("users");
+        JSONObject jsonObject = users.findOne("{userID: " + "'" + user + "'}").projection("{_id:0}").as(JSONObject.class);
+        if(jsonObject == null){
+            status = "fail";
+            return status;
+        }
+
+        String userID = (String) jsonObject.get("userID");
+        String password = (String) jsonObject.get("password");
+
+        MessageDigest md = MessageDigest.getInstance("SHA-512");
+        md.update(pwd.getBytes("UTF-8"));
+        byte[] bytes = md.digest();
+        StringBuffer hexString = new StringBuffer();
+        for (int i = 0; i < bytes.length; i++) {
+            String hex = Integer.toHexString(0xff & bytes[i]);
+            if(hex.length()==1){
+                hexString.append('0');
+            }
+            hexString.append(hex);
+        }
+        String pwd_crypted =  hexString.toString();
+
+        if(userID.equals(user) && password.equals(pwd_crypted)){
+            users.remove("{userID: " + "'" + user + "'}");
+            status = "ok";
+        }
+        return status;
+    }
+
+
+
+
 
 
 

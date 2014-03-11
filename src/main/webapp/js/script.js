@@ -53,7 +53,7 @@ function chargeView(destination){
                 ecran.load(newView.html);
                 current_view = newView.name;
                 ecran.onload = document.getElementById("ecran_principal").style.display = "block";
-                if(current_view != "login"){
+                if(current_view != "login" && current_view != "unsubscribe"){
                     save();
                 }
             },
@@ -110,6 +110,31 @@ function subscribe(user, pwd){
                 }
                 else{
                     alert("User name is already used, please choose another one.");
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log(xhr.status);
+                console.log(thrownError);
+            }
+        });
+    }
+    else{
+        alert("Either user name or password is invalid.");
+    }
+}
+
+function unsubscribe(user, pwd){
+    var re = new RegExp("[a-zA-Z0-9]+");
+    if(user == re.exec(user) && pwd == re.exec(pwd)){
+        $.ajax({type: "POST",
+            url: "/unsubscribe/" + user + "/" + pwd,
+            dataType: "text",
+            success: function(status) {
+                if (status === "ok"){
+                    logout();
+                }
+                else{
+                    alert("Either user name or password is wrong.");
                 }
             },
             error: function (xhr, ajaxOptions, thrownError) {

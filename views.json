@@ -1,5 +1,6 @@
 ﻿[
     {"name": "login", "html": "../../html/login.html"},
+    {"name": "unsubscribe", "html": "../../html/unsubscribe.html"},
     {"name": "armoire_close_pomme", "html": "../../html/armoire_close_pomme.html"},
     {"name": "armoire_ouverte_pomme", "html": "../../html/armoire_ouverte_pomme.html"},
     {"name": "machine_pomme", "html": "../../html/machine_pomme.html"},

@@ -34,6 +34,9 @@
 				</table>
 
 			</div>
+            <div id="unsubscribe">
+                <input type="button" value="Unsubscribe" onclick="chargeView('unsubscribe')">
+            </div>
             <div id="logout" hidden>
                 <input type="button" value="Logout" onclick="logout()">
             </div>

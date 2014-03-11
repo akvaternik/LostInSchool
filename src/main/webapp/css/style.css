@@ -64,6 +64,10 @@ width: 110px;
 border-collapse: collapse;
 }
 
+#unsubscribe{
+    left: 1100px;
+    position: absolute;
+}
 
 #logout{
     left: 1100px;

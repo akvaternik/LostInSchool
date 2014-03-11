@@ -1,0 +1,32 @@
+<form id="form_unsubscribe"  method="post" style="margin-left: 275px; margin-top: 200px;">
+    Username: <input id="text_user" type="text" name="user">
+    <br>
+    Password: <input id="text_password" type="password" name="pwd">
+    <br>
+    <input id="button_unsubscribe" type="button" value="Unsubscribe" onclick="unsubscribe(user.value,pwd.value)">
+</form>
+
+<script>
+    document.getElementById("inventaire").setAttribute("style", "display: none");
+
+    $("#text_user").keypress(function(e){
+        if(e.keyCode==13)
+            $("#button_unsubscribe").click();
+    });
+    $("#text_password").keypress(function(e){
+        if(e.keyCode==13)
+            $("#button_unsubscribe").click();
+    });
+
+    var text_user = document.getElementById("text_user");
+    var text_password = document.getElementById("text_password");
+
+    var user = readCookie("userID");
+    if (user) {
+        text_user.value = user;
+        text_password.autofocus = true;
+    }
+    else{
+        text_user.autofocus = true;
+    }
+</script>

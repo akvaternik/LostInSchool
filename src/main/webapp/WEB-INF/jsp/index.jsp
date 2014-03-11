@@ -12,7 +12,10 @@
             soundManager.debugMode = false;
             soundManager.setup({
                 defaultOptions: {
-                    autoLoad: true
+                    autoLoad: true,
+                    onfinish: function() {
+                        this.destruct();
+                    }
                 }
             });
         </script>

@@ -40,6 +40,9 @@
             <div id="logout" hidden>
                 <input type="button" value="Logout" onclick="logout()">
             </div>
+            <div id="recommencer" hidden>
+                <input type="button" value="Recommencer" onclick="reset_game()">
+            </div>
 			<div id="achievements">
                 <input type="button" value="Succ&egrave;s" onclick="achievements_screen()">
 			</div>

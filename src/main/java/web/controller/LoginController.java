@@ -145,6 +145,20 @@ public class LoginController {
         return status;
     }
 
+    @RequestMapping("/reset/{user}")
+    @ResponseBody
+    public String unsubscribe(@PathVariable String user) throws UnknownHostException {
+
+        DB db = new MongoClient().getDB("LostInSchool");
+        Jongo jongo = new Jongo(db);
+        MongoCollection users = jongo.getCollection("users");
+        users.update("{userID: " + "'" + user + "'}").with("{$set: {inventory : []}}");
+        users.update("{userID: " + "'" + user + "'}").with("{$set: {current_view : 'sortie_pomme_normal'}}");
+        users.update("{userID: " + "'" + user + "'}").with("{$set: {actions : []}}");
+
+        return "ok";
+    }
+
 
 
 

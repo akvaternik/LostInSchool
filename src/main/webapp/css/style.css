@@ -75,6 +75,12 @@ border-collapse: collapse;
     position: absolute;
 }
 
+#recommencer{
+    left: 1100px;
+    top: 200px;
+    position: absolute;
+}
+
 #achievements{
     left: -100px;
     position: absolute;

@@ -75,6 +75,7 @@ function login(user, pwd){
                     current_user = user;
                     document.getElementById("inventaire").setAttribute("style", "display: block");
                     document.getElementById("logout").setAttribute("style", "display: block");
+                    document.getElementById("recommencer").setAttribute("style", "display: block");
                     load_game();
                     createCookie("userID",current_user,1);
                 }
@@ -106,6 +107,7 @@ function subscribe(user, pwd){
                     chargeView(current_view);
                     document.getElementById("inventaire").setAttribute("style", "display: block");
                     document.getElementById("logout").setAttribute("style", "display: block");
+                    document.getElementById("recommencer").setAttribute("style", "display: block");
                     createCookie("userID",current_user,1);
                 }
                 else{
@@ -147,6 +149,27 @@ function unsubscribe(user, pwd){
         alert("Either user name or password is invalid.");
     }
 }
+
+function reset_game(){
+    $.ajax({type: "POST",
+        url: "/reset/" + current_user,
+        dataType: "text",
+        success: function(status) {
+            if (status === "ok"){
+                alert("Votre jeu a été remis à zero!");
+                location.reload();
+            }
+            else{
+                alert("Erreur!");
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(xhr.status);
+            console.log(thrownError);
+        }
+    });
+}
+
 
 function logout(){
     eraseCookie("userID");
@@ -340,22 +363,34 @@ function achievements_screen(){
 }
 
 function unlock_achievement(name){
-    $.ajax({type: "GET",
-        url: "/unlock_achievement/" + name,
-        dataType: "text",
-        success: function(source) {
-            var achievement = getAchievement(name);
-            achievement.src = source;
-            achievement.title = name.replace(/_/g," ");
-            add_achievement(name);
-            pop_up_achievement(name,source);
-        },
-        error: function (xhr, ajaxOptions, thrownError) {
-            console.log(xhr.status);
-            console.log(thrownError);
-        }
-    });
+    if(!unlocked_achievement(name)){
+        $.ajax({type: "GET",
+            url: "/unlock_achievement/" + name,
+            dataType: "text",
+            success: function(source) {
+                var achievement = getAchievement(name);
+                achievement.src = source;
+                achievement.title = name.replace(/_/g," ");
+                add_achievement(name);
+                pop_up_achievement(name,source);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log(xhr.status);
+                console.log(thrownError);
+            }
+        });
+    }
 }
+
+function unlocked_achievement(name){
+    for(var i=0;i<achievements.length;i++){
+        if(name === achievements[i]){
+            return true;
+        }
+    }
+    return false;
+}
+
 
 function load_achievement(name){
     $.ajax({type: "GET",

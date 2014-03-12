@@ -1,4 +1,5 @@
 ﻿[
+    {"name": "intro", "html": "../../html/intro.html"},
     {"name": "login", "html": "../../html/login.html"},
     {"name": "unsubscribe", "html": "../../html/unsubscribe.html"},
     {"name": "armoire_close_pomme", "html": "../../html/armoire_close_pomme.html"},

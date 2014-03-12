@@ -1,0 +1,55 @@
+<div id="text_intro"></div>
+
+<script>
+    function typeWriter(text,n,jQueryElement,delay,sound){
+        if(n < text.length){
+            jQueryElement.html(text.substring(0,n+1));
+            n++;
+            sound.play();
+            setTimeout(function(){
+                typeWriter(text,n,jQueryElement,delay,sound);
+            },delay);
+        }
+    }
+
+    function multiLinesTypeWriter(texts,jQueryElement,delay,preDelay,stopDelay,sound){
+        var lineDelay = preDelay;
+        for(var i=0;i<texts.length;i++){
+            var text = texts[i];
+            setTimeout(getHandler(text,jQueryElement,delay,sound),lineDelay);
+            lineDelay += text.length * delay + stopDelay;
+        }
+    }
+
+    function getHandler(someText,jQueryElement,delay,sound){
+        return function() {
+            typeWriter(someText,0,jQueryElement,delay,sound);
+        };
+    }
+
+    function totalDelay(texts,delay,preDelay,stopDelay){
+        var total = preDelay;
+        for(var i=0;i<texts.length;i++){
+            var text = texts[i];
+            total += text.length * delay + stopDelay;
+        }
+        return total;
+    }
+
+    var bip = soundManager.createSound(
+            {
+                id: "bip",
+                url: "../../soundmanager/musique/bip.mp3",
+                volume: 2,
+                onfinish: function() {}
+            });
+
+    var texts = ["Bonjour, je suis un développeur.","Toi aussi tu es développeur?","Quoi?? Tu codes sous jQuery?? Mais c'est trop 2013!!","Noob!!!"];
+    var delay = 80;
+    var preDelay = 2000;
+    var stopDelay = 3000;
+    multiLinesTypeWriter(texts,$('#text_intro'),delay,preDelay,stopDelay,bip);
+
+    var total = totalDelay(texts,delay,preDelay,stopDelay);
+    setTimeout("chargeView('sortie_pomme_normal')",total);
+</script>

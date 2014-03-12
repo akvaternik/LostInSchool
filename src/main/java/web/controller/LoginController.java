@@ -147,7 +147,7 @@ public class LoginController {
 
     @RequestMapping("/reset/{user}")
     @ResponseBody
-    public String unsubscribe(@PathVariable String user) throws UnknownHostException {
+    public String reset(@PathVariable String user) throws UnknownHostException {
 
         DB db = new MongoClient().getDB("LostInSchool");
         Jongo jongo = new Jongo(db);

@@ -100,7 +100,7 @@ function subscribe(user, pwd){
             dataType: "text",
             success: function(status) {
                 if(status === "ok"){
-                    current_view = "sortie_pomme_normal";
+                    current_view = "intro";
                     current_user = user;
                     chargeView(current_view);
                     document.getElementById("inventaire").setAttribute("style", "display: block");

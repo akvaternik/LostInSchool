@@ -145,3 +145,11 @@ border-collapse: collapse;
     z-index: 11;
     position: absolute;
 }
+
+#text_intro{
+    top: 300px;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+}

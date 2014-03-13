@@ -14,60 +14,40 @@
 		id: "four",
 		url: "../../soundmanager/musique/four.mp3"
 	});
-	
-function four(){
-	if(!intalk){
-		if(fait('get_chocolat') && fait('get_sucre') && fait('get_farine') && !fait('get_gateau') && !fait('get_gateau_bleu')){
-			if(fait('get_mystere')){
-				add_object('../../img/gateau_bleu.png','Gateau_bleu');
-				add_action('get_gateau_bleu');
-				remove_object('Chocolat');
-				remove_object('Sucre');
-				remove_object('Poudre_mystère');
-                four_sound.play();
-			}
-			
-			else{
-				add_object('../../img/gateau.png','Gateau');
-				add_action('get_gateau');
-				remove_object('Chocolat');
-				remove_object('Sucre');
-                four_sound.play();
-			}
-		}
-		else{
-			intalk = true;
-			if(fait('get_gateau') || fait('get_gateau_bleu')){
-				var T = document.createElement("div");
-				T.setAttribute("id","T");
-				document.getElementById("ecran_principal").appendChild(T);
-				T.innerHTML = "Arrête de vouloir des gâteaux, goinfre!";
-				T.style.position = "absolute";
-				T.style.top = "300px";
-				T.style.background = "white";
-				T.style.zIndex = "3";
-				T.style.left = "700px";
-				T.style.padding = "5px";
-				T.style.border = "solid 3px black";
-				T.style.cursor = "default";
-				T.setAttribute("onclick","remove(T); intalk = false;");
+
+	function four(){
+		if(!intalk){
+			if(fait('get_chocolat') && fait('get_sucre') && fait('get_farine') && !fait('get_gateau') && !fait('get_gateau_bleu')){
+				if(fait('get_mystere')){
+					add_object('../../img/gateau_bleu.png','Gateau_bleu');
+					add_action('get_gateau_bleu');
+					remove_object('Chocolat');
+					remove_object('Sucre');
+					remove_object('Poudre_mystère');
+					four_sound.play();
+				}
+				else{
+					add_object('../../img/gateau.png','Gateau');
+					add_action('get_gateau');
+					remove_object('Chocolat');
+					remove_object('Sucre');
+					four_sound.play();
+				}
 			}
 			else{
-				var T =document.createElement("div");
-				T.setAttribute("id","T");
-				document.getElementById("ecran_principal").appendChild(T);
-				T.innerHTML = "Il manque des ingrédients!";
-				T.style.position = "absolute";
-				T.style.top = "300px";
-				T.style.background = "white";
-				T.style.zIndex = "3";
-				T.style.left = "700px";
-				T.style.padding = "5px";
-				T.style.border = "solid 3px black";
-				T.style.cursor = "default";
-				T.setAttribute("onclick","remove(T); intalk = false;");
+				intalk = true;
+				if(fait('get_gateau') || fait('get_gateau_bleu')){
+					bandeText("Arrête de vouloir des gâteaux, goinfre!","700","300","T",'0');
+					var T = document.getElementById('T');
+					T.setAttribute("onclick","remove(T); intalk = false;");
+				}
+				else{
+					bandeText("Il manque des ingrédients!","700","300","T",'0');
+					
+					var T = document.getElementById('T');
+					T.setAttribute("onclick","remove(T); intalk = false;");
+				}
 			}
 		}
 	}
-}
 </script>

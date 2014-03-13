@@ -16,5 +16,7 @@
     {"name": "tableau_pomme", "html": "../../html/tableau_pomme.html"},
     {"name": "entree_couloir_pomme", "html": "../../html/entree_couloir_pomme.html"},
     {"name": "sortie_couloir_pomme", "html": "../../html/sortie_couloir_pomme.html"},
-    {"name": "arrivee_escalierrdc", "html": "../../html/arrivee_escalierrdc.html"}
+    {"name": "arrivee_escalierrdc", "html": "../../html/arrivee_escalierrdc.html"},
+    {"name": "sortie_escalierrdc", "html": "../../html/sortie_escalierrdc.html"},
+    {"name": "entree_cdi", "html": "../../html/entree_cdi.html"}
 ]

@@ -1,21 +1,37 @@
 <img id="vue" src="../../img/arrivee_escalierrdc.jpg"/>
+<img id="Fleche_b" src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('sortie_escalierrdc')"/>
 <img id="descendre" src="../../img/descendre_escalierrdc.png"  style="left: 511px; top: 376px; z-index: 2" onclick="chargeView('entree_couloir_pomme')"/>
 <img id="monter" src="../../img/monter_escalierrdc.png"  style="right: 0px; top: 0px; z-index: 2" onclick="alert('Destination à ajouter')"/>
-<img id="porte_cdi" src="../../img/porte_cdi_escalierrdc.jpg"  style="left: 244px; top: 228px; z-index: 2; display: none" onclick="alert('Destination à ajouter')"/>
+<img id="porte_cdi" src="../../img/porte_cdi_escalierrdc.jpg"  style="left: 244px; top: 228px; z-index: 2; display: none" onclick="chargeView('entree_cdi')"/>
 <img id="boo_invisible" src="../../img/boo_invisible.png"  style="left: 25px; top: 352px; z-index: 2; display: none;" onclick="visible()"/>
 <img id="boo_visible" src="../../img/boo_visible.png"  style="left: 25px; top: 352px; z-index: 2; display: none;" onclick="dialogue_boo()"/>
+<img id="luigi_aspi" src="../../img/luigi_aspi.png"  style="top: 312px; z-index: 2; display: none;"/>
 
 
 
 
 <script>
+    var Fleche_b = document.getElementById("Fleche_b");
     var descendre = document.getElementById("descendre");
     var monter = document.getElementById("monter");
     var porte_cdi = document.getElementById("porte_cdi");
     var boo_invisible = document.getElementById("boo_invisible");
     var boo_visible = document.getElementById("boo_visible");
+    var luigi_aspi = document.getElementById("luigi_aspi");
 
     var in_talk = false;
+
+    var boo_laugh = soundManager.createSound(
+        {
+            id: "boo_laugh",
+            url: "../../soundmanager/musique/mk64_boo_laugh.wav"
+        });
+
+    var lm_vacuum = soundManager.createSound(
+            {
+                id: "lm_vacuum",
+                url: "../../soundmanager/musique/lm_vacuum.wav"
+            });
 
     if(fait("boo_appeared")){
         remove(boo_invisible);
@@ -37,65 +53,49 @@
             boo_visible.style.display = "block";
             add_action("boo_appeared");
             remove_selected_object();
+            if(in_talk){
+                remove(document.getElementById("text_invisible"));
+                in_talk = false
+            }
+            boo_laugh.play();
+        }
+        else{
+            if(!in_talk){
+                in_talk = true;
+                bandeText("On dirait qu'il y a quelque chose...","100","250","text_invisible",'0');
+
+                var text_invisible = document.getElementById('text_invisible');
+                text_invisible.setAttribute("onclick","remove(text_invisible); in_talk = false;");
+            }
         }
     }
 
     function dialogue_boo(){
         if(!in_talk && !fait("talk_boo")){
             in_talk = true;
+            Fleche_b.style.display = "none";
             descendre.style.display = "none";
             monter.style.display = "none";
 
-            var B = document.createElement("div");
-            B.setAttribute("id", "B");
-            document.getElementById("ecran_principal").appendChild(B);
-            B.innerHTML = "Atchoum!! Tiens tu me vois?! Qu'est-ce que tu veux?";
-            B.style.backgroundColor = "black";
-            B.style.color = "red";
-            B.style.width = "900px";
-            B.style.position = "absolute";
-            B.style.top = "480px";
-            B.style.zIndex = "3";
+            discut("Boo","Atchoum!! Tiens tu me vois?! Qu'est-ce que tu veux?",340);
+            bandeText("Je cherche à sauver Zac, tu pourrais m'aider?","15","540","R1","0");
+            bandeText("Il paraît que Zac est mort, bon débarras!","600","540","R2","0");
 
-            var R1 = document.createElement("div");
-            R1.setAttribute("id", "R1");
-            document.getElementById("ecran_principal").appendChild(R1);
-            R1.innerHTML = "Je cherche à sauver Zac, tu pourrais m'aider?";
-            R1.style.backgroundColor = "black";
-            R1.style.color = "red";
-            R1.style.width = "300px";
-            R1.style.position = "absolute";
-            R1.style.top = "550px";
-            R1.style.zIndex = "3";
-            R1.style.textAlign = "center";
+            var R1 = document.getElementById("R1");
             R1.setAttribute("onclick","reponse1()");
 
-            var R2 = document.createElement("div");
-            R2.setAttribute("id", "R2");
-            document.getElementById("ecran_principal").appendChild(R2);
-            R2.innerHTML = "Il paraît que Zac est mort, bon débarras!";
-            R2.style.backgroundColor = "black";
-            R2.style.color = "red";
-            R2.style.width = "300px";
-            R2.style.position = "absolute";
-            R2.style.top = "550px";
-            R2.style.right = "0px";
-            R2.style.zIndex = "3";
-            R2.style.textAlign = "center";
+            var R2 = document.getElementById("R2");
             R2.setAttribute("onclick","reponse2()");
         }
     }
 
     function reponse1(){
-        var B = document.getElementById("B");
         var R1 = document.getElementById("R1");
         var R2 = document.getElementById("R2");
-        B.innerHTML = "Moi? T'aider à sauver ce tas de circuits dépressif?? Tu rêves! Tu n'y arriveras jamais, j’ai caché sa carte mère dans le coin le moins fréquenté de l'école.";
+        var T = document.getElementById("T");
+        T.innerHTML = "Moi? T'aider à sauver ce tas de circuits dépressif?? Tu rêves! Tu n'y arriveras jamais, j’ai caché sa carte mère dans le coin le moins fréquenté de l'école.";
         remove(R1);
         remove(R2);
-        descendre.style.display = "block";
-        monter.style.display = "block";
-        porte_cdi.style.display = "block";
         add_action("talk_boo");
         in_talk = false;
         //bruit de boo
@@ -103,18 +103,41 @@
     }
 
     function reponse2(){
-        var B = document.getElementById("B");
         var R1 = document.getElementById("R1");
         var R2 = document.getElementById("R2");
-        B.innerHTML = "Toi je t'aime bien... Tiens je peux te le dire, je lui ai joué un vilain tour, j’ai caché sa carte mère au CDI comme ça on est sûrs de ne plus jamais le revoir! Hee hee hee!";
+        var T = document.getElementById("T");
+        T.innerHTML = "Toi je t'aime bien... Tiens je peux te le dire, je lui ai joué un vilain tour, j’ai caché sa carte mère au CDI comme ça on est sûrs de ne plus jamais le revoir! Hee hee hee!";
         remove(R1);
         remove(R2);
-        descendre.style.display = "block";
-        monter.style.display = "block";
-        porte_cdi.style.display = "block";
         add_action("talk_boo");
         in_talk = false;
         //succès démon
     }
+
+    function quit_talk(){
+        remove(document.getElementById("N"));
+        remove(document.getElementById("T"));
+        remove(document.getElementById("C"));
+        remove(document.getElementById("I"));
+        Fleche_b.style.display = "block";
+        descendre.style.display = "block";
+        monter.style.display = "block";
+        in_talk = false;
+        if(fait("talk_boo")){
+            porte_cdi.style.display = "block";
+            luigi_aspi.style.display = "block";
+            lm_vacuum.play();
+            $("#boo_visible").fadeOut(1000);
+            setTimeout("remove(luigi_aspi)",4500);
+        }
+        else{
+            remove(document.getElementById("R1"));
+            remove(document.getElementById("R2"));
+        }
+    }
+
+
+
+
 
 </script>

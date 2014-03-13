@@ -468,7 +468,7 @@ function eraseCookie(name) {
     createCookie(name,"",-1);
 }
 
-function discut(name, text,t){
+function discut(name,text,t){
 
     var t_N = t;
     var N = document.createElement("div");
@@ -518,6 +518,24 @@ function discut(name, text,t){
     C.style.right = "0px";
     C.setAttribute("onclick","quit_talk()");
     document.getElementById("ecran_principal").appendChild(C);
+}
+
+function bandeText(text,left,top,id,width){
+    var T = document.createElement("div");
+    T.setAttribute("id",id);
+    document.getElementById("ecran_principal").appendChild(T);
+    T.innerHTML = text;
+    T.style.position = "absolute";
+    T.style.top = top + "px";
+    if(width != '0'){
+        T.style.width = width + "px";
+    }
+    T.style.background = "white";
+    T.style.zIndex = "3";
+    T.style.left = left + "px";
+    T.style.padding = "5px";
+    T.style.border = "solid 3px black";
+    T.style.cursor = "default";
 }
 
 $(document).ready(function() {

@@ -6,12 +6,20 @@
 <img id="businessplan" src="../../img/businessplan.png" style="left: 682px; top: 458px; z-index: 2" onclick="talk_businessplan()"/>
 <img id="drh" src="../../img/drh.png" style="left: 622px; top: 463px; z-index: 2" onclick="talk_drh()"/>
 <img id="ordi1" src="../../img/ordi1.png" style="left: 162px; top: 410px; z-index: 2" onclick="talk_ordi1()"/>
-<img id="livrerat" src="../../img/livrerat.png" style="left: 589px; top: 314px; z-index: 2" onclick="talk_livrerat()"/>
+<img id="livrerat" src="../../img/livrerat.png" style="left: 589px; top: 314px; z-index: 2; display: none" onclick="talk_livrerat()"/>
 
 <script>
     var Fleche_b = document.getElementById("Fleche_b");
+    var livrerat = document.getElementById("livrerat");
 
     var in_talk = false;
+
+    if(!fait("get_book_rat")){
+        livrerat.style.display = "block";
+    }
+    else{
+        remove(livrerat);
+    }
 
     function talk_armoire1(){
         if(!in_talk){
@@ -72,16 +80,38 @@
         if(!in_talk){
             in_talk = true;
             Fleche_b.style.display = "none";
+            if(fait("accept_help_berri")){
+                if(fait("accept_book_berri")){
+                    discut("Berri","Tu n'as toujours pas ramené le livre au Foy's! C'est à droite au bout de la rue haute, dépêche-toi!",340);
+                }
+                else{
 
-            discut("Berri","Salut toi, tu m’as l’air différent des autres ici, hum ce n’est pas pour me déplaire! Tu pourrais me rendre un petit service?",340);
-            bandeText("D'accord!","15","540","oui","0");
-            bandeText("Pas le temps, désolé...","600","540","non","0");
+                    discut("Berri",'Il y a un livre ici qui s’appelle "Comment cohabiter avec nos amis les rats". Tu pourrais le ramener au Foy’s? Celui qui vit là-bas m’a dit qu’il en avait besoin au plus vite!',340);
+                    bandeText("Pas de problème, je m'en occupe!","15","540","R1","0");
+                    bandeText("Plus tard.","600","540","R2","0");
 
-            var oui = document.getElementById("oui");
-            //oui.setAttribute("onclick","reponse1()");
+                    var R1 = document.getElementById("R1");
+                    R1.setAttribute("onclick","reponse_oui_livre()");
 
-            var non = document.getElementById("non");
-            //non.setAttribute("onclick","reponse2()");
+                    var R2 = document.getElementById("R2");
+                    R2.setAttribute("onclick","quit_talk()");
+
+                }
+
+            }
+            else{
+
+                discut("Berri","Salut toi, tu m’as l’air différent des autres ici, hum ce n’est pas pour me déplaire! Tu pourrais me rendre un petit service?",340);
+                bandeText("D'accord!","15","540","R1","0");
+                bandeText("Pas le temps, désolé...","600","540","R2","0");
+
+                var R1 = document.getElementById("R1");
+                R1.setAttribute("onclick","reponse_oui()");
+
+                var R2 = document.getElementById("R2");
+                R2.setAttribute("onclick","quit_talk()");
+
+            }
         }
     }
 
@@ -90,13 +120,39 @@
         remove(document.getElementById("T"));
         remove(document.getElementById("C"));
         remove(document.getElementById("I"));
-        remove(document.getElementById("oui"));
-        remove(document.getElementById("non"));
+        if(!fait("accept_book_berri")){
+            remove(document.getElementById("R1"));
+            remove(document.getElementById("R2"));
+        }
+        else{
+            if(!fait("get_book_rat")){
+                livrerat.setAttribute("onclick","add_action('get_book_rat'); add_object('../../img/livreratinventaire.png','Comment cohabiter avec nos amis les rats'); remove(livrerat);");
+            }
+        }
         Fleche_b.style.display = "block";
         in_talk = false;
     }
 
+    function reponse_oui(){
+        add_action("accept_help_berri");
+        var R1 = document.getElementById("R1");
+        var R2 = document.getElementById("R2");
+        var T = document.getElementById("T");
+        T.innerHTML = 'Il y a un livre ici qui s’appelle "Comment cohabiter avec nos amis les rats". Tu pourrais le ramener au Foy’s? Celui qui vit là-bas m’a dit qu’il en avait besoin au plus vite!';
+        R1.innerHTML = "Pas de problème, je m'en occupe!";
+        R2.innerHTML = "Plus tard.";
+        R1.setAttribute("onclick","reponse_oui_livre()");
+        R2.setAttribute("onclick","quit_talk()");
+    }
 
-
+    function reponse_oui_livre(){
+        add_action("accept_book_berri");
+        var R1 = document.getElementById("R1");
+        var R2 = document.getElementById("R2");
+        var T = document.getElementById("T");
+        remove(R1);
+        remove(R2);
+        T.innerHTML = "Merci! Le Foy's se situe à droite au bout de la rue haute.";
+    }
 
 </script>

@@ -18,5 +18,7 @@
     {"name": "sortie_couloir_pomme", "html": "../../html/sortie_couloir_pomme.html"},
     {"name": "arrivee_escalierrdc", "html": "../../html/arrivee_escalierrdc.html"},
     {"name": "sortie_escalierrdc", "html": "../../html/sortie_escalierrdc.html"},
-    {"name": "entree_cdi", "html": "../../html/entree_cdi.html"}
+    {"name": "entree_cdi", "html": "../../html/entree_cdi.html"},
+    {"name": "entree_foys", "html": "../../html/entree_foys.html"},
+    {"name": "sortie_foys", "html": "../../html/sortie_foys.html"}
 ]

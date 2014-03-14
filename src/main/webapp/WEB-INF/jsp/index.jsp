@@ -9,7 +9,7 @@
         <script type="text/javascript" src="../../soundmanager/script/soundmanager2.js"></script>
         <script type="text/javascript">
             soundManager.url = "../../soundmanager/swf/";
-            soundManager.debugMode = false;
+            soundManager.debugMode = true;
             soundManager.setup({
                 defaultOptions: {
                     autoLoad: true,

@@ -1,16 +1,119 @@
+
 <img id="vue" src="../../img/mur_pomme.jpg"/>
-<img src="../../img/Fleche_g.png" width="78px" style="left: 325px; bottom: 0px; z-index: 2" onclick="chargeView('ping_pomme')"/>
-<img src="../../img/Fleche_d.png" width="78px" style="left: 481px; bottom: 0px; z-index: 2" onclick="chargeView('sortie_pomme')"/>
-<img src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('tableau_pomme')"/>
+<img id="Fleche_g" src="../../img/Fleche_g.png" width="78px" style="left: 325px; bottom: 0px; z-index: 2" onclick="chargeView('ping_pomme')"/>
+<img id="Fleche_d" src="../../img/Fleche_d.png" width="78px" style="left: 481px; bottom: 0px; z-index: 2" onclick="chargeView('sortie_pomme')"/>
+<img id="Fleche_b" src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('tableau_pomme')"/>
 
 <img id="chocolat" src="../../img/choco.png" style="left: 7px; top: 445px; z-index: 2; display: none" onclick="add_object('../../img/choco.png','Chocolat'); add_action('get_chocolat'); remove(this)" />
+<img id="visiteur_futur_dbt" src="../../img/visiteur_futur_dbt.png" style="left: 552px; top: 171px; z-index: 2; display: none" />
+<img id="visiteur_futur_fin" src="../../img/visiteur_futur_fin.png" style="left: 567px; top: 153px; z-index: 2; display: none" />
+<img id="bouton_pomme" src="../../img/bouton_rouge_pomme.png" style="left: 307px; top: 354px; z-index: 2; display: none" onclick="visiteur()" />
 
 <script>
-    var choco = document.getElementById("chocolat");
-    if(fait('get_chocolat')){
-        remove(choco);
-    }
-    else{
-        choco.style.display="block";
-    }
+var intalk=false;
+var explosion;
+var trainvap;
+var cochon;
+var teleportation;
+
+var choco = document.getElementById("chocolat");
+if(fait('get_chocolat')){
+	remove(choco);
+}
+else{
+	choco.style.display="block";
+}
+
+var bouton=document.getElementById("bouton_pomme");
+if(fait('explosion_visiteur_futur')){
+	remove(document.getElementById("visiteur_futur_dbt"));
+	remove(document.getElementById("visiteur_futur_fin"));
+	remove(bouton);
+}
+else{
+	bouton.style.display="block";
+	
+teleportation=soundManager.createSound(
+	{
+		id :"teleportation",
+		url:"../../soundmanager/musique/teleportation.mp3",
+        onfinish: function(){}
+	});
+
+cochon=soundManager.createSound(
+	{
+		id :"cochon",
+		url:"../../soundmanager/musique/cochon.mp3"
+	});
+	
+trainvap=soundManager.createSound(
+{
+	id :"trainvap",
+	url:"../../soundmanager/musique/trainvap.mp3"
+});
+	
+explosion=soundManager.createSound(
+{
+	id :"explosion",
+	url:"../../soundmanager/musique/explosion.mp3"
+});
+}
+
+function visiteur(){
+	if(!intalk && !fait('explosion_visiteur_futur')){
+		intalk=true;
+		document.getElementById("Fleche_b").style.display="none";
+		document.getElementById("Fleche_g").style.display="none";
+		document.getElementById("Fleche_d").style.display="none";
+		if(!fait('alerte_visiteur')){
+			
+			document.getElementById("visiteur_futur_dbt").style.display="block";
+			discut('Le visiteur du futur',"Non n'appuie pas sur ce boutonnn! Sinon voila ce qu'il va se passer... D'abord, un cochon va apparaître ici même et tu vas l'aimer. Tu iras même jusqu'à l'adopter et l'appeler Patrick!!!<br/> Et un beau jour ensoleillé de mai, lors d'une promenade avec Patrick, près d'un chemin de fer, Patrick se suicidera au passage du premier train, qui déraillera et détruira la centrale nucléaire qui déclenchera une énorme explosion détruisant la moitié de la Terreeeeeeee!!! <br/> ''Bip Bip'' Je dois y aller mais surtout n'appuies pas sur ce bouton...",398);
+		}
+		else{
+			var noir=document.createElement("img");
+			noir.setAttribute("id","noir");
+			noir.style.backgroundColor="black";
+			noir.style.zIndex = "4";
+			noir.style.width="900px";
+			noir.style.height="598px";
+			document.getElementById("ecran_principal").appendChild(noir);
+			
+			var Image = document.createElement("img");
+			Image.setAttribute("id","Image");
+			Image.setAttribute("src","../../img/cochon.jpg");
+			Image.style.zIndex = "5";
+			cochon.play();
+			setTimeout(function(){Image.setAttribute("src","../../img/trainvap.jpg"); trainvap.play();},600); 
+			setTimeout(function(){Image.setAttribute("src","../../img/explosion.jpg"); explosion.play();},1100);
+			setTimeout(function(){$("#Image").fadeOut(1500);},1400);
+			setTimeout(function(){remove(document.getElementById('noir'));document.getElementById("visiteur_futur_fin").style.display="block"; discut('Le visiteur du futur',"Ouf je suis intervenu à temps! J'ai voyagé dans le temps pour t'empecher d'appuyer sur ce bouton. <br/> Quoi?!? Comment ça tu as vécu ce qui est arrivé après avoir appuyer??? Euh ça doit être du à un paradoxe temporel. Personne ni comprend rien, de toute façon, au voyage temporel. <br/> Bon allez, c'est pas tout mais j'ai d'autres catastrophes à éviter!",398);},2900);
+			document.getElementById("ecran_principal").appendChild(Image);
+			
+			//succès
+			add_action('explosion_visiteur_futur');
+			}
+	}
+}
+
+function quit_talk(){
+	remove(document.getElementById('T'));
+	remove(document.getElementById('N'));
+	remove(document.getElementById('I'));
+	remove(document.getElementById('C'));
+	intalk=false;
+	document.getElementById("Fleche_b").style.display="block";
+	document.getElementById("Fleche_g").style.display="block";
+	document.getElementById("Fleche_d").style.display="block";
+	
+	if(!fait('alerte_visiteur')){
+		add_action('alerte_visiteur');
+		remove(document.getElementById("visiteur_futur_dbt"));
+	}
+	else{
+		remove(document.getElementById("visiteur_futur_fin"));
+	}
+	teleportation.play();
+}
+
 </script>

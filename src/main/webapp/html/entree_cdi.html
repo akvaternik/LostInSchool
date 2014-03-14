@@ -89,7 +89,59 @@
             Fleche_d.style.display = "none";
             if(fait("accept_help_berri")){
                 if(fait("accept_book_berri")){
-                    discut("Berri","Tu n'as toujours pas ramené le livre au Foy's! C'est à droite au bout de la rue haute, dépêche-toi!",340);
+                    if(fait("give_book_globox")){
+                        if(fait("accept_journal_berri")){
+                            if(isSelected("Journal_intime_de_Berri")){
+                                remove_selected_object();
+                                add_action("give_journal_berri");
+                                discut("Berri","Oh merci tu es si gentil avec moi! Une dernière chose, l’imprimante est à cours d’encre, pourrais-tu y jeter un oeil?",340);
+                                bandeText("OK!","15","540","R1","0");
+                                bandeText("Non, désolé.","600","540","R2","0");
+
+                                var R1 = document.getElementById("R1");
+                                R1.setAttribute("onclick","reponse_oui_imprimante()");
+
+                                var R2 = document.getElementById("R2");
+                                R2.setAttribute("onclick","quit_talk()");
+
+                            }
+                            else{
+                                if(fait("give_journal_berri")){
+                                    if(fait("accept_imprimante_berri")){
+                                        discut("Berri","Tu arrives à réparer l'imprimante?",340);
+                                    }
+                                    else{
+                                        discut("Berri","L’imprimante est à cours d’encre, pourrais-tu y jeter un oeil?",340);
+                                        bandeText("OK!","15","540","R1","0");
+                                        bandeText("Non, désolé.","600","540","R2","0");
+
+                                        var R1 = document.getElementById("R1");
+                                        R1.setAttribute("onclick","reponse_oui_imprimante()");
+
+                                        var R2 = document.getElementById("R2");
+                                        R2.setAttribute("onclick","quit_talk()");
+                                    }
+                                }
+                                else{
+                                    discut("Berri","Mais où peut bien être mon journal intime?",340);
+                                }
+                            }
+                        }
+                        else{
+                            discut("Berri","Merci pour ton aide, non seulement tu es mignon mais en plus tu es un gars bien. Tu voudrais pas m’aider à retrouver mon journal intime? Il est quelque part ici mais je ne sais plus où.",340);
+                            bandeText("J'y cours!","15","540","R1","0");
+                            bandeText("Pas maintenant.","600","540","R2","0");
+
+                            var R1 = document.getElementById("R1");
+                            R1.setAttribute("onclick","reponse_oui_journal()");
+
+                            var R2 = document.getElementById("R2");
+                            R2.setAttribute("onclick","quit_talk()");
+                        }
+                    }
+                    else{
+                        discut("Berri","Tu n'as toujours pas ramené le livre au Foy's! C'est à droite au bout de la rue haute, dépêche-toi!",340);
+                    }
                 }
                 else{
 
@@ -127,11 +179,14 @@
         remove(document.getElementById("T"));
         remove(document.getElementById("C"));
         remove(document.getElementById("I"));
-        if(!fait("accept_book_berri")){
+        if(document.getElementById("R1") != null){
             remove(document.getElementById("R1"));
+        }
+        if(document.getElementById("R2") != null){
             remove(document.getElementById("R2"));
         }
-        else{
+
+        if(fait("accept_book_berri")){
             Fleche_d.style.display = "block";
             if(!fait("get_book_rat")){
                 livrerat.setAttribute("onclick","add_action('get_book_rat'); add_object('../../img/livreratinventaire.png','Comment_cohabiter_avec_nos_amis_les_rats'); remove(livrerat);");
@@ -161,6 +216,26 @@
         remove(R1);
         remove(R2);
         T.innerHTML = "Merci! Le Foy's se situe à droite au bout de la rue haute.";
+    }
+
+    function reponse_oui_journal(){
+        add_action("accept_journal_berri");
+        var R1 = document.getElementById("R1");
+        var R2 = document.getElementById("R2");
+        var T = document.getElementById("T");
+        remove(R1);
+        remove(R2);
+        T.innerHTML = "Merci! J'espère que tu le retrouveras.";
+    }
+
+    function reponse_oui_imprimante(){
+        add_action("accept_imprimante_berri");
+        var R1 = document.getElementById("R1");
+        var R2 = document.getElementById("R2");
+        var T = document.getElementById("T");
+        remove(R1);
+        remove(R2);
+        T.innerHTML = "Merci! J'espère que tu arriveras à la réparer.";
     }
 
 </script>

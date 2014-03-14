@@ -1,5 +1,6 @@
 <img id="vue" src="../../img/entree_cdi.jpg"/>
 <img id="Fleche_b" src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('sortie_escalierrdc')"/>
+<img id="Fleche_d" src="../../img/Fleche_d.png" width="78px" style="left: 481px; bottom: 0px; z-index: 2; display: none" onclick="chargeView('voute_cdi')"/>
 <img id="berri" src="../../img/berri.png" style="left: 773px; top: 290px; z-index: 2" onclick="dialogue_berri()"/>
 <img id="armoire1" src="../../img/armoire1.png" style="left: 304px; top: 397px; z-index: 2" onclick="talk_armoire1()"/>
 <img id="armoire2" src="../../img/armoire2.png" style="left: 539px; top: 322px; z-index: 2" onclick="talk_armoire2()"/>
@@ -10,9 +11,14 @@
 
 <script>
     var Fleche_b = document.getElementById("Fleche_b");
+    var Fleche_d = document.getElementById("Fleche_d");
     var livrerat = document.getElementById("livrerat");
 
     var in_talk = false;
+
+    if(fait("accept_book_berri")){
+        Fleche_d.style.display = "block";
+    }
 
     if(!fait("get_book_rat")){
         livrerat.style.display = "block";
@@ -80,6 +86,7 @@
         if(!in_talk){
             in_talk = true;
             Fleche_b.style.display = "none";
+            Fleche_d.style.display = "none";
             if(fait("accept_help_berri")){
                 if(fait("accept_book_berri")){
                     discut("Berri","Tu n'as toujours pas ramené le livre au Foy's! C'est à droite au bout de la rue haute, dépêche-toi!",340);
@@ -125,6 +132,7 @@
             remove(document.getElementById("R2"));
         }
         else{
+            Fleche_d.style.display = "block";
             if(!fait("get_book_rat")){
                 livrerat.setAttribute("onclick","add_action('get_book_rat'); add_object('../../img/livreratinventaire.png','Comment_cohabiter_avec_nos_amis_les_rats'); remove(livrerat);");
             }

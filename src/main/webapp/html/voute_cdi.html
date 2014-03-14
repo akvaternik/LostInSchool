@@ -1,0 +1,38 @@
+<img id="vue" src="../../img/voute_cdi.jpg"/>
+<img id="Fleche_b" src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('entree_cdi')"/>
+<img src="../../img/etagerechimie.png" style="left: 782px; top: 97px; z-index: 2" onclick="talk_etagerechimie()"/>
+<img src="../../img/voute.png" style="left: 306px; top: 130px; z-index: 2" onclick="chargeView('salle_imprimante')"/>
+<img id="journalintime" src="../../img/journalintime.png" style="left: 164px; top: 244px; z-index: 2; display: none" onclick="talk_journalintime()"/>
+
+
+<script>
+    var journalintime = document.getElementById("journalintime");
+
+    var in_talk = false;
+
+    if(fait("get_book_berri")){
+        remove(journalintime);
+    }
+    else{
+        journalintime.style.display = "block";
+    }
+
+    function talk_etagerechimie(){
+        if(!in_talk){
+            in_talk = true;
+            bandeText("Sûrement de la magie noire, je ferais mieux de ne pas m’en approcher.","450","50","talk_etagerechimie","0");
+            var talk_etagerechimie = document.getElementById("talk_etagerechimie");
+            talk_etagerechimie.setAttribute("onclick","remove(talk_etagerechimie); in_talk = false;");
+        }
+    }
+
+    function talk_journalintime(){
+        if(!in_talk){
+            in_talk = true;
+            bandeText("Ça doit être le journal de la bibliothécaire. Jetons-y un oeil.","100","50","talk_journalintime","0");
+            var talk_journalintime = document.getElementById("talk_journalintime");
+            talk_journalintime.setAttribute("onclick","remove(talk_journalintime); in_talk = false; add_action('get_book_berri'); chargeView('livre_ouvert');");
+        }
+    }
+
+</script>

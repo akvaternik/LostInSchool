@@ -1,0 +1,29 @@
+<img id="vue" src="../../img/livre_ouvert.jpg"/>
+<img id="croix" src="../../img/croix.png" width="45px" style="right: 0px; z-index: 2" onclick="quit_book()"/>
+
+<div id="text1" style="z-index: 2; position: absolute; left: 100px; top: 50px; width: 275px">
+    <p>le 14 février</p>
+    <p>Cher Journal,</p>
+    <p>Je suis si triste, Zac a encore oublié de fêter la Saint Valentin avec moi, je n’ai même pas eu de
+    Cup Cake. Il est si occupé ces temps-ci, je le sens terriblement loin de moi. Je sais que ce n’est
+    pas de sa faute, c’est son travail qui lui prend tout son temps... Enfin heureusement R2 est là
+    pour prendre soin de moi... Il est si... mhh mécanique!</p>
+</div>
+
+<div id="text2" style="z-index: 2; position: absolute; left: 470px; top: 50px; width: 275px">
+    <p>le 19 février</p>
+    <p>Cher Journal,</p>
+    <p>Il s’est passé tellement de choses depuis la dernière fois, Zac nous a surpris R2 et moi alors
+    qu’il m’aidait à réviser mes graphsets...
+    Quelques heures plus tard on m’a appris qu’il avait fait une bêtise. Je me sens si coupable, je
+    regrette de l’avoir perdu pour toujours pour une simple histoire de boulons...
+    Adieu cher journal j’ai trop honte je vais noyer mon désespoir dans la mousse au chocolat. En
+    attendant de trouver quelqu’un d’autre!</p>
+</div>
+
+<script>
+    function quit_book(){
+        add_object("../../img/journalintimeinventaire.png","Journal_intime_de_Berri");
+        chargeView("voute_cdi");
+    }
+</script>

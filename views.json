@@ -20,5 +20,9 @@
     {"name": "sortie_escalierrdc", "html": "../../html/sortie_escalierrdc.html"},
     {"name": "entree_cdi", "html": "../../html/entree_cdi.html"},
     {"name": "entree_foys", "html": "../../html/entree_foys.html"},
-    {"name": "sortie_foys", "html": "../../html/sortie_foys.html"}
+    {"name": "sortie_foys", "html": "../../html/sortie_foys.html"},
+    {"name": "voute_cdi", "html": "../../html/voute_cdi.html"},
+    {"name": "salle_imprimante", "html": "../../html/salle_imprimante.html"},
+    {"name": "livre_ouvert", "html": "../../html/livre_ouvert.html"}
+
 ]

@@ -371,12 +371,7 @@ function fait(action){
 
 function achievements_screen(){
     var achievements_screen = document.getElementById("achievements_screen");
-    if(achievements_screen.style.display == "none"){
-        achievements_screen.style.display = "block";
-    }
-    else{
-        achievements_screen.style.display = "none";
-    }
+    achievements_screen.style.display = "block";
 }
 
 function unlock_achievement(name){
@@ -555,6 +550,11 @@ function bandeText(text,left,top,id,width){
     T.style.padding = "5px";
     T.style.border = "solid 3px black";
     T.style.cursor = "default";
+}
+
+function quit_achievements(){
+    var achievements_screen = document.getElementById("achievements_screen");
+    achievements_screen.style.display = "none";
 }
 
 $(document).ready(function() {

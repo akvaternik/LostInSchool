@@ -51,6 +51,7 @@
 
 			</div>
             <div id="achievements_screen" style="display: none">
+                <img src="../../img/croix.png" style="right: 0px; width: 45px; z-index: 51; position: absolute" onclick="quit_achievements()">
                 <table>
                     <tbody id="achievements_table">
                         <tr>

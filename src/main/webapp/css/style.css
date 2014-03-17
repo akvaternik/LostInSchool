@@ -101,29 +101,6 @@ width: 110px;
 border-collapse: collapse;
 }
 
-#unsubscribe{
-    left: 1100px;
-    position: absolute;
-}
-
-#logout{
-    left: 1100px;
-    top: 100px;
-    position: absolute;
-}
-
-#recommencer{
-    left: 1100px;
-    top: 200px;
-    position: absolute;
-}
-
-#achievements{
-    left: -100px;
-    position: absolute;
-}
-
-
 #achievements_screen{
     height: 598px;
     width: 900px;

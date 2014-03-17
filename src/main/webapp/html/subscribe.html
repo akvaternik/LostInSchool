@@ -1,0 +1,18 @@
+<form id="form_subscribe"  method="post" style="margin-left: 275px; margin-top: 200px;">
+    Username: <input id="text_user" type="text" name="user" autofocus="true">
+    <br>
+    Password: <input id="text_password" type="password" name="pwd">
+    <br>
+    <input id="button_subscribe" type="button" value="Subscribe" onclick="subscribe(user.value,pwd.value)">
+</form>
+
+<script>
+    $("#text_user").keypress(function(e){
+        if(e.keyCode==13)
+            $("#button_subscribe").click();
+    });
+    $("#text_password").keypress(function(e){
+        if(e.keyCode==13)
+            $("#button_subscribe").click();
+    });
+</script>

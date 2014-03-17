@@ -1,6 +1,7 @@
 ﻿[
     {"name": "intro", "html": "../../html/intro.html"},
     {"name": "login", "html": "../../html/login.html"},
+    {"name": "subscribe", "html": "../../html/subscribe.html"},
     {"name": "unsubscribe", "html": "../../html/unsubscribe.html"},
     {"name": "armoire_close_pomme", "html": "../../html/armoire_close_pomme.html"},
     {"name": "armoire_ouverte_pomme", "html": "../../html/armoire_ouverte_pomme.html"},

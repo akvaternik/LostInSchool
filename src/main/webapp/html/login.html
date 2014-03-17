@@ -1,10 +1,9 @@
-<form id="login"  method="post" style="margin-left: 275px; margin-top: 200px; display: none">
+<form id="form_login"  method="post" style="margin-left: 275px; margin-top: 200px; display: none">
     Username: <input id="text_user" type="text" name="user" autofocus="true">
     <br>
     Password: <input id="text_password" type="password" name="pwd">
     <br>
     <input id="button_login" type="button" value="Login" onclick="login(user.value,pwd.value)">
-    <input id="button_subscribe" type="button" value="Subscribe" onclick="subscribe(user.value,pwd.value)">
 </form>
 
 <script>
@@ -12,13 +11,18 @@
     if (user) {
         current_user = user;
         document.getElementById("inventaire").setAttribute("style", "display: block");
-        document.getElementById("logout").setAttribute("style", "display: block");
-        document.getElementById("recommencer").setAttribute("style", "display: block");
+        document.getElementById("logout").setAttribute("style", "display: inline-block");
+        document.getElementById("reset").setAttribute("style", "display: inline-block");
+        document.getElementById("achievements").setAttribute("style", "display: inline-block");
+        document.getElementById("unsubscribe").setAttribute("style", "display: inline-block");
+        document.getElementById("home").setAttribute("style", "display: none");
+        document.getElementById("subscribe").setAttribute("style", "display: none");
+
         load_game();
         createCookie("userID",current_user,1);
     }
     else{
-        document.getElementById("login").style.display = "block";
+        document.getElementById("form_login").style.display = "block";
         $("#text_user").keypress(function(e){
             if(e.keyCode==13)
                 $("#button_login").click();

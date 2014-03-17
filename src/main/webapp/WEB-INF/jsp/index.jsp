@@ -29,11 +29,13 @@
             </div>
             <nav id="menu">
                 <ul>
-                    <li>>accueil</li>
-                    <li>>recommencer</li>
-                    <li>>succ&egrave;s</li>
-                    <li>>s'inscrire</li>
-                </ul>
+                    <li id="home" onclick="chargeView('login')">>accueil</li>
+                    <li id="subscribe" onclick="chargeView('subscribe')">>s'inscrire</li>
+                    <li id="achievements" style="display: none" onclick="achievements_screen()">>succ&egrave;s</li>
+                    <li id="logout" style="display: none" onclick="logout()">>se d&eacute;connecter</li>
+                    <li id="reset" style="display: none" onclick="reset_game()">>recommencer</li>
+                    <li id="unsubscribe" style="display: none" onclick="chargeView('unsubscribe')">>se d&eacute;sinscrire</li>
+                 </ul>
             </nav>
         </header>
         <div id="jeu">
@@ -47,18 +49,6 @@
 					</tbody>
 				</table>
 
-			</div>
-            <div id="unsubscribe">
-                <input type="button" value="Unsubscribe" onclick="chargeView('unsubscribe')">
-            </div>
-            <div id="logout" hidden>
-                <input type="button" value="Logout" onclick="logout()">
-            </div>
-            <div id="recommencer" hidden>
-                <input type="button" value="Recommencer" onclick="reset_game()">
-            </div>
-			<div id="achievements">
-                <input type="button" value="Succ&egrave;s" onclick="achievements_screen()">
 			</div>
             <div id="achievements_screen" style="display: none">
                 <table>

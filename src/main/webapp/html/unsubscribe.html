@@ -22,11 +22,6 @@
     var text_password = document.getElementById("text_password");
 
     var user = readCookie("userID");
-    if (user) {
-        text_user.value = user;
-        text_password.autofocus = true;
-    }
-    else{
-        text_user.autofocus = true;
-    }
+    text_user.value = user;
+    text_password.autofocus = true;
 </script>

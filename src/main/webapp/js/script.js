@@ -72,8 +72,12 @@ function login(user, pwd){
                 if (access === "ok"){
                     current_user = user;
                     document.getElementById("inventaire").setAttribute("style", "display: block");
-                    document.getElementById("logout").setAttribute("style", "display: block");
-                    document.getElementById("recommencer").setAttribute("style", "display: block");
+                    document.getElementById("logout").setAttribute("style", "display: inline-block");
+                    document.getElementById("reset").setAttribute("style", "display: inline-block");
+                    document.getElementById("achievements").setAttribute("style", "display: inline-block");
+                    document.getElementById("unsubscribe").setAttribute("style", "display: inline-block");
+                    document.getElementById("home").setAttribute("style", "display: none");
+                    document.getElementById("subscribe").setAttribute("style", "display: none");
                     load_game();
                     createCookie("userID",current_user,1);
                 }
@@ -104,8 +108,12 @@ function subscribe(user, pwd){
                     current_user = user;
                     chargeView(current_view);
                     document.getElementById("inventaire").setAttribute("style", "display: block");
-                    document.getElementById("logout").setAttribute("style", "display: block");
-                    document.getElementById("recommencer").setAttribute("style", "display: block");
+                    document.getElementById("logout").setAttribute("style", "display: inline-block");
+                    document.getElementById("reset").setAttribute("style", "display: inline-block");
+                    document.getElementById("achievements").setAttribute("style", "display: inline-block");
+                    document.getElementById("unsubscribe").setAttribute("style", "display: inline-block");
+                    document.getElementById("home").setAttribute("style", "display: none");
+                    document.getElementById("subscribe").setAttribute("style", "display: none");
                     createCookie("userID",current_user,1);
                 }
                 else{

@@ -349,8 +349,10 @@ function remove_object(name){
 }
 
 function add_action(action){
-    actions.push(action);
-    save();
+    if(!fait(action)){
+        actions.push(action);
+        save();
+    }
 }
 
 function add_achievement(achievement){

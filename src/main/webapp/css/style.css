@@ -7,6 +7,7 @@ header{
 background-image: url("../img/burried.png");
 font-weight: bold;
 position: relative;
+cursor: default;
 }
 
 nav{
@@ -30,6 +31,7 @@ text-decoration: none;
 nav li:hover{
 color: black;
 background-color:#00ff00;
+cursor: pointer;
 }
 
 #titre{

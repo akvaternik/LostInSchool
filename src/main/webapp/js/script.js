@@ -96,35 +96,40 @@ function login(user, pwd){
     }
 }
 
-function subscribe(user, pwd){
+function subscribe(user, pwd, conf_pwd){
     var re = new RegExp("[a-zA-Z0-9]+");
     if(user == re.exec(user) && pwd == re.exec(pwd)){
-        $.ajax({type: "POST",
-            url: "/subscribe/" + user + "/" + pwd,
-            dataType: "text",
-            success: function(status) {
-                if(status === "ok"){
-                    current_view = "intro";
-                    current_user = user;
-                    chargeView(current_view);
-                    document.getElementById("inventaire").setAttribute("style", "display: block");
-                    document.getElementById("logout").setAttribute("style", "display: inline-block");
-                    document.getElementById("reset").setAttribute("style", "display: inline-block");
-                    document.getElementById("achievements").setAttribute("style", "display: inline-block");
-                    document.getElementById("unsubscribe").setAttribute("style", "display: inline-block");
-                    document.getElementById("home").setAttribute("style", "display: none");
-                    document.getElementById("subscribe").setAttribute("style", "display: none");
-                    createCookie("userID",current_user,1);
+        if(pwd == conf_pwd){
+            $.ajax({type: "POST",
+                url: "/subscribe/" + user + "/" + pwd,
+                dataType: "text",
+                success: function(status) {
+                    if(status === "ok"){
+                        current_view = "intro";
+                        current_user = user;
+                        chargeView(current_view);
+                        document.getElementById("inventaire").setAttribute("style", "display: block");
+                        document.getElementById("logout").setAttribute("style", "display: inline-block");
+                        document.getElementById("reset").setAttribute("style", "display: inline-block");
+                        document.getElementById("achievements").setAttribute("style", "display: inline-block");
+                        document.getElementById("unsubscribe").setAttribute("style", "display: inline-block");
+                        document.getElementById("home").setAttribute("style", "display: none");
+                        document.getElementById("subscribe").setAttribute("style", "display: none");
+                        createCookie("userID",current_user,1);
+                    }
+                    else{
+                        alert("User name is already used, please choose another one.");
+                    }
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.log(xhr.status);
+                    console.log(thrownError);
                 }
-                else{
-                    alert("User name is already used, please choose another one.");
-                }
-            },
-            error: function (xhr, ajaxOptions, thrownError) {
-                console.log(xhr.status);
-                console.log(thrownError);
-            }
-        });
+            });
+        }
+        else{
+            alert("Your confirmation password doesn't match your password.")
+        }
     }
     else{
         alert("Either user name or password is invalid.");

@@ -51,7 +51,7 @@ function chargeView(destination){
                 var newView = jQuery.parseJSON(newViewString);
                 ecran.load(newView.html);
                 current_view = newView.name;
-                if(current_view != "login" && current_view != "unsubscribe"){
+                if(current_view != "login" && current_view != "unsubscribe" && current_view != "reset"){
                     save();
                 }
             },
@@ -76,7 +76,6 @@ function login(user, pwd){
                     document.getElementById("reset").setAttribute("style", "display: inline-block");
                     document.getElementById("achievements").setAttribute("style", "display: inline-block");
                     document.getElementById("unsubscribe").setAttribute("style", "display: inline-block");
-                    document.getElementById("home").setAttribute("style", "display: none");
                     document.getElementById("subscribe").setAttribute("style", "display: none");
                     load_game();
                     createCookie("userID",current_user,1);
@@ -113,7 +112,6 @@ function subscribe(user, pwd, conf_pwd){
                         document.getElementById("reset").setAttribute("style", "display: inline-block");
                         document.getElementById("achievements").setAttribute("style", "display: inline-block");
                         document.getElementById("unsubscribe").setAttribute("style", "display: inline-block");
-                        document.getElementById("home").setAttribute("style", "display: none");
                         document.getElementById("subscribe").setAttribute("style", "display: none");
                         createCookie("userID",current_user,1);
                     }

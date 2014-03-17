@@ -29,7 +29,7 @@
             </div>
             <nav id="menu">
                 <ul>
-                    <li id="home" onclick="chargeView('login')">>accueil</li>
+                    <li id="home" onclick="location.reload()">>accueil</li>
                     <li id="subscribe" onclick="chargeView('subscribe')">>s'inscrire</li>
                     <li id="achievements" style="display: none" onclick="achievements_screen()">>succ&egrave;s</li>
                     <li id="logout" style="display: none" onclick="logout()">>se d&eacute;connecter</li>

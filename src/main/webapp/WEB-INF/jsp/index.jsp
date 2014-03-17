@@ -4,12 +4,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+
         <script type="text/javascript" src="../../js/jquery-2.0.3.min.js"></script>
 	    <script type="text/javascript" src="../../js/script.js"></script>
         <script type="text/javascript" src="../../soundmanager/script/soundmanager2.js"></script>
         <script type="text/javascript">
             soundManager.url = "../../soundmanager/swf/";
-            soundManager.debugMode = true;
+            soundManager.debugMode = false;
             soundManager.setup({
                 defaultOptions: {
                     autoLoad: true,
@@ -22,7 +23,20 @@
         <title>Lost In School</title>
     </head>
     <body>
-		<div id="jeu">
+        <header>
+            <div id="titre">
+                root@ubuntu-server:~Lost In School
+            </div>
+            <nav id="menu">
+                <ul>
+                    <li>>accueil</li>
+                    <li>>recommencer</li>
+                    <li>>succ&egrave;s</li>
+                    <li>>s'inscrire</li>
+                </ul>
+            </nav>
+        </header>
+        <div id="jeu">
 			<div id="ecran_principal">
 				
 			</div>

@@ -18,6 +18,9 @@
 
     if(fait("accept_book_berri")){
         Fleche_d.style.display = "block";
+        if(!fait("get_book_rat")){
+            livrerat.setAttribute("onclick","add_action('get_book_rat'); add_object('../../img/livreratinventaire.png','Comment_cohabiter_avec_nos_amis_les_rats'); remove(livrerat);");
+        }
     }
 
     if(!fait("get_book_rat")){

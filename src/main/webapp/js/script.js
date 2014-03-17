@@ -161,24 +161,30 @@ function unsubscribe(user, pwd){
     }
 }
 
-function reset_game(){
-    $.ajax({type: "POST",
-        url: "/reset/" + current_user,
-        dataType: "text",
-        success: function(status) {
-            if (status === "ok"){
-                alert("Votre jeu a été remis à zero!");
-                location.reload();
+function reset_game(user, pwd){
+    var re = new RegExp("[a-zA-Z0-9]+");
+    if(user == re.exec(user) && pwd == re.exec(pwd)){
+        $.ajax({type: "POST",
+            url: "/reset/" + user + "/" + pwd,
+            dataType: "text",
+            success: function(status) {
+                if (status === "ok"){
+                    alert("Votre jeu a été remis à zero!");
+                    location.reload();
+                }
+                else{
+                    alert("Either user name or password is wrong.");
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log(xhr.status);
+                console.log(thrownError);
             }
-            else{
-                alert("Erreur!");
-            }
-        },
-        error: function (xhr, ajaxOptions, thrownError) {
-            console.log(xhr.status);
-            console.log(thrownError);
-        }
-    });
+        });
+    }
+    else{
+        alert("Either user name or password is invalid.");
+    }
 }
 
 

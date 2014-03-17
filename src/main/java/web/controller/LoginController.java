@@ -145,18 +145,44 @@ public class LoginController {
         return status;
     }
 
-    @RequestMapping("/reset/{user}")
+    @RequestMapping("/reset/{user}/{pwd}")
     @ResponseBody
-    public String reset(@PathVariable String user) throws UnknownHostException {
+    public String reset(@PathVariable String user, @PathVariable String pwd) throws UnknownHostException, NoSuchAlgorithmException, UnsupportedEncodingException {
+        String status = "";
 
         DB db = new MongoClient().getDB("LostInSchool");
         Jongo jongo = new Jongo(db);
         MongoCollection users = jongo.getCollection("users");
-        users.update("{userID: " + "'" + user + "'}").with("{$set: {inventory : []}}");
-        users.update("{userID: " + "'" + user + "'}").with("{$set: {current_view : 'sortie_pomme_normal'}}");
-        users.update("{userID: " + "'" + user + "'}").with("{$set: {actions : []}}");
+        JSONObject jsonObject = users.findOne("{userID: " + "'" + user + "'}").projection("{_id:0}").as(JSONObject.class);
+        if(jsonObject == null){
+            status = "fail";
+            return status;
+        }
 
-        return "ok";
+        String userID = (String) jsonObject.get("userID");
+        String password = (String) jsonObject.get("password");
+
+        MessageDigest md = MessageDigest.getInstance("SHA-512");
+        md.update(pwd.getBytes("UTF-8"));
+        byte[] bytes = md.digest();
+        StringBuffer hexString = new StringBuffer();
+        for (int i = 0; i < bytes.length; i++) {
+            String hex = Integer.toHexString(0xff & bytes[i]);
+            if(hex.length()==1){
+                hexString.append('0');
+            }
+            hexString.append(hex);
+        }
+        String pwd_crypted =  hexString.toString();
+
+        if(userID.equals(user) && password.equals(pwd_crypted)){
+            users.update("{userID: " + "'" + user + "'}").with("{$set: {inventory : []}}");
+            users.update("{userID: " + "'" + user + "'}").with("{$set: {current_view : 'sortie_pomme_normal'}}");
+            users.update("{userID: " + "'" + user + "'}").with("{$set: {actions : []}}");
+            status = "ok";
+        }
+
+        return status;
     }
 
 

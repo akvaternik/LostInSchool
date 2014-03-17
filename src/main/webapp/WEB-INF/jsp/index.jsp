@@ -33,7 +33,7 @@
                     <li id="subscribe" onclick="chargeView('subscribe')">>s'inscrire</li>
                     <li id="achievements" style="display: none" onclick="achievements_screen()">>succ&egrave;s</li>
                     <li id="logout" style="display: none" onclick="logout()">>se d&eacute;connecter</li>
-                    <li id="reset" style="display: none" onclick="reset_game()">>recommencer</li>
+                    <li id="reset" style="display: none" onclick="chargeView('reset')">>recommencer</li>
                     <li id="unsubscribe" style="display: none" onclick="chargeView('unsubscribe')">>se d&eacute;sinscrire</li>
                  </ul>
             </nav>

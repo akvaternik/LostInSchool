@@ -1,0 +1,27 @@
+<form id="form_reset"  method="post" style="margin-left: 275px; margin-top: 200px;">
+    Username: <br><input id="text_user" type="text" name="user">
+    <br>
+    Password: <br><input id="text_password" type="password" name="pwd">
+    <br>
+    <input id="button_reset" type="button" value="Reset game" onclick="reset_game(user.value,pwd.value)">
+</form>
+
+<script>
+    document.getElementById("inventaire").setAttribute("style", "display: none");
+
+    $("#text_user").keypress(function(e){
+        if(e.keyCode==13)
+            $("#button_reset").click();
+    });
+    $("#text_password").keypress(function(e){
+        if(e.keyCode==13)
+            $("#button_reset").click();
+    });
+
+    var text_user = document.getElementById("text_user");
+    var text_password = document.getElementById("text_password");
+
+    var user = readCookie("userID");
+    text_user.value = user;
+    text_password.autofocus = true;
+</script>

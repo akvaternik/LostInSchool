@@ -93,6 +93,10 @@ nav li:hover{
     z-index: 2;
 }
 
+.obj:hover{
+    cursor: pointer;
+}
+
 #liste tr{
     height: 78px;
 }
@@ -140,6 +144,17 @@ nav li:hover{
     border-collapse: collapse;
 }
 
+#cross_achievements{
+    right: 0px;
+    width: 45px;
+    z-index: 51;
+    position: absolute
+}
+
+#cross_achievements:hover{
+    cursor: pointer;
+}
+
 #pop_up_achievement{
     height: 88px;
     width: 900px;
@@ -147,6 +162,10 @@ nav li:hover{
     z-index: 10;
     position: absolute;
     padding-top: 5px;
+}
+
+#pop_up_achievement:hover{
+    cursor: pointer;
 }
 
 #img_pop_up_achievement{

@@ -81,7 +81,7 @@ function login(user, pwd){
                     createCookie("userID",current_user,1);
                 }
                 else{
-                    alert_text("Either user name or password is wrong.");
+                    alert_text("Votre nom d'utilisateur ou votre mot de passe est erroné.");
                 }
             },
             error: function (xhr, ajaxOptions, thrownError) {
@@ -91,7 +91,7 @@ function login(user, pwd){
         });
     }
     else{
-        alert_text("Either user name or password is invalid.");
+        alert_text("Votre nom d'utilisateur ou votre mot de passe est invalide (minuscules, majuscules et chiffres sont les seuls caractères autorisés).");
     }
 }
 
@@ -116,7 +116,7 @@ function subscribe(user, pwd, conf_pwd){
                         createCookie("userID",current_user,1);
                     }
                     else{
-                        alert_text("User name is already used, please choose another one.");
+                        alert_text("Ce nom d'utilisateur est déjà pris, veuillez en choisir un autre.");
                     }
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
@@ -126,11 +126,11 @@ function subscribe(user, pwd, conf_pwd){
             });
         }
         else{
-            alert_text("Your confirmation password doesn't match your password.")
+            alert_text("Votre confirmation de mot de passe est différente de votre mot de passe.")
         }
     }
     else{
-        alert_text("Either user name or password is invalid.");
+        alert_text("Votre nom d'utilisateur ou votre mot de passe est invalide (minuscules, majuscules et chiffres sont les seuls caractères autorisés).");
     }
 }
 
@@ -145,7 +145,7 @@ function unsubscribe(user, pwd){
                     logout();
                 }
                 else{
-                    alert_text("Either user name or password is wrong.");
+                    alert_text("Votre nom d'utilisateur ou votre mot de passe est erroné.");
                 }
             },
             error: function (xhr, ajaxOptions, thrownError) {
@@ -155,7 +155,7 @@ function unsubscribe(user, pwd){
         });
     }
     else{
-        alert_text("Either user name or password is invalid.");
+        alert_text("Votre nom d'utilisateur ou votre mot de passe est invalide (minuscules, majuscules et chiffres sont les seuls caractères autorisés).");
     }
 }
 
@@ -171,7 +171,7 @@ function reset_game(user, pwd){
                     location.reload();
                 }
                 else{
-                    alert_text("Either user name or password is wrong.");
+                    alert_text("Votre nom d'utilisateur ou votre mot de passe est erroné.");
                 }
             },
             error: function (xhr, ajaxOptions, thrownError) {
@@ -181,7 +181,7 @@ function reset_game(user, pwd){
         });
     }
     else{
-        alert_text("Either user name or password is invalid.");
+        alert_text("Votre nom d'utilisateur ou votre mot de passe est invalide (minuscules, majuscules et chiffres sont les seuls caractères autorisés).");
     }
 }
 

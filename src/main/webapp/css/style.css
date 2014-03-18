@@ -1,106 +1,106 @@
 body{
-font-family: monospace,sans-serif;
-background-image: url("../img/asfalt.png");
+    font-family: monospace,sans-serif;
+    background-image: url("../img/asfalt.png");
 }
 
 header{
-background-image: url("../img/burried.png");
-font-weight: bold;
-position: relative;
-cursor: default;
+    background-image: url("../img/burried.png");
+    font-weight: bold;
+    position: relative;
+    cursor: default;
 }
 
 nav{
-top: -10px;
-text-align: center;
-position: relative;
-font-size: 1.5em;
+    top: -10px;
+    text-align: center;
+    position: relative;
+    font-size: 1.5em;
 }
 
 nav ul{
-list-style-type: none;
+    list-style-type: none;
 }
 
 nav li{
-display: inline-block;
-margin-right: 15px;
-color:#00ff00;
-text-decoration: none;
+    display: inline-block;
+    margin-right: 15px;
+    color:#00ff00;
+    text-decoration: none;
 }
 
 nav li:hover{
-color: black;
-background-color:#00ff00;
-cursor: pointer;
+    color: black;
+    background-color:#00ff00;
+    cursor: pointer;
 }
 
 #titre{
-text-align : center;
-margin-right: auto;
-margin-left: auto;
-position: relative;
-color: #00ff00;
-font-size: 2.5em;
+    text-align : center;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    color: #00ff00;
+    font-size: 2.5em;
 }
 
 #jeu{
-top: -10px;
-margin-right: auto;
-margin-left: auto;
-width: 1025px;
-height: 598px;
-position: relative;
+    top: -10px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 1025px;
+    height: 598px;
+    position: relative;
 }
 
 #jeu img{
-position: absolute;
+    position: absolute;
 }
  
 #vue{
-height: 598px;
-width: 900px;
-z-index: 1;
+    height: 598px;
+    width: 900px;
+    z-index: 1;
 }
 
 #ecran_principal{
-width: 900px;
-height: 598px;
-position: absolute;
+    width: 900px;
+    height: 598px;
+    position: absolute;
 }
 
 #inventaire{
-left: 915px;
-width: 110px;
-height: 598px;
-position: absolute;
-background-image: url("../img/wood_1.png");
+    left: 915px;
+    width: 110px;
+    height: 598px;
+    position: absolute;
+    background-image: url("../img/wood_1.png");
 }
 
 
 #liste{
-left: 7px;
-height: 598px;
-width: 103px;
-position: absolute;
-overflow: auto;
-vertical-align : top;
+    left: 7px;
+    height: 598px;
+    width: 103px;
+    position: absolute;
+    overflow: auto;
+    vertical-align : top;
 }
 
 
 .obj{
-width: 78px;
-height: 78px;
-z-index: 2;
+    width: 78px;
+    height: 78px;
+    z-index: 2;
 }
 
 #liste tr{
-height: 78px;
+    height: 78px;
 }
 
 #inventaire table{
-height: 598px;
-width: 110px;
-border-collapse: collapse;
+    height: 598px;
+    width: 110px;
+    border-collapse: collapse;
 }
 
 #achievements_screen{
@@ -168,4 +168,8 @@ border-collapse: collapse;
     margin-right: auto;
     margin-left: auto;
     position: relative;
+}
+
+#alert_text{
+    color: red;
 }

@@ -81,7 +81,7 @@ function login(user, pwd){
                     createCookie("userID",current_user,1);
                 }
                 else{
-                    alert("Either user name or password is wrong.");
+                    alert_text("Either user name or password is wrong.");
                 }
             },
             error: function (xhr, ajaxOptions, thrownError) {
@@ -91,7 +91,7 @@ function login(user, pwd){
         });
     }
     else{
-        alert("Either user name or password is invalid.");
+        alert_text("Either user name or password is invalid.");
     }
 }
 
@@ -116,7 +116,7 @@ function subscribe(user, pwd, conf_pwd){
                         createCookie("userID",current_user,1);
                     }
                     else{
-                        alert("User name is already used, please choose another one.");
+                        alert_text("User name is already used, please choose another one.");
                     }
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
@@ -126,11 +126,11 @@ function subscribe(user, pwd, conf_pwd){
             });
         }
         else{
-            alert("Your confirmation password doesn't match your password.")
+            alert_text("Your confirmation password doesn't match your password.")
         }
     }
     else{
-        alert("Either user name or password is invalid.");
+        alert_text("Either user name or password is invalid.");
     }
 }
 
@@ -145,7 +145,7 @@ function unsubscribe(user, pwd){
                     logout();
                 }
                 else{
-                    alert("Either user name or password is wrong.");
+                    alert_text("Either user name or password is wrong.");
                 }
             },
             error: function (xhr, ajaxOptions, thrownError) {
@@ -155,7 +155,7 @@ function unsubscribe(user, pwd){
         });
     }
     else{
-        alert("Either user name or password is invalid.");
+        alert_text("Either user name or password is invalid.");
     }
 }
 
@@ -171,7 +171,7 @@ function reset_game(user, pwd){
                     location.reload();
                 }
                 else{
-                    alert("Either user name or password is wrong.");
+                    alert_text("Either user name or password is wrong.");
                 }
             },
             error: function (xhr, ajaxOptions, thrownError) {
@@ -181,7 +181,7 @@ function reset_game(user, pwd){
         });
     }
     else{
-        alert("Either user name or password is invalid.");
+        alert_text("Either user name or password is invalid.");
     }
 }
 
@@ -203,11 +203,8 @@ function save(){
         dataType: "text",
         beforeSend: function(){ajaxSave++;},
         success: function(status) {
-            if(status === "ok"){
-                //alert("Game saved!");
-            }
-            else{
-                alert("Save error!");
+            if(status != "ok"){
+                console.log("Save error!");
             }
             ajaxSave--;
         },
@@ -555,6 +552,10 @@ function bandeText(text,left,top,id,width){
 function quit_achievements(){
     var achievements_screen = document.getElementById("achievements_screen");
     achievements_screen.style.display = "none";
+}
+
+function alert_text(text){
+    document.getElementById("alert_text").innerHTML = text;
 }
 
 $(document).ready(function() {

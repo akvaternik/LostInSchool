@@ -25,6 +25,6 @@
     {"name": "sortie_foys", "html": "../../html/sortie_foys.html"},
     {"name": "voute_cdi", "html": "../../html/voute_cdi.html"},
     {"name": "salle_imprimante", "html": "../../html/salle_imprimante.html"},
-    {"name": "livre_ouvert", "html": "../../html/livre_ouvert.html"}
-
+    {"name": "livre_ouvert", "html": "../../html/livre_ouvert.html"},
+    {"name": "zoom_imprimante", "html": "../../html/zoom_imprimante.html"}
 ]

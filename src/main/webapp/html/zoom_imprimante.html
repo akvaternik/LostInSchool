@@ -1,0 +1,19 @@
+<img id="vue" src="../../img/zoom_imprimante.jpg"/>
+<img id="Fleche_b" src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 3" onclick="chargeView('salle_imprimante')"/>
+<img src="../../img/papier.png" style="left: 404px; top: 406px; z-index: 2" onclick="talk_papier()"/>
+<img src="../../img/trappe_fermee.png" style="left: 239px; top: 213px; z-index: 2" onclick="alert('Trappe à coder!')"/>
+
+<script>
+
+    var in_talk = false;
+
+    function talk_papier(){
+        if(!in_talk){
+            in_talk = true;
+            bandeText("Il n’y a rien ici à part quelques feuilles blanches.","300","300","text_papier","0");
+            var text_papier = document.getElementById("text_papier");
+            text_papier.setAttribute("onclick","remove(text_papier); in_talk = false;");
+        }
+    }
+
+</script>

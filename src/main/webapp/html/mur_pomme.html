@@ -68,7 +68,7 @@ function visiteur(){
 		if(!fait('alerte_visiteur')){
 			
 			document.getElementById("visiteur_futur_dbt").style.display="block";
-			discut('Le visiteur du futur',"Non n'appuie pas sur ce boutonnn! Sinon voila ce qu'il va se passer... D'abord, un cochon va apparaître ici même et tu vas l'aimer. Tu iras même jusqu'à l'adopter et l'appeler Patrick!!!<br/> Et un beau jour ensoleillé de mai, lors d'une promenade avec Patrick, près d'un chemin de fer, Patrick se suicidera au passage du premier train, qui déraillera et détruira la centrale nucléaire qui déclenchera une énorme explosion détruisant la moitié de la Terreeeeeeee!!! <br/> ''Bip Bip'' Je dois y aller mais surtout n'appuies pas sur ce bouton...",398);
+			discut('Le visiteur du futur',"Non n'appuie pas sur ce boutonnn! Sinon voilà ce qu'il va se passer... D'abord, un cochon va apparaître ici même et tu vas l'aimer. Tu iras même jusqu'à l'adopter et l'appeler Patrick!!!<br/> Et un beau jour ensoleillé de mai, lors d'une promenade avec Patrick, près d'un chemin de fer, Patrick se suicidera au passage du premier train, qui déraillera et détruira la centrale nucléaire qui déclenchera une énorme explosion détruisant la moitié de la Terreeeeeeee!!! <br/> ''Bip Bip'' Je dois y aller mais surtout n'appuie pas sur ce bouton...",398);
 		}
 		else{
 			var noir=document.createElement("img");
@@ -87,7 +87,7 @@ function visiteur(){
 			setTimeout(function(){Image.setAttribute("src","../../img/trainvap.jpg"); trainvap.play();},600); 
 			setTimeout(function(){Image.setAttribute("src","../../img/explosion.jpg"); explosion.play();},1100);
 			setTimeout(function(){$("#Image").fadeOut(1500);},1400);
-			setTimeout(function(){remove(document.getElementById('noir'));document.getElementById("visiteur_futur_fin").style.display="block"; discut('Le visiteur du futur',"Ouf je suis intervenu à temps! J'ai voyagé dans le temps pour t'empecher d'appuyer sur ce bouton. <br/> Quoi?!? Comment ça tu as vécu ce qui est arrivé après avoir appuyer??? Euh ça doit être du à un paradoxe temporel. Personne ni comprend rien, de toute façon, au voyage temporel. <br/> Bon allez, c'est pas tout mais j'ai d'autres catastrophes à éviter!",398);},2900);
+			setTimeout(function(){remove(document.getElementById('noir'));document.getElementById("visiteur_futur_fin").style.display="block"; discut('Le visiteur du futur',"Ouf je suis intervenu à temps! J'ai voyagé dans le temps pour t'empêcher d'appuyer sur ce bouton. <br/> Quoi?!? Comment ça tu as vécu ce qui est arrivé après avoir appuyé??? Euh ça doit être dû à un paradoxe temporel. Personne n'y comprend rien, de toute façon, au voyage temporel. <br/> Bon allez, c'est pas tout mais j'ai d'autres catastrophes à éviter!",398);},2900);
 			document.getElementById("ecran_principal").appendChild(Image);
 			
 			//succès

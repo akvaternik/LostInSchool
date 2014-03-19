@@ -1,2 +1,21 @@
 <img id="vue" src="../../img/salle_imprimante.jpg"/>
 <img id="Fleche_b" src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('voute_cdi')"/>
+<img src="../../img/imprimante.png" style="left: 94px; top: 273px; z-index: 2" onclick="chargeView('zoom_imprimante')"/>
+<img src="../../img/poubelle.png" style="left: 434px; top: 293px; z-index: 2" onclick="talk_poubelle()"/>
+
+
+
+<script>
+
+    var in_talk = false;
+
+    function talk_poubelle(){
+        if(!in_talk){
+            in_talk = true;
+            bandeText("Quelques mouchoirs et des impressions ratées...","300","250","text_poubelle","0");
+            var text_poubelle = document.getElementById("text_poubelle");
+            text_poubelle.setAttribute("onclick","remove(text_poubelle); in_talk = false;");
+        }
+    }
+
+</script>

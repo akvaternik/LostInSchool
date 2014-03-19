@@ -66,6 +66,7 @@ nav li:hover{
     width: 900px;
     height: 598px;
     position: absolute;
+    background-image: url("../img/fond_jeu.png");
 }
 
 #inventaire{
@@ -191,4 +192,5 @@ nav li:hover{
 
 #alert_text{
     color: red;
+    text-align: center;
 }

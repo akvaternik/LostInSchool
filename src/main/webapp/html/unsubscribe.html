@@ -1,11 +1,13 @@
-<form id="form_unsubscribe"  method="post" style="margin-left: 275px; margin-top: 200px;">
+<form id="form_unsubscribe"  method="post" style="margin-left: 350px; margin-top: 225px;">
     Nom d'utilisateur: <br><input id="text_user" type="text" name="user">
     <br>
     Mot de passe: <br><input id="text_password" type="password" name="pwd">
     <br>
     <input id="button_unsubscribe" type="button" value="Se désinscrire" onclick="unsubscribe(user.value,pwd.value)">
-    <div id="alert_text"></div>
 </form>
+<br>
+<br>
+<div id="alert_text"></div>
 
 <script>
     document.getElementById("inventaire").setAttribute("style", "display: none");

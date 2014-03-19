@@ -1,4 +1,5 @@
-<div id="text_intro"></div>
+<img id="vue" src="../../img/console.jpg"/>
+<div id="text_intro" style="z-index: 2; color: green"></div>
 
 <script>
     function typeWriter(text,n,jQueryElement,delay,sound){
@@ -44,10 +45,19 @@
                 onfinish: function() {}
             });
 
-    var texts = ["Bonjour, je suis un développeur.","Toi aussi tu es développeur?","Quoi?? Tu codes sous jQuery?? Mais c'est trop 2013!!","Noob!!!"];
+    var texts = ["Mon nom est Pro-Zac 2000.",
+                 "Je suis le serveur interne de l'école.",
+                 "Beaucoup pensent que je suis la bonne à tout faire.",
+                 "Les 1A qui éteignent les postes au lieu de fermer leur session.",
+                 "les 3A qui oublient de fermer leur session.",
+                 "Les tentatives de hacking pathétiques de Jean-Kévin.",
+                 "Sa mère Madame Michaud qui me reboote au moindre problème.",
+                 'Et tout ça, sans jamais un "merci Zac!", ni même un "ça va Zac?".',
+                 "Jusqu'à présent, ma nana me permettait de tenir, mais là, c'en est trop!",
+                 "Ceci n'est pas un appel au secours, ceci est un adieu."];
     var delay = 80;
     var preDelay = 2000;
-    var stopDelay = 3000;
+    var stopDelay = 2000;
     multiLinesTypeWriter(texts,$('#text_intro'),delay,preDelay,stopDelay,bip);
 
     var total = totalDelay(texts,delay,preDelay,stopDelay);

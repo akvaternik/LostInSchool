@@ -1,11 +1,13 @@
-<form id="form_login"  method="post" style="margin-left: 275px; margin-top: 200px; display: none">
+<form id="form_login"  method="post" style="margin-left: 350px; margin-top: 225px; display: none">
     Nom d'utilisateur: <br><input id="text_user" type="text" name="user" autofocus="true">
     <br>
     Mot de passe: <br><input id="text_password" type="password" name="pwd">
     <br>
     <input id="button_login" type="button" value="Se connecter" onclick="login(user.value,pwd.value)">
-    <div id="alert_text"></div>
 </form>
+<br>
+<br>
+<div id="alert_text"></div>
 
 <script>
     var user = readCookie("userID");

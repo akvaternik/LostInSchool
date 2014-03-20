@@ -527,6 +527,7 @@ function discut(name,text,t){
     C.style.width = "45px";
     C.style.top = t_C.toString() + "px";
     C.style.right = "0px";
+    C.style.cursor = "pointer";
     C.setAttribute("onclick","quit_talk()");
     document.getElementById("ecran_principal").appendChild(C);
 }
@@ -546,7 +547,7 @@ function bandeText(text,left,top,id,width){
     T.style.left = left + "px";
     T.style.padding = "5px";
     T.style.border = "solid 3px black";
-    T.style.cursor = "default";
+    T.style.cursor = "pointer";
 }
 
 function quit_achievements(){

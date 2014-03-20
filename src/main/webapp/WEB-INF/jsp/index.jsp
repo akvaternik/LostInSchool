@@ -56,9 +56,9 @@
                     <tbody id="achievements_table">
                         <tr>
                             <td><img class="achievement" src="../../img/inconnu.png" name="Bienvenue_dans_le_monde_virtuel!" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="Paradoxe_temporel" title="?"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="Im_Batman!" title="?"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="Error_404_Achievement_Not_Found" title="?"></td>
                             <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
                             <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
                             <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>

@@ -1,0 +1,46 @@
+
+<img id="vue" src="../../img/couloir_haut_3_a.jpg"/>
+<img class="clickable" src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('escalier_cdi_haut')"/>
+<img id="camera" class="clickable" src="../../img/camera.png"  style="left: 550px; top: 56px; z-index: 2; display: none" onclick="casser_camera()"/>
+<img id="camera_cassee" src="../../img/camera_cassee.png"  style="left: 551px; top: 90px; z-index: 2; display: none "/>
+
+<script>
+var intalk=false;
+var camera=document.getElementById('camera');
+var camera_cassee=document.getElementById('camera_cassee');
+if(fait('casser_camera')){
+	remove(camera);
+	camera_cassee.style.display="block";
+}
+else{
+	
+	camera.style.display="block";
+}
+
+function casser_camera(){
+	if(isSelected("Caillou")){
+		if(fait("get_masque")){
+			add_action("casser_camera");
+			remove(camera);
+            remove_selected_object();
+			camera_cassee.style.display="block";
+			//sound bris camera
+		}
+		else{
+			if(!intalk){
+				intalk=true;
+				bandeText("Il me faut quelque chose pour garder mon identité secrète.","580","125","T",'0');
+				document.getElementById('T').setAttribute("onclick","remove(this);intalk=false");
+			}	
+		}
+	}
+	else{
+		if(!intalk){
+			intalk=true;
+			bandeText("Il me faudrait quelque chose à lancer dessus","580","125","T",'0');
+			document.getElementById('T').setAttribute("onclick","remove(this);intalk=false");
+		}
+	}
+}
+</script>
+

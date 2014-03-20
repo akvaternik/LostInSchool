@@ -85,11 +85,10 @@ function visiteur(){
 			cochon.play();
 			setTimeout(function(){Image.setAttribute("src","../../img/trainvap.jpg"); trainvap.play();},600); 
 			setTimeout(function(){Image.setAttribute("src","../../img/explosion.jpg"); explosion.play();},1100);
-			setTimeout(function(){$("#Image").fadeOut(1500);},1400);
+			setTimeout(function(){$("#Image").fadeOut(1500); unlock_achievement("Paradoxe_temporel");},1400);
 			setTimeout(function(){remove(document.getElementById('noir'));document.getElementById("visiteur_futur_fin").style.display="block"; discut('Le visiteur du futur',"Ouf je suis intervenu à temps! J'ai voyagé dans le temps pour t'empêcher d'appuyer sur ce bouton. <br/> Quoi?!? Comment ça tu as vécu ce qui est arrivé après avoir appuyé??? Euh ça doit être dû à un paradoxe temporel. Personne n'y comprend rien, de toute façon, au voyage temporel. <br/> Bon allez, c'est pas tout mais j'ai d'autres catastrophes à éviter!",398);},2900);
 			document.getElementById("ecran_principal").appendChild(Image);
-			
-			//succès
+
 			add_action('explosion_visiteur_futur');
 			}
 	}

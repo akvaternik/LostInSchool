@@ -1,0 +1,43 @@
+
+
+<img id="vue" src="../../img/salle_haut_2_b.jpg"/>
+<img class="clickable" src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('couloir_haut_2_b')"/>
+<img class="clickable" src="../../img/robin.png"  style="left: 473px; top: 199px; z-index: 2; " onclick="robin_talk()"/>
+
+<script>
+	var intalk=false;
+	var imbatman;
+	imbatman=soundManager.createSound(
+		{
+			id:"imbatman",
+			url:"../../soundmanager/musique/imbatman.mp3"
+		});
+	
+function robin_talk(){
+	if(!intalk){
+		intalk=true;
+		if(fait("get_masque")){
+			discut("Robin", "J'espère que tu t'es débarassé de ce masque maudit, cela soulagerait mon ame et mon coeur... ",398);
+		}
+		else{
+			discut("Robin", "Oh Batman, pourquoi es tu Batman? Pourquoi m'as tu brisé le coeur en partant avec cette criminelle Catwoman?<br/>N'avions nous pas une relation particulière? Mon amour pour toi à pourtant résister à toutes les épreuves. Mais là c'en est trop! <br/> Hey toi! Débarasse moi de ce masque. Fais en ce qu'il te plait je m'en fiche à présent!",398);
+		}
+	}
+}
+
+function quit_talk(){
+	intalk=false;
+	remove(document.getElementById('T'));
+	remove(document.getElementById('N'));
+	remove(document.getElementById('I'));
+	remove(document.getElementById('C'));
+	
+	if(!fait("get_masque")){
+		add_action('get_masque');
+		add_object('../../img/masque_inventaire.png','Masque');
+		imbatman.play();
+		unlock_achievement("Im_Batman!");
+		
+	}
+}
+</script>

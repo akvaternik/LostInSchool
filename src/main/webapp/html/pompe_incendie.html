@@ -1,0 +1,72 @@
+
+<img id="vue" src="../../img/pompe_incendie.jpg"/>
+<img class="clickable" src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('couloir_haut_1_b')"/>
+<img id="manometre" class="clickable" src="../../img/manometre.png"  style="left: 270px; top: 113px; z-index: 2; display:none" onclick="casse_manometre()"/>
+<img class="clickable" src="../../img/valve.png"  style="left: 576px; top: 522px; z-index: 2; " onclick="ouvre_valve()"/>
+
+<script>
+	intalk=false
+	if(fait('casser_manometre')){
+		document.getElementById("manometre").setAttribute("src","../../img/manometre_casse.png");
+		if(fait('inonder_couloir')){
+			document.getElementById("vue").setAttribute("src","../../img/pompe_incendie_eau.jpg");
+		}
+	}
+	document.getElementById("manometre").style.display="block";
+		
+	function casse_manometre(){
+		if(!fait('casser_manometre')){
+			if(isSelected('Marteau')){
+				add_action('casser_manometre');
+				document.getElementById("manometre").setAttribute("src","../../img/manometre_casse.png");
+				//bris de glace
+				if(fait('ouvrir_valve')){
+					add_action('inonder_couloir');
+					document.getElementById("vue").setAttribute("src","../../img/pompe_incendie_eau.jpg");
+					//eau qui coule
+				}
+				remove_object("Marteau");
+			}
+			else{
+				if(!intalk){
+					intalk=true;
+					bandeText("Ca a l'air fragile, si seulement j'avais un objet contondant...","80","60","T",'0');
+					document.getElementById('T').setAttribute("onclick","remove(this);intalk=false");
+				}
+			}
+		}
+	
+	}
+	
+	function ouvre_valve(){
+		if(!fait('ouvrir_valve')){
+			add_action('ouvrir_valve');
+			//bruit de valve?
+			if(fait('casser_manometre')){
+					add_action('inonder_couloir');
+					document.getElementById("vue").setAttribute("src","../../img/pompe_incendie_eau.jpg");
+					//eau qui coule
+			}
+		}
+	}
+</script>
+
+</div>
+<div id="inventaire">
+
+<table>
+<tbody id="liste">
+</tbody>
+</table>
+
+</div>	
+<div id="sauvegarde" hidden>
+                <input type="button" value="Save" onclick="save()">
+</div>
+
+            
+</div>
+
+
+    </body>
+</html>

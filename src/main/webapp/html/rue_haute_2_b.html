@@ -1,0 +1,13 @@
+
+
+<img id="vue" src="../../img/rue_haute_2_b.jpg"/>
+<img class="clickable" src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('rue_haute_2_a')"/>
+
+<img class="clickable" src="../../img/rue_haute_2_b_zoom.png"  style="left: 395px; top: 251px; z-index: 2; " onclick="chargeView('rue_haute_1_b')"/>
+<img id="caillou" class="clickable" src="../../img/caillou.png"  style="left: 634px; top: 514px; z-index: 2; " onclick="remove(this);add_action('get_caillou'); add_object('../../img/caillou_inventaire.png','Caillou')"/>
+
+<script>
+if(fait("get_caillou")){
+	remove(document.getElementById('caillou'));
+}
+</script>

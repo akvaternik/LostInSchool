@@ -1,0 +1,68 @@
+
+
+<img id="vue" src="../../img/touches.jpg"/>
+<img class="clickable" src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('cabine_rue_haute')"/>
+<img class="clickable" src="../../img/un.png"  style="left: 455px; top: 207px; z-index: 2" onclick="add_number('1')"/>
+<img class="clickable" src="../../img/deux.png"  style="left: 513px; top: 206px; z-index: 2" onclick="add_number('2')"/>
+<img class="clickable" src="../../img/trois.png"  style="left: 568px; top: 203px; z-index: 2" onclick="add_number('3')"/>
+<img class="clickable" src="../../img/quatre.png"  style="left: 460px; top: 250px; z-index: 2" onclick="add_number('4')"/>
+<img class="clickable" src="../../img/cinq.png"  style="left: 520px; top: 250px; z-index: 2" onclick="add_number('5')"/>
+<img class="clickable" src="../../img/six.png"  style="left: 574px; top: 247px; z-index: 2" onclick="add_number('6')"/>
+<img class="clickable" src="../../img/sept.png"  style="left: 469px; top: 298px; z-index: 2" onclick="add_number('7')"/>
+<img class="clickable" src="../../img/huit.png"  style="left: 524px; top: 296px; z-index: 2" onclick="add_number('8')"/>
+<img class="clickable" src="../../img/neuf.png"  style="left: 580px; top: 289px; z-index: 2" onclick="add_number('9')"/>
+<img class="clickable" src="../../img/zero.png"  style="left: 531px; top: 336px; z-index: 2" onclick="add_number('0')"/>
+<img class="clickable" src="../../img/etoile.png"  style="left: 477px; top: 344px; z-index: 2" onclick="add_number('*');"/>
+<img class="clickable" src="../../img/diese.png"  style="left: 581px; top: 336px; z-index: 2" onclick="add_number('#')"/>
+<img class="clickable" src="../../img/telephone_appel.png"  style="left: 186px; top: 165px; z-index: 2" onclick="appelle()"/>
+<img src="../../img/cache_telephone.png"  style="left: 186px; top: 312px; z-index: 2" />
+
+<script>
+
+    var intalk = false;
+
+	var taping_number=false;
+
+	function add_number(number){
+        if(!intalk){
+            if(!taping_number){
+                taping_number=true;
+                bandeText(number,'500','105','T','115');
+
+            }
+            else{
+                var T=document.getElementById('T');
+                if(T.innerHTML.length<10){
+
+                    T.innerHTML=T.innerHTML+number;
+                }
+            }
+        }
+		
+	}	
+	
+	function appelle(){
+		if(!intalk){
+			var T=document.getElementById('T');
+			remove(T);
+            intalk=true;
+			if(T.innerHTML=='404'){
+				unlock_achievement("Error_404_Achievement_Not_Found");
+				bandeText("Achievement not found" ,'500','105','R','0');
+				document.getElementById('R').setAttribute("onclick",'remove(this);intalk=false');
+			}
+			else if(T.innerHTML=="0974937601"){
+				add_action('appel_secu');
+				bandeText("Oui?!? Allo? Ici Roro à l'appareil. Il y a quelqu'un?" ,'500','105','R','0');
+				document.getElementById('R').setAttribute("onclick",'remove(this);intalk=false');
+			}
+			else{
+				bandeText("Numéro inconnu" ,'500','105','R','0');
+				document.getElementById('R').setAttribute("onclick",'remove(this);intalk=false');
+			}
+			
+			taping_number=false;
+		}
+	}
+	
+</script>

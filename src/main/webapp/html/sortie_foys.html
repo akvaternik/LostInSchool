@@ -14,13 +14,27 @@
 
     function dialogue_globox(){
         if(!in_talk){
-            if(isSelected('Comment_cohabiter_avec_nos_amis_les_rats') && !fait("give_book_globox")){
+            if(isSelected('Comment_cohabiter_avec_nos_amis_les_rats')){
                 in_talk = true;
                 sortiefoys.style.display = "none";
                 arcade.style.display = "none";
                 discut("Globox",'Merci petit, je ne savais pas comment me débarrasser de ces fichus rats, alors j’ai décidé de tenter la collocation! C’est toi la nouvelle proie de la bibliothécaire? Fais attention, elle en a manipulé plus d’un. D’abord Zac, ensuite R2 et maintenant toi... M’enfin je dis ça, je dis rien.',340);
                 remove_selected_object();
                 add_action("give_book_globox");
+            }
+            else{
+                if(fait("give_book_globox")){
+                    in_talk = true;
+                    sortiefoys.style.display = "none";
+                    arcade.style.display = "none";
+                    discut("Globox",'Merci pour le bouquin, grâce à toi ma collocation avec les rats se passe à merveille!',340);
+                }
+                else{
+                    in_talk = true;
+                    sortiefoys.style.display = "none";
+                    arcade.style.display = "none";
+                    discut("Globox","Hey toi là! T'as pris ta place pour les Massiliades?",340);
+                }
             }
         }
     }

@@ -1,7 +1,7 @@
 <img id="vue" src="../../img/zoom_imprimante.jpg"/>
 <img class="clickable" id="Fleche_b" src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 3" onclick="chargeView('salle_imprimante')"/>
 <img class="clickable" src="../../img/papier.png" style="left: 404px; top: 406px; z-index: 2" onclick="talk_papier()"/>
-<img class="clickable" src="../../img/trappe_fermee.png" style="left: 239px; top: 213px; z-index: 2" onclick="alert('Trappe à coder!')"/>
+<img class="clickable" src="../../img/trappe_fermee.png" style="left: 239px; top: 213px; z-index: 2" onclick="trappe_encre()"/>
 
 <script>
 
@@ -15,5 +15,15 @@
             text_papier.setAttribute("onclick","remove(text_papier); in_talk = false;");
         }
     }
+
+    function trappe_encre(){
+        if(fait("accept_imprimante_berri")){
+            chargeView("zoom_imprimante_open");
+        }
+        else{
+            alert("échec à coder");
+        }
+    }
+
 
 </script>

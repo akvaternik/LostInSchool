@@ -1,0 +1,99 @@
+<img id="vue" src="../../img/zoom_imprimante_open.jpg"/>
+<img class="clickable" id="Fleche_b" src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 3" onclick="chargeView('salle_imprimante')"/>
+<img class="clickable" src="../../img/bouton_imprimante.png" style="left: 678px; top: 350px; z-index: 2" onclick="button_printer()"/>
+<img class="clickable" id="carte_zac" src="../../img/carte_zac.png" style="left: 470px; top: 381px; z-index: 2; display: none" onclick="carte_Zac()"/>
+<img class="clickable" src="../../img/emplacement_encre.png" style="left: 181px; top: 422px; z-index: 2" onclick="emplacement_encre()"/>
+<img id="Wheatley" src="../../img/wheatley.png" style="left: 0px; top: 0px; z-index: 2; display:none"/>
+
+
+<script>
+
+    var in_talk = false;
+
+    var Fleche_b = document.getElementById("Fleche_b");
+
+    if(fait("get_carte_zac")){
+        var carte_zac = document.getElementById("carte_zac");
+        remove(carte_zac);
+    }
+    else{
+        if(fait("carte_zac_appeared")){
+            var carte_zac = document.getElementById("carte_zac");
+            carte_zac.style.display = "block";
+        }
+    }
+
+    function button_printer(){
+        if(!fait("carte_zac_appeared")){
+            if(fait("put_ink")){
+                if(!in_talk){
+                    var carte_zac = document.getElementById("carte_zac");
+                    carte_zac.style.display = "block";
+                    add_action("carte_zac_appeared");
+                }
+            }
+            else{
+                if(!in_talk){
+                    in_talk = true;
+                    bandeText("Il n'y a pas d'encre...","300","150","text_button","0");
+                    var text_button = document.getElementById("text_button");
+                    text_button.setAttribute("onclick","remove(text_button); in_talk = false;");
+                }
+            }
+        }
+    }
+
+    function emplacement_encre(){
+        if(!fait("put_ink")){
+            if(isSelected("Encre")){
+                if(!in_talk){
+                    in_talk = true;
+                    remove_selected_object();
+                    add_action("put_ink");
+                    bandeText("Bien, vérifions que l’imprimante fonctionne.","25","300","text_emplacement","0");
+                    var text_emplacement = document.getElementById("text_emplacement");
+                    text_emplacement.setAttribute("onclick","remove(text_emplacement); in_talk = false;");
+                }
+            }
+            else{
+                if(!in_talk){
+                    in_talk = true;
+                    bandeText("Je devrais mettre de l’encre ici...","25","300","text_emplacement","0");
+                    var text_emplacement = document.getElementById("text_emplacement");
+                    text_emplacement.setAttribute("onclick","remove(text_emplacement); in_talk = false;");
+                }
+            }
+        }
+    }
+
+    function carte_Zac(){
+        var carte_zac = document.getElementById("carte_zac");
+        remove(carte_zac);
+        add_action("get_carte_zac");
+        add_object("../../img/carte_zac_inventaire.png","Carte_mère_Séropram");
+        var Wheatley = document.getElementById("Wheatley");
+        Wheatley.style.display = "block";
+        in_talk = true;
+        Fleche_b.style.display = "none";
+        discut("Wheatley","Super petit! Tu as trouvé la carte mère Séropram! On m’avait dit que tu ne serais pas à la hauteur, mais je dois reconnaître que tu es bien parti. Continue tes recherches et on pourra remettre Zac en marche.",340);
+    }
+
+    function quit_talk(){
+        remove(document.getElementById("N"));
+        remove(document.getElementById("T"));
+        remove(document.getElementById("C"));
+        remove(document.getElementById("I"));
+        Fleche_b.style.display = "block";
+        var Wheatley = document.getElementById("Wheatley");
+        Wheatley.style.display = "none";
+        in_talk = false;
+    }
+
+
+
+
+
+
+
+
+</script>

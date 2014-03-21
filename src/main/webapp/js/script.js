@@ -367,8 +367,10 @@ function fait(action){
 }
 
 function achievements_screen(){
-    var achievements_screen = document.getElementById("achievements_screen");
-    achievements_screen.style.display = "block";
+    if(current_view != "reset" && current_view != "unsubscribe"){
+        var achievements_screen = document.getElementById("achievements_screen");
+        achievements_screen.style.display = "block";
+    }
 }
 
 function unlock_achievement(name){

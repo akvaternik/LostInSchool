@@ -51,6 +51,7 @@
 
 			</div>
             <div id="achievements_screen" style="display: none">
+                <div id="achievements_title">Succ&egrave;s</div>
                 <img id="cross_achievements" src="../../img/croix.png" onclick="quit_achievements()">
                 <table>
                     <tbody id="achievements_table">
@@ -59,17 +60,6 @@
                             <td><img class="achievement" src="../../img/inconnu.png" name="Paradoxe_temporel" title="?"></td>
                             <td><img class="achievement" src="../../img/inconnu.png" name="Im_Batman!" title="?"></td>
                             <td><img class="achievement" src="../../img/inconnu.png" name="Error_404_Achievement_Not_Found" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                        </tr>
-                        <tr>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
                             <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
                             <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
                             <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>

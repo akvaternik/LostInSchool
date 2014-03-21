@@ -30,7 +30,7 @@ nav li{
 
 nav li:hover{
     color: black;
-    background-color:#00ff00;
+    background-color: #00ff00;
     cursor: pointer;
 }
 
@@ -99,7 +99,7 @@ nav li:hover{
 }
 
 #liste tr{
-    height: 78px;
+    height: 100px;
 }
 
 #inventaire table{
@@ -112,7 +112,7 @@ nav li:hover{
     height: 598px;
     width: 900px;
     position: absolute;
-    background-color: black;
+    background-image: url('../img/success-baby.jpg');
     z-index: 50;
 }
 
@@ -140,9 +140,11 @@ nav li:hover{
 }
 
 #achievements_screen table{
+    top: 60px;
+    left: 75px;
     height: 598px;
     width: 900px;
-    border-collapse: collapse;
+    position: absolute;
 }
 
 #cross_achievements{
@@ -204,6 +206,15 @@ nav li:hover{
     font-weight: bold;
     font-size: 3em;
     top: 25px;
+    width: 900px;
+    position: absolute;
+}
+
+#achievements_title{
+    text-align: center;
+    font-weight: bold;
+    font-size: 2em;
+    top: 10px;
     width: 900px;
     position: absolute;
 }

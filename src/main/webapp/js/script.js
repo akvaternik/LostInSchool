@@ -13,7 +13,7 @@ function selection(obj){
     	}
 	obj.style.borderWidth = "1px";
 	obj.style.borderStyle = "solid";
-	obj.style.borderColor =  "blue";
+	obj.style.borderColor =  "rgb(0, 255, 0)";
 }
 
 function isSelected(name){
@@ -23,7 +23,7 @@ function isSelected(name){
 		return false;
 	}
     for(var i=0; i<objs.length; i++){
-        if((objs[i].style.borderColor == "blue") && (objs[i].name == name)){
+        if((objs[i].style.borderColor == "rgb(0, 255, 0)") && (objs[i].name == name)){
             bool = true;
         }
     }
@@ -34,7 +34,7 @@ function isSelected(name){
 function indexSelected(){
     var objs = document.getElementsByClassName("obj");
     for(var i=0; i<objs.length; i++){
-        if(objs[i].style.borderColor == "blue"){
+        if(objs[i].style.borderColor == "rgb(0, 255, 0)"){
             return i;
         }
     }

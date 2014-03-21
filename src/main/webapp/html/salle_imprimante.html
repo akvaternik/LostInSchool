@@ -2,6 +2,7 @@
 <img class="clickable" id="Fleche_b" src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('voute_cdi')"/>
 <img class="clickable" src="../../img/imprimante.png" style="left: 94px; top: 273px; z-index: 2" onclick="chargeView('zoom_imprimante')"/>
 <img class="clickable" src="../../img/poubelle.png" style="left: 434px; top: 293px; z-index: 2" onclick="talk_poubelle()"/>
+<img class="clickable" id="encre_sol" src="../../img/encre_sol.png" style="left: 269px; top: 467px; z-index: 2; display: none" onclick="nettoyer_encre()"/>
 
 
 
@@ -9,12 +10,47 @@
 
     var in_talk = false;
 
+    var encre_sol = document.getElementById("encre_sol");
+
+    if(fait("casse_fiole")){
+        if(fait('nettoie_encre')){
+            remove(encre_sol);
+        }
+        else{
+            encre_sol.style.display="block";
+        }
+    }
+
+
     function talk_poubelle(){
         if(!in_talk){
             in_talk = true;
             bandeText("Quelques mouchoirs et des impressions ratées...","300","250","text_poubelle","0");
             var text_poubelle = document.getElementById("text_poubelle");
             text_poubelle.setAttribute("onclick","remove(text_poubelle); in_talk = false;");
+        }
+    }
+
+    function nettoyer_encre(){
+        if(isSelected("Eponge")){
+            remove_selected_object();
+            add_object('../../img/eponge_inventaire_encre.png','Eponge_sale');
+            add_action('nettoie_encre');
+            remove(encre_sol);
+            if(in_talk){
+                if(document.getElementById("text_ink") != null){
+                    remove(document.getElementById("text_ink"));
+                    in_talk = false
+                }
+            }
+        }
+        else{
+            if(!in_talk){
+                in_talk = true;
+                bandeText("Il faudrait que je nettoie ça...","300","250","text_ink","0");
+                var text_ink = document.getElementById("text_ink");
+                text_ink.setAttribute("onclick","remove(text_ink); in_talk = false;");
+            }
         }
     }
 

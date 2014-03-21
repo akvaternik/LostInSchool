@@ -1,14 +1,12 @@
 <img id="vue" src="../../img/sortie_foys.jpg"/>
 <img class="clickable" id="sortiefoys" src="../../img/sortiefoys.png" style="left: 555px; top: 298px; z-index: 2" onclick="chargeView('rue_haute_vue_cri')"/>
-<img class="clickable" src="../../img/sallebillard.png" style="left: 264px; top: 248px; z-index: 2"/>
-<img class="clickable" id="arcade" src="../../img/arcade.png" style="left: 426px; top: 308px; z-index: 2"/>
-<img class="clickable" src="../../img/babyfoot.png" style="left: 161px; top: 403px; z-index: 2"/>
+<img class="clickable" src="../../img/sallebillard.png" style="left: 264px; top: 248px; z-index: 2" onclick="chargeView('arcade_foys')"/>
+<img class="clickable" src="../../img/babyfoot.png" style="left: 161px; top: 403px; z-index: 2" onclick="alert('à coder')"/>
 <img class="clickable" src="../../img/globox2.png" style="left: 373px; top: 363px; z-index: 2" onclick="dialogue_globox()"/>
 
 
 <script>
     var sortiefoys = document.getElementById("sortiefoys");
-    var arcade = document.getElementById("arcade");
 
     var in_talk = false;
 
@@ -17,7 +15,6 @@
             if(isSelected('Comment_cohabiter_avec_nos_amis_les_rats')){
                 in_talk = true;
                 sortiefoys.style.display = "none";
-                arcade.style.display = "none";
                 discut("Globox",'Merci petit, je ne savais pas comment me débarrasser de ces fichus rats, alors j’ai décidé de tenter la collocation! C’est toi la nouvelle proie de la bibliothécaire? Fais attention, elle en a manipulé plus d’un. D’abord Zac, ensuite R2 et maintenant toi... M’enfin je dis ça, je dis rien.',340);
                 remove_selected_object();
                 add_action("give_book_globox");
@@ -26,13 +23,11 @@
                 if(fait("give_book_globox")){
                     in_talk = true;
                     sortiefoys.style.display = "none";
-                    arcade.style.display = "none";
                     discut("Globox",'Merci pour le bouquin, grâce à toi ma collocation avec les rats se passe à merveille!',340);
                 }
                 else{
                     in_talk = true;
                     sortiefoys.style.display = "none";
-                    arcade.style.display = "none";
                     discut("Globox","Hey toi là! T'as pris ta place pour les Massiliades?",340);
                 }
             }
@@ -45,7 +40,6 @@
         remove(document.getElementById("C"));
         remove(document.getElementById("I"));
         sortiefoys.style.display = "block";
-        arcade.style.display = "block";
         in_talk = false;
     }
 

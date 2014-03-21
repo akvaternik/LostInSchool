@@ -45,7 +45,7 @@
 
     function emplacement_encre(){
         if(!fait("put_ink")){
-            if(isSelected("Encre")){
+            if(isSelected("Encre") || isSelected("Eponge_sale")){
                 if(!in_talk){
                     in_talk = true;
                     remove_selected_object();

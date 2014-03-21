@@ -5,7 +5,7 @@
 <img class="clickable" src="../../img/valve.png"  style="left: 576px; top: 522px; z-index: 2; " onclick="ouvre_valve()"/>
 
 <script>
-	intalk=false
+	intalk = false;
 	if(fait('casser_manometre')){
 		document.getElementById("manometre").setAttribute("src","../../img/manometre_casse.png");
 		if(fait('inonder_couloir')){
@@ -25,11 +25,11 @@
 					document.getElementById("vue").setAttribute("src","../../img/pompe_incendie_eau.jpg");
 					//eau qui coule
 				}
-				remove_object("Marteau");
+				remove_selected_object();
 			}
 			else{
 				if(!intalk){
-					intalk=true;
+					intalk = true;
 					bandeText("Ca a l'air fragile, si seulement j'avais un objet contondant...","80","60","T",'0');
 					document.getElementById('T').setAttribute("onclick","remove(this);intalk=false");
 				}
@@ -50,23 +50,3 @@
 		}
 	}
 </script>
-
-</div>
-<div id="inventaire">
-
-<table>
-<tbody id="liste">
-</tbody>
-</table>
-
-</div>	
-<div id="sauvegarde" hidden>
-                <input type="button" value="Save" onclick="save()">
-</div>
-
-            
-</div>
-
-
-    </body>
-</html>

@@ -2,7 +2,7 @@
 <img class="clickable" id="Fleche_b" src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('sortie_escalierrdc')"/>
 <img class="clickable" id="descendre" src="../../img/descendre_escalierrdc.png"  style="left: 511px; top: 376px; z-index: 2" onclick="chargeView('entree_couloir_pomme')"/>
 <img class="clickable" id="monter" src="../../img/monter_escalierrdc.png"  style="right: 0px; top: 0px; z-index: 2" onclick="chargeView('escalier_cdi_haut')"/>
-<img class="clickable" id="porte_cdi" src="../../img/porte_cdi_escalierrdc.jpg"  style="left: 244px; top: 228px; z-index: 2; display: none" onclick="chargeView('entree_cdi')"/>
+<img class="clickable" id="porte_cdi" src="../../img/porte_cdi_escalierrdc.jpg"  style="left: 244px; top: 228px; z-index: 2; display: none" onclick="door_cdi()"/>
 <img class="clickable" id="boo_invisible" src="../../img/boo_invisible.png"  style="left: 25px; top: 352px; z-index: 2; display: none;" onclick="visible()"/>
 <img class="clickable" id="boo_visible" src="../../img/boo_visible.png"  style="left: 25px; top: 352px; z-index: 2; display: none;" onclick="dialogue_boo()"/>
 <img id="luigi_aspi" src="../../img/luigi_aspi.png"  style="top: 312px; z-index: 2; display: none;"/>
@@ -124,8 +124,8 @@
             luigi_aspi.style.display = "block";
             lm_vacuum.play();
             $("#boo_visible").fadeOut(1000);
-            setTimeout("remove(luigi_aspi)",4500);
-            setTimeout('Fleche_b.style.display = "block"; descendre.style.display = "block"; monter.style.display = "block"; porte_cdi.style.display = "block";',4500);
+            setTimeout("remove(luigi_aspi)",4000);
+            setTimeout('Fleche_b.style.display = "block"; descendre.style.display = "block"; monter.style.display = "block"; porte_cdi.style.display = "block";',4000);
         }
         else{
             remove(document.getElementById("R1"));
@@ -136,7 +136,20 @@
         }
     }
 
+    function door_cdi(){
+        if(fait('casse_fiole') && !fait('get_eponge')){
+            if(!in_talk){
+                in_talk = true;
+                bandeText("Je ne devrais pas y retourner avant d'avoir trouvé de quoi nettoyer l'encre, Berri serait furieuse...","100","250","text_door",'0');
 
+                var text_door = document.getElementById('text_door');
+                text_door.setAttribute("onclick","remove(text_door); in_talk = false;");
+            }
+        }
+        else{
+            chargeView('entree_cdi');
+        }
+    }
 
 
 

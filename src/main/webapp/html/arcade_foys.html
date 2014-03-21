@@ -1,0 +1,23 @@
+<img id="vue" src="../../img/arcade_foys.jpg"/>
+<img class="clickable" src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('sortie_foys')"/>
+<img class="clickable" src="../../img/arcade.png" style="left: 678px; top: 249px; z-index: 2" onclick="chargeView('arcade_zoom_foys')"/>
+<img class="clickable" id="eponge" src="../../img/eponge.png" style="left: 497px; top: 339px; z-index: 2; display: none" onclick="add_object('../../img/eponge_inventaire.png','Eponge'); add_action('get_eponge'); remove(this)"/>
+<img class="clickable" id="marteau" src="../../img/marteau.png" style="left: 544px; top: 457px; z-index: 2; display: none" onclick="add_object('../../img/marteau_inventaire.png','Marteau'); add_action('get_marteau'); remove(this)"/>
+
+<script>
+    var eponge = document.getElementById("eponge");
+    if(fait('get_eponge')){
+        remove(eponge);
+    }
+    else{
+        eponge.style.display="block";
+    }
+
+    var marteau = document.getElementById("marteau");
+    if(fait('get_marteau')){
+        remove(marteau);
+    }
+    else{
+        marteau.style.display="block";
+    }
+</script>

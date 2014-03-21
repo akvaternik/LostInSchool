@@ -1,11 +1,14 @@
 <img id="vue" src="../../img/zoom_imprimante.jpg"/>
 <img class="clickable" id="Fleche_b" src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 3" onclick="chargeView('salle_imprimante')"/>
-<img class="clickable" src="../../img/papier.png" style="left: 404px; top: 406px; z-index: 2" onclick="talk_papier()"/>
-<img class="clickable" src="../../img/trappe_fermee.png" style="left: 239px; top: 213px; z-index: 2" onclick="trappe_encre()"/>
+<img class="clickable" id="papier" src="../../img/papier.png" style="left: 404px; top: 406px; z-index: 2" onclick="talk_papier()"/>
+<img class="clickable" id="trappe_fermee" src="../../img/trappe_fermee.png" style="left: 239px; top: 213px; z-index: 2" onclick="trappe_encre()"/>
 
 <script>
 
     var in_talk = false;
+    var papier = document.getElementById("papier");
+    var Fleche_b = document.getElementById("Fleche_b");
+    var trappe_fermee = document.getElementById("trappe_fermee");
 
     function talk_papier(){
         if(!in_talk){
@@ -21,8 +24,35 @@
             chargeView("zoom_imprimante_open");
         }
         else{
-            alert("échec à coder");
+            if(fait('casse_fiole')){
+                if(!in_talk){
+                    in_talk = true;
+                    bandeText("Je ne devrais pas retoucher à l'imprimante sans l'accord de Berri, j'ai déjà fait assez de bêtises comme ça.","300","300","text_trappe","0");
+                    var text_trappe = document.getElementById("text_trappe");
+                    text_trappe.setAttribute("onclick","remove(text_trappe); in_talk = false;");
+                }
+            }
+            else{
+                //bruit fiole cassée
+                //succès maladroit
+                add_action("casse_fiole");
+                remove_object("Encre");
+                in_talk = true;
+                papier.style.display = "none";
+                Fleche_b.style.display = "none";
+                trappe_fermee.style.display = "none";
+                discut("Berri","Que fais-tu dans la salle de l'imprimante?! Non mais je rêve! Tu as mis de l'encre partout! Sors d'ici et ne reviens que lorsque tu auras de quoi nettoyer cette encre!",340);
+            }
         }
+    }
+
+    function quit_talk(){
+        remove(document.getElementById("N"));
+        remove(document.getElementById("T"));
+        remove(document.getElementById("C"));
+        remove(document.getElementById("I"));
+        in_talk = false;
+        chargeView('arrivee_escalierrdc');
     }
 
 

@@ -111,7 +111,12 @@
                             else{
                                 if(fait("give_journal_berri")){
                                     if(fait("accept_imprimante_berri")){
-                                        discut("Berri","Tu arrives à réparer l'imprimante?",340);
+                                        if(fait('carte_zac_appeared')){
+                                            discut("Berri","Merci pour tout ce que tu as fait pour moi! Tu es trop chou!",340);
+                                        }
+                                        else{
+                                            discut("Berri","Tu arrives à réparer l'imprimante?",340);
+                                        }
                                     }
                                     else{
                                         discut("Berri","L’imprimante est à cours d’encre, pourrais-tu y jeter un oeil?",340);

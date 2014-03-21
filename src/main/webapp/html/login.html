@@ -1,4 +1,5 @@
-<form id="form_login"  method="post" style="margin-left: 350px; margin-top: 225px; display: none">
+<div id="section_title" style="display: none">Connexion</div>
+<form id="form_login"  method="post" style="margin-left: 370px; margin-top: 225px; display: none">
     Nom d'utilisateur: <br><input id="text_user" type="text" name="user" autofocus="true">
     <br>
     Mot de passe: <br><input id="text_password" type="password" name="pwd">
@@ -24,6 +25,7 @@
         createCookie("userID",current_user,1);
     }
     else{
+        document.getElementById("section_title").style.display = "block";
         document.getElementById("form_login").style.display = "block";
         $("#text_user").keypress(function(e){
             if(e.keyCode==13)

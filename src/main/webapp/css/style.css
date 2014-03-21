@@ -198,3 +198,12 @@ nav li:hover{
 .clickable{
     cursor: pointer;
 }
+
+#section_title{
+    text-align: center;
+    font-weight: bold;
+    font-size: 3em;
+    top: 25px;
+    width: 900px;
+    position: absolute;
+}

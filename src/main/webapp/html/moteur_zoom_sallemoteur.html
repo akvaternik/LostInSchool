@@ -1,3 +1,83 @@
 <img id="vue" src="../../img/moteur_zoom_sallemoteur.jpg"/>
 
 <img class="clickable" id="Fleche_b" src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 3" onclick="chargeView('moteur_sallemoteur')"/>
+<img class="clickable" src="../../img/zonebleue.png" style="left: 475px; top: 369px; z-index: 2" onclick="zonebleue()"/>
+<img class="clickable" src="../../img/zonerouge.png" style="left: 340px; top: 367px; z-index: 2" onclick="zonerouge()"/>
+<img class="clickable" src="../../img/zoneverte.png" style="left: 576px; top: 368px; z-index: 2" onclick="zoneverte()"/>
+<img id="cablebleu" src="../../img/cablebleu.png" style="left: 492px; top: 210px; z-index: 2; display: none"/>
+<img id="cablerouge" src="../../img/cablerouge.png" style="left: 358px; top: 203px; z-index: 2; display: none"/>
+<img id="cablevert" src="../../img/cablevert.png" style="left: 375px; top: 188px; z-index: 2; display: none"/>
+<img class="clickable" id="batterie" src="../../img/batterie.png" style="left: 439px; top: 90px; z-index: 2; display: none" onclick="battery()"/>
+
+
+<script>
+
+    var cablebleu = document.getElementById("cablebleu");
+    var cablerouge = document.getElementById("cablerouge");
+    var cablevert = document.getElementById("cablevert");
+    var batterie = document.getElementById("batterie");
+
+    if(fait('put_cable_bleu')){
+        cablebleu.style.display = "block";
+    }
+
+    if(fait('put_cable_rouge')){
+        cablerouge.style.display = "block";
+    }
+
+    if(fait('put_cable_vert')){
+        cablevert.style.display = "block";
+    }
+
+    if(fait('batterie_appeared')) {
+        if(fait('get_batterie')){
+            remove(batterie);
+        }
+        else {
+            batterie.style.display = "block";
+        }
+    }
+
+    function zonebleue(){
+        if(isSelected("Cable_bleu")){
+            remove_selected_object();
+            add_action('put_cable_bleu');
+            cablebleu.style.display = "block";
+            apparition_batterie();
+        }
+    }
+
+    function zonerouge(){
+        if(isSelected("Cable_rouge")){
+            remove_selected_object();
+            add_action('put_cable_rouge');
+            cablerouge.style.display = "block";
+            apparition_batterie();
+        }
+    }
+
+    function zoneverte(){
+        if(isSelected("Cable_vert")){
+            remove_selected_object();
+            add_action('put_cable_vert');
+            cablevert.style.display = "block";
+            apparition_batterie();
+        }
+    }
+
+    function apparition_batterie(){
+        if(fait('put_cable_bleu') && fait('put_cable_rouge') && fait('put_cable_vert')) {
+            batterie.style.display = "block";
+            add_action('batterie_appeared');
+        }
+    }
+
+    function battery(){
+        add_action('get_batterie');
+        remove(batterie);
+        add_object("../../img/batterie.png","Batterie");
+    }
+
+
+
+</script>

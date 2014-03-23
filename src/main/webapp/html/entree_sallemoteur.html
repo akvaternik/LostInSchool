@@ -2,3 +2,35 @@
 
 <img class="clickable" id="Fleche_b" src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 3" onclick="chargeView('robotback_ruebasse')"/>
 <img class="clickable" src="../../img/entree_tableau_sallemoteur.png" style="left: 347px; top: 166px; z-index: 2" onclick="chargeView('tableau_sallemoteur')"/>
+<img class="clickable" id="helico" src="../../img/helico.png" style="left: 527px; top: 365px; z-index: 2; display: none" onclick="helicoptere()"/>
+
+
+<script>
+    var in_talk = false;
+
+    var helico = document.getElementById("helico");
+
+    if(fait('get_helico')){
+        remove(helico);
+    }
+    else {
+        helico.style.display = "block";
+    }
+
+    function helicoptere(){
+        if(isSelected("Batterie")) {
+            remove_selected_object();
+            add_action('get_helico');
+            remove(helico);
+            add_object("../../img/helico_inventaire.png","Helicoptere");
+        }
+        else{
+            if (!in_talk) {
+                in_talk = true;
+                bandeText("Tiens, cet hélicoptère téléguidé pourrait bien m'être utile. Malheureusement il n'a pas l'air fonctionnel, je vais devoir trouver de quoi l'alimenter.", "300", "250", "text_helico", '0');
+                var text_helico = document.getElementById('text_helico');
+                text_helico.setAttribute("onclick", "remove(text_helico); in_talk = false;");
+            }
+        }
+    }
+</script>

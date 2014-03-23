@@ -1,3 +1,31 @@
 <img id="vue" src="../../img/tableau_sallemoteur.jpg"/>
 
 <img class="clickable" id="Fleche_b" src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 3" onclick="chargeView('sortie_sallemoteur')"/>
+<img class="clickable" id="keira" src="../../img/keira.png"  style="left: 301px; top: 257px; z-index: 2;" onclick="dialogue_keira()"/>
+
+
+<script>
+    var in_talk = false;
+
+    function dialogue_keira(){
+        if(!in_talk) {
+            in_talk = true;
+            Fleche_b.style.display = "none";
+            //faire disparaître le tableau
+            discut("Keira", "Salut toi! Tu veux savoir comment ouvrir un moteur pour récupérer sa batterie? C'est très simple, regarde le schéma!", 340);
+        }
+    }
+
+    function quit_talk() {
+        remove(document.getElementById("N"));
+        remove(document.getElementById("T"));
+        remove(document.getElementById("C"));
+        remove(document.getElementById("I"));
+
+        in_talk = false;
+        Fleche_b.style.display = "block";
+        //faire réapparaître le tableau
+    }
+
+
+</script>

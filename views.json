@@ -64,5 +64,6 @@
     {"name": "tableau_sallemoteur", "html": "../../html/tableau_sallemoteur.html"},
     {"name": "sortie_sallemoteur", "html": "../../html/sortie_sallemoteur.html"},
     {"name": "moteur_sallemoteur", "html": "../../html/moteur_sallemoteur.html"},
-    {"name": "moteur_zoom_sallemoteur", "html": "../../html/moteur_zoom_sallemoteur.html"}
+    {"name": "moteur_zoom_sallemoteur", "html": "../../html/moteur_zoom_sallemoteur.html"},
+    {"name": "cables_sallemoteur", "html": "../../html/cables_sallemoteur.html"}
 ]

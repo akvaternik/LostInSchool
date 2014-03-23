@@ -1,0 +1,16 @@
+<img id="vue" src="../../img/cables_sallemoteur.jpg"/>
+
+<img class="clickable" id="Fleche_b" src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 3" onclick="chargeView('sortie_sallemoteur')"/>
+<img class="clickable" src="../../img/cables.png" style="left: 259px; top: 152px; z-index: 2" onclick="cables()"/>
+
+
+<script>
+    function cables(){
+        if(!fait("get_cables")){
+            add_action("get_cables");
+            add_object("../../img/cable_bleu_inventaire.png","Cable_bleu");
+            add_object("../../img/cable_rouge_inventaire.png","Cable_rouge");
+            add_object("../../img/cable_vert_inventaire.png","Cable_vert");
+        }
+    }
+</script>

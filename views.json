@@ -59,5 +59,10 @@
     {"name": "robotback_ruebasse", "html": "../../html/robotback_ruebasse.html"},
     {"name": "robottoward_ruebasse", "html": "../../html/robottoward_ruebasse.html"},
     {"name": "plot2back_ruebasse", "html": "../../html/plot2back_ruebasse.html"},
-    {"name": "plot2toward_ruebasse", "html": "../../html/plot2toward_ruebasse.html"}
+    {"name": "plot2toward_ruebasse", "html": "../../html/plot2toward_ruebasse.html"},
+    {"name": "entree_sallemoteur", "html": "../../html/entree_sallemoteur.html"},
+    {"name": "tableau_sallemoteur", "html": "../../html/tableau_sallemoteur.html"},
+    {"name": "sortie_sallemoteur", "html": "../../html/sortie_sallemoteur.html"},
+    {"name": "moteur_sallemoteur", "html": "../../html/moteur_sallemoteur.html"},
+    {"name": "moteur_zoom_sallemoteur", "html": "../../html/moteur_zoom_sallemoteur.html"}
 ]

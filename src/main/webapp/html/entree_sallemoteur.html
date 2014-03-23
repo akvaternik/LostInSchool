@@ -19,6 +19,10 @@
 
     function helicoptere(){
         if(isSelected("Batterie")) {
+            if(in_talk){
+                remove(document.getElementById("text_helico"));
+                in_talk = false;
+            }
             remove_selected_object();
             add_action('get_helico');
             remove(helico);

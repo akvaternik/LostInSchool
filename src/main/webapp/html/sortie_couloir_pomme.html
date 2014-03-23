@@ -19,7 +19,7 @@
 
     function porte(){
         if(fait('give_cake_cthulhu')){
-            chargeView('arrivee_escalierrdc');
+            chargeView('sortiepomme_saspomme');
         }
         else{
             var porte_sortie = document.getElementById('porte_sortie');
@@ -69,12 +69,12 @@
                 add_action('give_cake_cthulhu');
                 add_action('get_encre');
 
-                discut('Cthulhu',"Pour te remercier de cette offrande, je te donne cette fiole d’encre de chtulhu! Conserve la précieusement, elle a une valeur inestimable! Je vais de ce pas déguster cette merveille!",398);
+                discut('Cthulhu',"Pour te remercier de cette offrande, je te donne cette fiole d’encre de cthulhu! Conserve-la précieusement, elle a une valeur inestimable! Je vais de ce pas déguster cette merveille!",398);
 
             }
 
             else if(isSelected('Gateau')){
-                discut('Cthulhu','C’est immangeable ce truc! Beaucoup trop fade. Aide toi de la poussière près de la machine à café.',398);
+                discut('Cthulhu','C’est immangeable ce truc! Beaucoup trop fade. Aide-toi de la poussière près de la machine à café.',398);
             }
             else{
                 discut('Cthulhu','Vous ne passerez pas! En tout cas pas tant que j’ai faim!',398);

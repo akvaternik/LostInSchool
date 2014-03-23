@@ -18,6 +18,9 @@
     {"name": "tableau_pomme", "html": "../../html/tableau_pomme.html"},
     {"name": "entree_couloir_pomme", "html": "../../html/entree_couloir_pomme.html"},
     {"name": "sortie_couloir_pomme", "html": "../../html/sortie_couloir_pomme.html"},
+    {"name": "sortiepomme_saspomme", "html": "../../html/sortiepomme_saspomme.html"},
+    {"name": "sortieescalier_saspomme", "html": "../../html/sortieescalier_saspomme.html"},
+    {"name": "entreepomme_saspomme", "html": "../../html/entreepomme_saspomme.html"},
     {"name": "arrivee_escalierrdc", "html": "../../html/arrivee_escalierrdc.html"},
     {"name": "sortie_escalierrdc", "html": "../../html/sortie_escalierrdc.html"},
     {"name": "entree_cdi", "html": "../../html/entree_cdi.html"},
@@ -48,5 +51,13 @@
     {"name": "rue_haute_2_c", "html": "../../html/rue_haute_2_c.html"},
     {"name": "rue_haute_vue_cri", "html": "../../html/rue_haute_vue_cri.html"},
     {"name": "salle_haut_2_b", "html": "../../html/salle_haut_2_b.html"},
-    {"name": "touches", "html": "../../html/touches.html"}
+    {"name": "touches", "html": "../../html/touches.html"},
+    {"name": "pommeback_ruebasse", "html": "../../html/pommeback_ruebasse.html"},
+    {"name": "pommetoward_ruebasse", "html": "../../html/pommetoward_ruebasse.html"},
+    {"name": "barbuback_ruebasse", "html": "../../html/barbuback_ruebasse.html"},
+    {"name": "barbutoward_ruebasse", "html": "../../html/barbutoward_ruebasse.html"},
+    {"name": "robotback_ruebasse", "html": "../../html/robotback_ruebasse.html"},
+    {"name": "robottoward_ruebasse", "html": "../../html/robottoward_ruebasse.html"},
+    {"name": "plot2back_ruebasse", "html": "../../html/plot2back_ruebasse.html"},
+    {"name": "plot2toward_ruebasse", "html": "../../html/plot2toward_ruebasse.html"}
 ]

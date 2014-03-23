@@ -1,0 +1,97 @@
+
+
+<img id="vue" src="../../img/labo_langue.jpg"/>
+<img id="Fleche_b" class="clickable" src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('couloir_haut_1_a')"/>
+<img id="porte_labo_langue" class="clickable" src="../../img/porte_labo_langue_sortie.png"  style="left: 450px; top: 231px; z-index: 2; " onclick="chargeView('rue_haute_1_a')"/>
+<img id="wiggum" src="../../img/chef_wiggum.png"  style="left: 384px; top: 233px; z-index: 2; display: none"/>
+<img id="sherlock" class="clickable" src="../../img/sherlock_holmes.png"  style="display:none; left: 161px; top: 237px; z-index: 2; " onclick="sherlock_talk()"/>
+
+<script>
+var intalk=false
+var sherlock=document.getElementById('sherlock');
+var wiggum=document.getElementById('wiggum');
+var Fleche_b=document.getElementById('Fleche_b');
+var porte_labo_langue=document.getElementById('porte_labo_langue');
+
+
+if(fait('arrest_sherlock')){
+	remove(sherlock);
+	remove(wiggum);
+}
+else{
+	sherlock.style.display="block";
+}
+
+function sherlock_talk(){
+	if(!intalk){
+		intalk=true;
+		Fleche_b.style.display="none";
+		porte_labo_langue.style.display="none";
+		if(fait('help_sherlock')){
+			discut("Sherlock Holmes","Je te remercie encore mon ami. Tu viens de m'offrir ce que je recherchais : de l'humanité dans ce monde de brutalité et de violence. <br/> J'espère que ma loupe préférée t'as été utile.",398);
+		}
+		else {
+		
+			discut("Sherlock Holmes","Ah! Je n'arrive pas à trouver ce qu'il me faut. Mais où ça se trouve?? <br/> Pourrais tu m'aider dans ma quête?",340);
+			bandeText("Bien sur! Que faut il faire?","15","540","R1","0");
+			bandeText("Non, débrouille toi seul! Je veux seulement ta loupe!","540","540","R2","0");
+
+			var R1 = document.getElementById("R1");
+			R1.setAttribute("onclick","reponse1()");
+
+			var R2 = document.getElementById("R2");
+			R2.setAttribute("onclick","reponse2()");
+		}
+	}
+}
+	
+	function reponse1(){
+		remove(document.getElementById("N"));
+        remove(document.getElementById("T"));
+        remove(document.getElementById("C"));
+        remove(document.getElementById("I"));
+        remove(R1);
+		remove(R2);
+		add_action('help_sherlock');
+		discut("Sherlock Holmes","Je te remercie mon ami. Tu viens de m'offrir ce que je recherchais : de l'humanité dans ce monde de brutalité et de violence. <br/> Pour te remercier je t'offre ma loupe préférée. Qui sait? Elle pourra t'être utile.",398);
+	}
+	
+	function reponse2(){
+		remove(document.getElementById("N"));
+        remove(document.getElementById("T"));
+        remove(document.getElementById("C"));
+        remove(document.getElementById("I"));
+        remove(R1);
+		remove(R2);
+		add_action('arrest_sherlock');
+		wiggum.style.display="block";
+		discut("Chef Wiggum","Halte là! Qu'est ce qu'il se passe ici? Ne faites pas l'innocent Monsieur Sherlock. Je vous arrete pour 'réflexion éxagérée sur la vie' et 'ridiculisation des forces de police'! De plus, je vous confisque votre loupe fétiche comme première punition. Tenez prenez là, vous! <br/> Moi j'emmène cette racaille au poste!",398);
+	}
+	
+	function quit_talk(){
+        remove(document.getElementById("N"));
+        remove(document.getElementById("T"));
+        remove(document.getElementById("C"));
+        remove(document.getElementById("I"));
+        Fleche_b.style.display="block";
+		porte_labo_langue.style.display="block";
+		intalk=false;
+        if(!fait('arrest_sherlock') && !fait('help_sherlock')){
+			remove(R1);
+			remove(R2);
+		}
+		else if(fait('help_sherlock') && !fait("get_loupe")){
+			add_action('get_loupe');
+			add_object('../../img/loupe.png','Loupe');
+			//unlock('Foi_en_l_humanite_restauree');
+		}
+		else if(fait('arrest_sherlock') && !fait("get_loupe")){
+			add_action('get_loupe');
+			add_object('../../img/loupe.png','Loupe');
+			//unlock_achievement('La_puissance_de_la_justice');
+			remove(wiggum);
+			remove(sherlock);
+		}
+}
+
+</script>

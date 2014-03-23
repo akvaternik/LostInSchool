@@ -1,0 +1,23 @@
+
+
+<img id="vue" src="../../img/ascenseur_couloir_haut.jpg"/>
+<img class="clickable" src="../../img/porte_ascenseur_couloir_haut.png"  style="left: 320px; top: 140px; z-index: 2; " onclick="ouvre_ascenseur()"/>
+<img id="porte_ouv" src="../../img/ascenseur_ouvert.png"  style="left: 395px; top: 206px; z-index: 2; display:none"/>
+<img class="clickable" src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('couloir_haut_1_a')"/>
+<img id="david" class="clickable" src="../../img/david.png"  style="left: 397px; top: 240px; z-index: 2; display: none" onclick="david_desc()"/>
+
+<script>
+	var intalk=false;
+function ouvre_ascenseur(){
+	document.getElementById("porte_ouv").style.display="block";
+	document.getElementById("david").style.display="block";
+}
+
+function david_desc(){
+			if(!intalk){
+				intalk=true;
+				bandeText("David de Michel-Ange ","580","125","T",'0');
+				document.getElementById('T').setAttribute("onclick","remove(this);intalk=false");
+			}
+}
+</script>

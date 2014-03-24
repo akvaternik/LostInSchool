@@ -1,15 +1,19 @@
 
 <img id="vue" src="../../img/machine_cafe_place.jpg"/>
-<img class="clickable" src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('entree_couloir_asso')"/>
-<img class="clickable" src="../../img/Fleche_g.png" width="78px" style="left: 325px; bottom: 0px; z-index: 2" onclick="chargeView('rue_haute_vue_cri')"/>
+<img class="clickable" id="Fleche_b" src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('entree_couloir_asso')"/>
+<img class="clickable" id="Fleche_g" src="../../img/Fleche_g.png" width="78px" style="left: 325px; bottom: 0px; z-index: 2" onclick="chargeView('rue_haute_vue_cri')"/>
 <img id="garde_centre" class="clickable" src="../../img/garde_centre.png"  style="left: 620px; top: 219px; z-index: 2; display:none" onclick="garde_talk()"/>
 <img id="garde_droite" class="clickable" src="../../img/garde_droite.png"  style="left: 721px; top: 283px; z-index: 2; display:none" onclick="garde_talk()"/>
 <img id="garde_gauche" class="clickable" src="../../img/garde_gauche.png"  style="left: 476px; top: 282px; z-index: 2; display:none" onclick="garde_talk()"/>
 <img src="../../img/table.png"  style="left: 644px; top: 348px; z-index: 2" />
 <img id="ventilateur" class="clickable" src="../../img/ventilateur.png"  style="left: 692px; top: 353px; z-index: 2; display:none" onclick="ventilo()"/>
+<img id="Wheatley" src="../../img/wheatley.png" style="left: 0px; top: 0px; z-index: 2; display:none"/>
 
 <script>
 	var intalk=false;
+    var Fleche_b = document.getElementById("Fleche_b");
+    var Fleche_g = document.getElementById("Fleche_g");
+    var Wheatley = document.getElementById("Wheatley");
 	var noms="";
 	
 	var ventil=document.getElementById('ventilateur');
@@ -52,11 +56,19 @@
 			add_action("get_ventilateur");
 			add_object("../../img/ventilateur_inventaire.png","Ventilateur");
 			remove(document.getElementById('ventilateur'));
-		}
+            Wheatley.style.display = "block";
+            intalk = true;
+            Fleche_b.style.display = "none";
+            Fleche_g.style.display = "none";
+            discut("Wheatley","Bravo, tu as récupéré le ventilateur Lexomil, continue, tu es sur la bonne voie!",340);
+
+        }
 		else{
 			if(!intalk){
 				intalk=true;
 				discut(noms, "Pas touche, c'est notre ventilateur. Faut bien se rafraîchir avec cette chaleur marseillaise.",398);
+                Fleche_b.style.display = "none";
+                Fleche_g.style.display = "none";
 			}
 		}
 	}
@@ -76,6 +88,8 @@
 			}
 			
 			discut(noms,text,398);
+            Fleche_b.style.display = "none";
+            Fleche_g.style.display = "none";
 		}
 	}
 
@@ -85,7 +99,11 @@
 		remove(document.getElementById('N'));
 		remove(document.getElementById('I'));
 		remove(document.getElementById('C'));
-		
+        Fleche_b.style.display = "block";
+        Fleche_g.style.display = "block";
+        if(Wheatley.style.display == "block"){
+            Wheatley.style.display = "none";
+        }
 	}
 </script>
 

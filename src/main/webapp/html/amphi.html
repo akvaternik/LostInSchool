@@ -1,0 +1,59 @@
+<img id="vue" src="../../img/amphi.jpg"/>
+<img class="clickable" src="../../img/Fleche_g.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('amphi_vue_haut')"/>
+<img id="aeration" class="clickable" src="../../img/aeration.png"  style="left: 568px; top: 122px; z-index: 2; display:none " onclick="ouvre_aeration()"/>
+<img id="aeration_ouvert" class="clickable" src="../../img/aeration_ouvert_vide.png"  style="right: 0px; top: 0px; z-index: 2; display:none" onclick="put_helico()"/>
+<img id="helico"  src="../../img/helico_conduit.png"  style="left: 592px; top: 90px; z-index: 2; display:none"/>
+
+
+<script>
+	var intalk=false;
+	var aeration=document.getElementById('aeration');
+	var aeration_ouvert=document.getElementById('aeration_ouvert');
+	var helico=document.getElementById('helico');
+	
+	if(fait('open_aeration')){
+		
+		remove(aeration);
+		aeration_ouvert.style.display="block";
+		if(fait('put_helico')){
+			helico.style.display="block";
+		}
+	}
+	else{
+		aeration.style.display="block";
+	}
+		
+	function ouvre_aeration(){
+		if(isSelected('Tournevis')){
+			add_action('open_aeration');
+			aeration_ouvert.style.display="block";
+			remove(aeration);
+			remove_object('Tournevis');
+		}
+		else{
+			if(!intalk){
+				intalk=true;
+				bandeText("On dirait que c'est démontable!","580","225","T",'0');
+				document.getElementById('T').setAttribute("onclick",'remove(this);intalk=false;');
+			}
+		}
+	}
+	
+	function put_helico(){
+		if(isSelected('Helicoptere')){
+			add_action('put_helico');
+			helico.style.display="block";
+			remove_object('Helicoptere');
+		}
+		else{
+            if(!fait('put_helico')) {
+                if (!intalk) {
+                    intalk = true;
+                    bandeText("On dirait que l'on peut glisser quelque chose à l'intérieur!", "580", "225", "T", '0');
+                    document.getElementById('T').setAttribute("onclick", 'remove(this);intalk=false;');
+                }
+            }
+		}
+	}
+
+</script>

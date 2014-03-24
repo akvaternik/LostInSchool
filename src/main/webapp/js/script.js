@@ -167,7 +167,6 @@ function reset_game(user, pwd){
             dataType: "text",
             success: function(status) {
                 if (status === "ok"){
-                    alert("Votre jeu a été remis à zero!");
                     location.reload();
                 }
                 else{

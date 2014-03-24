@@ -5,6 +5,7 @@
     Mot de passe: <br><input id="text_password" type="password" name="pwd">
     <br>
     <input id="button_reset" type="button" value="Recommencer le jeu" onclick="reset_game(user.value,pwd.value)">
+
 </form>
 <br>
 <br>
@@ -13,6 +14,9 @@
 <script>
     document.getElementById("inventaire").setAttribute("style", "display: none");
     document.getElementById("achievements_screen").setAttribute("style", "display: none");
+
+    var user = document.getElementsByName("user")[0];
+    var pwd = document.getElementsByName("pwd")[0];
 
     $("#text_user").keypress(function(e){
         if(e.keyCode==13)

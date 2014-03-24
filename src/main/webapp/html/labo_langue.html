@@ -13,6 +13,11 @@ var wiggum=document.getElementById('wiggum');
 var Fleche_b=document.getElementById('Fleche_b');
 var porte_labo_langue=document.getElementById('porte_labo_langue');
 
+var wiggum_sound = soundManager.createSound(
+        {
+            id: "wiggum_sound",
+            url: "../../soundmanager/musique/wiggum.mp3"
+        });
 
 if(fait('arrest_sherlock')){
 	remove(sherlock);
@@ -50,7 +55,9 @@ function sherlock_talk(){
         remove(document.getElementById("T"));
         remove(document.getElementById("C"));
         remove(document.getElementById("I"));
+        var R1 = document.getElementById("R1");
         remove(R1);
+        var R2 = document.getElementById("R2");
 		remove(R2);
 		add_action('help_sherlock');
 		discut("Sherlock Holmes","Je te remercie mon ami. Tu viens de m'offrir ce que je recherchais : de l'humanité dans ce monde de brutalité et de violence. <br/> Pour te remercier je t'offre ma loupe préférée. Qui sait? Elle pourra t'être utile.",398);
@@ -61,10 +68,13 @@ function sherlock_talk(){
         remove(document.getElementById("T"));
         remove(document.getElementById("C"));
         remove(document.getElementById("I"));
+        var R1 = document.getElementById("R1");
         remove(R1);
+        var R2 = document.getElementById("R2");
 		remove(R2);
 		add_action('arrest_sherlock');
 		wiggum.style.display="block";
+        wiggum_sound.play()
 		discut("Chef Wiggum","Halte là! Qu'est ce qu'il se passe ici? Ne faites pas l'innocent Monsieur Sherlock. Je vous arrete pour 'réflexion éxagérée sur la vie' et 'ridiculisation des forces de police'! De plus, je vous confisque votre loupe fétiche comme première punition. Tenez prenez là, vous! <br/> Moi j'emmène cette racaille au poste!",398);
 	}
 	
@@ -77,7 +87,9 @@ function sherlock_talk(){
 		porte_labo_langue.style.display="block";
 		intalk=false;
         if(!fait('arrest_sherlock') && !fait('help_sherlock')){
+            var R1 = document.getElementById("R1");
 			remove(R1);
+            var R2 = document.getElementById("R2");
 			remove(R2);
 		}
 		else if(fait('help_sherlock') && !fait("get_loupe")){

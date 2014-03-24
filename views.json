@@ -69,5 +69,8 @@
     {"name": "moteur_zoom_sallemoteur", "html": "../../html/moteur_zoom_sallemoteur.html"},
     {"name": "cables_sallemoteur", "html": "../../html/cables_sallemoteur.html"},
     {"name": "labo_langue", "html": "../../html/labo_langue.html"},
-    {"name": "ascenseur_couloir_haut", "html": "../../html/ascenseur_couloir_haut.html"}
+    {"name": "ascenseur_couloir_haut", "html": "../../html/ascenseur_couloir_haut.html"},
+    {"name": "village_sch", "html": "../../html/village_sch.html"},
+    {"name": "amphi", "html": "../../html/amphi.html"},
+    {"name": "amphi_vue_haut", "html": "../../html/amphi_vue_haut.html"}
 ]

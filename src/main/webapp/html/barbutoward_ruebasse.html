@@ -1,4 +1,67 @@
 <img id="vue" src="../../img/barbutoward_ruebasse.jpg"/>
 
 <img class="clickable" id="Fleche_b" src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('barbuback_ruebasse')"/>
-<img class="clickable" src="../../img/fond_barbutoward_ruebasse.png" style="left: 697px; top: 198px; z-index: 2" onclick="chargeView('pommetoward_ruebasse')"/>
+<img class="clickable" id="fond" src="../../img/fond_barbutoward_ruebasse.png" style="left: 697px; top: 198px; z-index: 2" onclick="chargeView('pommetoward_ruebasse')"/>
+<img class="clickable" id="gragas" src="../../img/gragas.png"  style="left: 248px; top: 236px; z-index: 2;" onclick="dialogue_gragas()"/>
+<img src="../../img/buisson_cache_gragas.png"  style="left: 276px; top: 271px; z-index: 2;"/>
+
+<script>
+
+    var in_talk = false;
+
+    var Fleche_b = document.getElementById("Fleche_b");
+    var fond = document.getElementById("fond");
+
+    function dialogue_gragas(){
+        if(isSelected("Tasse")){
+            remove_selected_object();
+            add_action("give_tasse_gragas");
+            if (!in_talk) {
+                in_talk = true;
+                Fleche_b.style.display = "none";
+                fond.style.display = "none";
+
+                discut("Gragas", "Merci pour ta tasse! Je vais pouvoir profiter de ce merveilleux breuvage!", 340);
+
+            }
+        }
+        else {
+            if(fait("give_tasse_gragas")){
+                if (!in_talk) {
+                    in_talk = true;
+                    Fleche_b.style.display = "none";
+                    fond.style.display = "none";
+
+                    discut("Gragas", "Tu sais quand le Bar'bu va réouvrir? Parce que tu rouleras sous la table avant moi!", 340);
+
+                }
+            }
+            else {
+                if (!in_talk) {
+                    in_talk = true;
+                    Fleche_b.style.display = "none";
+                    fond.style.display = "none";
+
+                    discut("Gragas", "Mon seul problème avec l'alcool, c'est quand j'en renverse, il me faudrait un récipient pour boire, parce que les tonneaux c'est pas pratique...", 340);
+
+                }
+            }
+        }
+    }
+
+
+    function quit_talk() {
+        remove(document.getElementById("N"));
+        remove(document.getElementById("T"));
+        remove(document.getElementById("C"));
+        remove(document.getElementById("I"));
+
+        in_talk = false;
+        Fleche_b.style.display = "block";
+        fond.style.display = "block";
+    }
+
+
+
+
+</script>

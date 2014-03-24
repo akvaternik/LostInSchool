@@ -1,0 +1,38 @@
+
+
+<img id="vue" src="../../img/amphi_vue_haut.jpg"/>
+<img id="Fleche_d" class="clickable" src="../../img/Fleche_d.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('amphi')"/>
+<img id="porte_amphi" class="clickable" src="../../img/porte_amphi.png"  style="left: 272px; top: 202px; z-index: 2; " onclick="chargeView('couloir_haut_2_b')"/>
+<img class="clickable" src="../../img/schtroumph_b.png"  style="left: 741px; top: 510px; z-index: 2; " onclick="schtroumph_talk()"/>
+<img id="tournevis" class="clickable" src="../../img/tournevis.png"  style="display:none; left: 654px; top: 514px; z-index: 2; " onclick="remove(this); add_object('../../img/tournevis.png','Tournevis');add_action('get_tournevis')"/>
+
+<script>
+	var intalk=false;
+	var porte_amphi=document.getElementById('porte_amphi');
+	var Fleche_d=document.getElementById('Fleche_d');
+	if(fait('get_tournevis')){
+		remove(document.getElementById('tournevis'));
+	}
+	else{
+		document.getElementById('tournevis').style.display="block";
+	}
+	
+	function schtroumph_talk(){
+		if(!intalk){
+			intalk=true;
+			Fleche_d.style.display="none";
+			porte_amphi.style.display="none";
+			discut("Schtroumph Bricoleur","Hey, je pense que tu peux schtroumpher ce tourne-schtroumph dans l'aera-schtroumph pour l'ouvrir.",398);
+		}
+	}
+	
+	function quit_talk(){
+		remove(document.getElementById("N"));
+        remove(document.getElementById("T"));
+        remove(document.getElementById("C"));
+        remove(document.getElementById("I"));
+        Fleche_d.style.display="block";
+		porte_amphi.style.display="block";
+		intalk=false;
+	}
+</script>

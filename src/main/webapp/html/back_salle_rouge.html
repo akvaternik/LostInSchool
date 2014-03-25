@@ -1,0 +1,81 @@
+
+
+<img id="vue" src="../../img/back_salle_rouge.jpg"/>
+<img id="Fleche_g" class="clickable" src="../../img/Fleche_g.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('front_salle_rouge')"/>
+<img class="clickable" src="../../img/mail_comprommetant.png" style="left: 384px; top: 426px; z-index: 2" onclick="chargeView('mail_ouvert')"/>
+<img class="clickable" src="../../img/mot_de_passe.png" style="left: 217px; top: 412px; z-index: 2" onclick="mdp_talk()"/>
+<img id="tiroir" class="clickable" src="../../img/tiroir.png" style="left: 223px; top: 449px; z-index: 2; display:none" onclick="open_tiroir()"/>
+<img id="tiroir_ouvert" src="../../img/tiroir_ouvert.png" style="left: 197px; top: 471px; z-index: 2; display:none"/>
+<img id="wheatley" src="../../img/wheatley.png" style="left: 100px; top: 150px; z-index: 2; display :none"/>
+<img id="puce" class="clickable" src="../../img/puce_xanax.png" style="left: 228px; top: 477px; z-index: 2; display:none" onclick="add_action('get_puce');remove(this);add_object('../../img/puce_xanax_inventaire.png','Puce Xanax');wheatley_talk()"/>
+<img class="clickable" src="../../img/sortie_salle_rouge.png" style="left: 539px; top: 327px; z-index: 2" onclick="chargeView('couloir_haut_1_b')"/>
+
+<script>
+
+var intalk=false;
+var Fleche_g=document.getElementById('Fleche_g');
+var puce=document.getElementById('puce');
+var tiroir_ouvert=document.getElementById('tiroir_ouvert');
+var tiroir=document.getElementById('tiroir');
+var wheatley=document.getElementById('wheatley');
+
+if(fait('open_tiroir')){
+	tiroir_ouvert.style.display="block";
+	remove(tiroir);
+	if(fait('get_puce')){
+		remove(puce);
+	}
+	else{
+		puce.style.display="block";
+	}
+}
+else{
+	tiroir.style.display="block";
+}
+
+function mdp_talk(){
+	if(!intalk){
+		if(!fait('read_mdp')){
+			add_action('read_mdp');
+		}
+		intalk=true;
+		bandeText("Mot de passe pour l’ouverture du bureau: SIMO <br/>Note à soi­même. Ne jamais laisser trainer ce mémo sur mon bureau, auquel cas une âme mal intentionnée pourrait tomber dessus.","100","300",'T','0');
+		document.getElementById('T').setAttribute("onclick","remove(this);intalk=false;");
+	}
+}
+
+function open_tiroir(){
+	if(!intalk){	
+		if(fait('read_mdp')){
+			add_action('open_tiroir');
+			remove(tiroir);
+			tiroir_ouvert.style.display="block";
+			puce.style.display="block";
+		}
+		else{
+			intalk=true;
+			bandeText("On dirait qu'il faut un mot de passe...","100","300",'T1','0');
+			document.getElementById('T1').setAttribute("onclick","remove(this);intalk=false;");
+		}
+	}
+}
+
+function wheatley_talk(){
+	
+		Fleche_g.style.display="none";
+		intalk=true;
+		wheatley.style.display="block";
+		discut("Wheatley","Bravo! Tu as récupérer la puce Xanax, le dernier composant qu’il manquait à Zac pour pouvoir fonctionner. J’ai récupérer la carcasse de zac à la pomme, va vite le réparer avec les pièces que tu as retrouvées.",398);
+}
+
+function quit_talk(){
+	remove(N);
+	remove(T);
+	remove(C);   
+	remove(I); 
+	remove(wheatley);
+	intalk=false;		
+	Fleche_g.style.display="block";
+}
+
+</script>

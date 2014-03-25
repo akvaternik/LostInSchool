@@ -72,5 +72,10 @@
     {"name": "ascenseur_couloir_haut", "html": "../../html/ascenseur_couloir_haut.html"},
     {"name": "village_sch", "html": "../../html/village_sch.html"},
     {"name": "amphi", "html": "../../html/amphi.html"},
-    {"name": "amphi_vue_haut", "html": "../../html/amphi_vue_haut.html"}
+    {"name": "amphi_vue_haut", "html": "../../html/amphi_vue_haut.html"},
+    {"name": "entree_salle_rouge", "html": "../../html/entree_salle_rouge.html"},
+    {"name": "back_salle_rouge", "html": "../../html/back_salle_rouge.html"},
+    {"name": "front_salle_rouge", "html": "../../html/front_salle_rouge.html"},
+    {"name": "mail_ouvert", "html": "../../html/mail_ouvert.html"},
+    {"name": "bonne_fin", "html": "../../html/bonne_fin.html"}
 ]

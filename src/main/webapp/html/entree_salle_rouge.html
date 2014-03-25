@@ -1,0 +1,40 @@
+
+
+<img id="vue" src="../../img/entree_salle_rouge.jpg"/>
+<img id="Fleche_g" class="clickable" src="../../img/Fleche_g.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('couloir_haut_1_b')"/>
+<img id="porte_salle_rouge" class="clickable" src="../../img/porte_salle_rouge.png"  style="left: 343px; top: 100px; display:none; z-index: 2" onclick="chargeView('front_salle_rouge')"/>
+<img id="mckay" class="clickable" src="../../img/mckay.png"  style="left: 192px; top: 159px; z-index: 2; display:none" onclick="mckay_talk()"/>
+
+<script>
+	var intalk=false;
+	var Fleche_g = document.getElementById("Fleche_g");	
+	var mckay= document.getElementById('mckay');
+	var porte_salle_rouge=document.getElementById('porte_salle_rouge');
+	
+	if(fait('put_helico')){
+		remove(mckay);
+		porte_salle_rouge.style.display="block";
+	}
+	else{
+		mckay.style.display="block";
+		remove(porte_salle_rouge);
+	}
+	
+	function mckay_talk(){
+		if(!intalk){
+			intalk=true;
+			Fleche_g.style.display="none";
+			discut('McKay',"La porte est fermée! Il faut l’ouvrir de l’intérieur, m'voyez.",398);
+		}
+	}
+	
+	function quit_talk(){
+		remove(N);
+		remove(T);
+		remove(C);   
+		remove(I); 
+		intalk=false;		
+		Fleche_g.style.display="block";
+	}
+
+</script>

@@ -1,3 +1,5 @@
+
+
 <img id="vue" src="../../img/amphi.jpg"/>
 <img class="clickable" src="../../img/Fleche_g.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('amphi_vue_haut')"/>
 <img id="aeration" class="clickable" src="../../img/aeration.png"  style="left: 568px; top: 122px; z-index: 2; display:none " onclick="ouvre_aeration()"/>
@@ -10,6 +12,13 @@
 	var aeration=document.getElementById('aeration');
 	var aeration_ouvert=document.getElementById('aeration_ouvert');
 	var helico=document.getElementById('helico');
+	
+	var porte;
+	porte=soundManager.createSound(
+	{
+		id:"porte",
+		url:"../../soundmanager/musique/porte.mp3"
+	});
 	
 	if(fait('open_aeration')){
 		
@@ -40,20 +49,35 @@
 	}
 	
 	function put_helico(){
-		if(isSelected('Helicoptere')){
-			add_action('put_helico');
-			helico.style.display="block";
-			remove_object('Helicoptere');
-		}
-		else{
-            if(!fait('put_helico')) {
+        if(!fait('put_helico')) {
+            if (isSelected('Helicoptere')) {
+                add_action('put_helico');
+                helico.style.display = "block";
+                remove_object('Helicoptere');
+
+                var Image = document.createElement("img");
+                Image.setAttribute("id", "Image");
+                Image.setAttribute("src", "../../img/entree_salle_rouge.jpg");
+                Image.style.zIndex = "4";
+
+                document.getElementById("ecran_principal").appendChild(Image);
+                setTimeout(function () {
+                    porte.play();
+                    Image.setAttribute("src", "../../img/entree_salle_rouge_ouverte_helico.jpg");
+                }, 600);
+
+                setTimeout(function () {
+                    remove(Image);
+                }, 1800);
+            }
+            else {
                 if (!intalk) {
                     intalk = true;
                     bandeText("On dirait que l'on peut glisser quelque chose à l'intérieur!", "580", "225", "T", '0');
                     document.getElementById('T').setAttribute("onclick", 'remove(this);intalk=false;');
                 }
             }
-		}
+        }
 	}
 
 </script>

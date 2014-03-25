@@ -1,0 +1,32 @@
+
+
+<img id="vue" src="../../img/entree_barbu.jpg"/>
+<img id="zac" src="../../img/zac_chgt.png" style="left: 514px; top: 316px; z-index: 2"/>
+<img id="perso" src="../../img/wheatley.png" style="left: 102px; top: 308px; z-index: 2"/>
+<img id="rayon" src="../../img/rayon_kameha.png" style="left: 190px; top: 424px; z-index: 2;display:none"/>
+<img id="explosion" src="../../img/petite_explosion.png" style="left: 30px; top: 267px; z-index: 2;display:none"/>
+<img id="zacwin" src="../../img/zac_wins.png" style="left: 122px; top: 78px; z-index: 2;display:none"/>
+
+<script>
+var zac=document.getElementById('zac');
+var explosion=document.getElementById('explosion');
+var rayon=document.getElementById('rayon');
+var perso=document.getElementById('perso');
+var zacwin=document.getElementById('zacwin');
+var time=1600;
+
+setTimeout(function(){zac.setAttribute('src','../../img/zac_tir.png'); rayon.style.display="block"; explosion.style.display="block";  },time);
+setTimeout(function(){zac.setAttribute('src','../../img/zac_chgt.png'); rayon.style.display="none"; explosion.style.display="none"; perso.setAttribute('src','../../img/boo_visible.png'); perso.style.left="137px"; perso.style.top="16px"; explosion.style.left="50px"; explosion.style.top="-39px";rayon.setAttribute('src','../../img/rayon_haut.png');rayon.style.left="216px";rayon.style.top="59px"; },2*time);
+setTimeout(function(){zac.setAttribute('src','../../img/zac_tir_haut.png'); rayon.style.display="block"; explosion.style.display="block";},3*time);
+setTimeout(function(){zac.setAttribute('src','../../img/zac_chgt.png'); rayon.style.display="none"; explosion.style.display="none"; perso.setAttribute('src','../../img/globox2.png'); perso.style.left="63px"; perso.style.top="288px"; explosion.style.left="30px"; explosion.style.top="267px";rayon.setAttribute('src','../../img/rayon_kameha.png');rayon.style.left="190px";rayon.style.top="424px"; },4*time);
+setTimeout(function(){zac.setAttribute('src','../../img/zac_tir.png'); rayon.style.display="block"; explosion.style.display="block";},5*time);
+setTimeout(function(){zac.setAttribute('src','../../img/zac_chgt_inv.png');zac.style.left="98px"; zac.style.top="305px"; rayon.style.display="none"; explosion.style.display="none"; perso.setAttribute('src','../../img/chef_wiggum.png'); perso.style.left="608px"; perso.style.top="221px"; explosion.style.left="529px"; explosion.style.top="214px"; rayon.style.left="357px";rayon.style.top="413px"; },6*time);
+setTimeout(function(){zac.setAttribute('src','../../img/zac_tir_inv.png'); rayon.style.display="block"; explosion.style.display="block";},7*time);
+setTimeout(function(){zac.setAttribute('src','../../img/zac_chgt_inv.png'); rayon.style.display="none"; explosion.style.display="none"; perso.setAttribute('src','../../img/sch_noir.png'); perso.style.left="569px"; perso.style.top="0px"; explosion.style.left="482px"; explosion.style.top="-30px"; rayon.setAttribute('src','../../img/rayon_haut_inv.png'); rayon.style.left="306px";rayon.style.top="44px"; },8*time);
+setTimeout(function(){zac.setAttribute('src','../../img/zac_tir_haut_inv.png'); rayon.style.display="block"; explosion.style.display="block";},9*time);
+setTimeout(function(){zac.setAttribute('src','../../img/zac_chgt_inv.png'); rayon.style.display="none"; explosion.style.display="none"; perso.setAttribute('src','../../img/keira_berri.png'); perso.style.left="624px"; perso.style.top="270px"; explosion.style.left="542px"; explosion.style.top="254px"; rayon.setAttribute('src','../../img/rayon_kameha.png'); rayon.style.left="357px";rayon.style.top="413px"; },10*time);
+setTimeout(function(){zac.setAttribute('src','../../img/zac_tir_inv.png'); rayon.style.display="block"; explosion.style.display="block";},11*time);
+setTimeout(function(){zacwin.style.display="block";zac.setAttribute('src','../../img/zac_content.png'); zac.style.left="348px"; zac.style.top="306px"; rayon.style.display="none"; explosion.style.display="none"; perso.style.display="none";},12*time);
+
+setTimeout(function(){chargeView('tableau_pomme')},13*time);
+</script>

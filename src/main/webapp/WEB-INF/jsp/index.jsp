@@ -73,7 +73,7 @@
                             <td><img class="achievement" src="../../img/inconnu.png" name="Soigneux" title="?"></td>
                             <td><img class="achievement" src="../../img/inconnu.png" name="Mac_Gyver" title="?"></td>
                             <td><img class="achievement" src="../../img/inconnu.png" name="La_consigne!!" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="Really_lost_in_school" title="?"></td>
                             <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
                             <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
                         </tr>

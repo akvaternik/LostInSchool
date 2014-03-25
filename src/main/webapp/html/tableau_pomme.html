@@ -1,5 +1,121 @@
-<img id="vue" src="../../img/tableau_pomme.jpg"/>
-<img class="clickable" src="../../img/Fleche_g.png" width="78px" style="left: 325px; bottom: 0px; z-index: 2" onclick="chargeView('sortie_pomme')"/>
-<img class="clickable" src="../../img/Fleche_d.png" width="78px" style="left: 481px; bottom: 0px; z-index: 2" onclick="chargeView('ping_pomme')"/>
-<img class="clickable" src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('mur_pomme')"/>
 
+<img id="vue" src="../../img/tableau_pomme.jpg"/>
+<img id="Fleche_g" class="clickable" src="../../img/Fleche_g.png" width="78px" style="left: 325px; bottom: 0px; z-index: 2" onclick="chargeView('sortie_pomme')"/>
+<img id="Fleche_d" class="clickable" src="../../img/Fleche_d.png" width="78px" style="left: 481px; bottom: 0px; z-index: 2" onclick="chargeView('ping_pomme')"/>
+<img id="Fleche_b" class="clickable" src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('mur_pomme')"/>
+
+<img id="zac" class="clickable" src="../../img/marvin_ouvert.png" style="left: 359px; top:275px; z-index: 2; display:none" onclick="boot_zac()"/>
+<img id="wheatley" src="../../img/wheatley.png" style="left: 3px; top:95px; z-index: 2; display:none" />
+
+<script>
+
+var zac=document.getElementById('zac');
+var wheatley=document.getElementById('wheatley');
+var Fleche_g=document.getElementById('Fleche_g');
+var Fleche_d=document.getElementById('Fleche_d');
+var Fleche_b=document.getElementById('Fleche_b');
+var intalk=false;
+
+if(fait('get_puce') && !fait('mauvaise_fin') && !fait('bonne_fin')){
+	zac.style.display="block";
+}
+else{
+	remove(zac);
+	remove(wheatley);
+}
+
+function boot_zac(){
+	if(!intalk){
+		intalk=true;
+		if(fait('get_ventilateur') && fait('get_carte_zac')){
+			Fleche_g.style.display="none";
+			Fleche_b.style.display="none";
+			Fleche_d.style.display="none";
+			wheatley.style.display="block";
+			
+			discut("Wheatley","Félicitations! Tu es arrivé au bout de ta quête. Tu dois maintenant ajouter le ventilateur Lexomil et la carte mère Séropram aux circuits de Pro­Zac 2000. Mais attention, n’oublie pas la puce Xanax sinon il tentera à nouveau de se suicider et tu devras tout recommencer à ZERO!!",340);
+			bandeText("Incorporer la puce Xanax","15","540","R1","0");
+			bandeText("Omettre la puce Xanax","540","540","R2","0");
+
+			var R1 = document.getElementById("R1");
+			R1.setAttribute("onclick","reponse1()");
+
+			var R2 = document.getElementById("R2");
+			R2.setAttribute("onclick","reponse2()");
+		}
+		
+		else{
+			bandeText("Il te manque des composants pour réparer Zac...","100","300",'T1','0');
+			document.getElementById('T1').setAttribute('onclick',"remove(this); intalk=false;");
+
+		}
+	}
+}
+
+function reponse1(){
+    var N = document.getElementById('N');
+	remove(N);
+    var T = document.getElementById('T');
+	remove(T);
+    var C = document.getElementById('C');
+	remove(C);
+    var I = document.getElementById('I');
+	remove(I); 
+	remove(document.getElementById("R1"));
+	remove(document.getElementById("R2"));
+	
+	discut("Wheatley","Oui!!! Notre plan a marché! Zac ne pourra plus se retourner contre nous maintenant, il est en notre contrôle. Nous allons enfin pouvoir dominer l’école et le monde.",398);
+	add_action('mauvaise_fin');
+    remove_object('Ventilateur_Lexomil');
+    remove_object('Puce_Xanax');
+    remove_object('Carte_mere_Seropram');
+}
+
+function reponse2(){
+    var N = document.getElementById('N');
+    remove(N);
+    var T = document.getElementById('T');
+    remove(T);
+    var C = document.getElementById('C');
+    remove(C);
+    var I = document.getElementById('I');
+    remove(I);
+    remove(document.getElementById("R1"));
+	remove(document.getElementById("R2"));
+	
+	discut("Wheatley","Non, nous sommes démasqués notre plan a échoué! Nous, la Coalition des Personnages de Jeux Vidéos, manipulions Zac grâce à la puce Xanax. A cause de toi, Zac est libre et va chercher à se venger.",398);
+	add_action('bonne_fin');
+    remove_object('Ventilateur_Lexomil');
+    remove_object('Carte_mere_Seropram');
+}
+
+function quit_talk(){
+    var N = document.getElementById('N');
+    remove(N);
+    var T = document.getElementById('T');
+    remove(T);
+    var C = document.getElementById('C');
+    remove(C);
+    var I = document.getElementById('I');
+    remove(I);
+    intalk=false;
+	Fleche_g.style.display="block";
+	Fleche_d.style.display="block";
+	Fleche_b.style.display="block";
+	wheatley.style.display="none";
+	
+	if(!fait('mauvaise_fin') && !fait('bonne_fin')){
+		remove(document.getElementById("R1"));
+		remove(document.getElementById("R2"));
+	}
+	
+	if(fait('mauvaise_fin')){
+		chargeView('mauvaise_fin');
+	}
+	else if( fait('bonne_fin')){
+		chargeView('bonne_fin');
+	}
+	
+}
+
+</script>

@@ -7,6 +7,38 @@
     var intalk = false;
     var Fleche_b = document.getElementById("Fleche_b");
 
+    if(!fait('reveil')){
+        var noir = document.createElement("div");
+        noir.id = "noir";
+        noir.style.height = "598px";
+        noir.style.width = "900px";
+        noir.style.backgroundColor = "black";
+        noir.style.zIndex = "5";
+        noir.style.position = "absolute";
+        document.getElementById("ecran_principal").appendChild(noir);
+        $("#noir").fadeOut(1000);
+        setTimeout(function(){$("#noir").fadeIn(100);},1000);
+        setTimeout(function(){$("#noir").fadeOut(100);},1100);
+        setTimeout(function(){$("#noir").fadeIn(100);},1200);
+        setTimeout(function(){$("#noir").fadeOut(1000);},1300);
+        setTimeout(function(){
+            if(!intalk){
+                intalk = true;
+                bandeText("Hum, j’ai encore dû m’endormir. Je travaille vraiment trop en ce moment, fichu projet... Combien de temps j’ai dormi? Quelle étrange sensation, j’ai l’impression d’être tout seul.","0","250","text_reveil",'0');
+                var text_reveil = document.getElementById('text_reveil');
+                text_reveil.setAttribute("onclick","remove(text_reveil); intalk = false; add_action('reveil')");
+            }
+        },2300);
+    }
+
+
+
+
+
+
+
+
+
     if(fait("talk_totoro")){
         Fleche_b.style.display = "block";
     }

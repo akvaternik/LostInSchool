@@ -16,6 +16,7 @@
         if(isSelected("Tasse")){
             remove_selected_object();
             add_action("give_tasse_gragas");
+            unlock_achievement('La_consigne!!');
             if (!in_talk) {
                 in_talk = true;
                 Fleche_b.style.display = "none";

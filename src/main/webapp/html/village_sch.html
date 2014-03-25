@@ -1,3 +1,10 @@
 <img id="vue" src="../../img/village_sch.jpg"/>
 
 <img class="clickable" src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('plot2back_ruebasse')"/>
+
+<script>
+    if(!fait('view_sch')){
+        add_action('view_sch');
+        unlock_achievement('Viens_au_pays_des_schtroumpfs!');
+    }
+</script>

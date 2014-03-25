@@ -2,5 +2,16 @@
     {"name": "Bienvenue_dans_le_monde_virtuel!", "src": "../../img/dealwithit.png"},
     {"name": "Paradoxe_temporel", "src": "../../img/paradoxe.png"},
     {"name": "Im_Batman!", "src": "../../img/imbatman.png"},
-    {"name": "Error_404_Achievement_Not_Found", "src": "../../img/404.png"}
+    {"name": "Error_404_Achievement_Not_Found", "src": "../../img/404.png"},
+    {"name": "Foi_en_l_humanite_restauree", "src": "../../img/humanity.png"},
+    {"name": "La_puissance_de_la_justice", "src": "../../img/police.png"},
+    {"name": "Viens_au_pays_des_schtroumpfs!", "src": "../../img/grand_sch.png"},
+    {"name": "Angelique", "src": "../../img/angelique.png"},
+    {"name": "Demoniaque", "src": "../../img/demoniaque.png"},
+    {"name": "Vandale", "src": "../../img/vandale.png"},
+    {"name": "Pigeon", "src": "../../img/pigeon.png"},
+    {"name": "Maladroit", "src": "../../img/maladroit.png"},
+    {"name": "Soigneux", "src": "../../img/soigneux.png"},
+    {"name": "Mac_Gyver", "src": "../../img/macgyver.png"},
+    {"name": "La_consigne!!", "src": "../../img/laconsigne.png"}
 ]

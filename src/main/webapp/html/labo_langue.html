@@ -33,7 +33,7 @@ function sherlock_talk(){
 		Fleche_b.style.display="none";
 		porte_labo_langue.style.display="none";
 		if(fait('help_sherlock')){
-			discut("Sherlock Holmes","Je te remercie encore mon ami. Tu viens de m'offrir ce que je recherchais : de l'humanité dans ce monde de brutalité et de violence. <br/> J'espère que ma loupe préférée t'as été utile.",398);
+			discut("Sherlock Holmes","Je te remercie encore mon ami. Tu viens de m'offrir ce que je recherchais : de l'humanité dans ce monde de brutalité et de violence. <br/> J'espère que ma loupe préférée t'a été utile.",398);
 		}
 		else {
 		
@@ -95,12 +95,12 @@ function sherlock_talk(){
 		else if(fait('help_sherlock') && !fait("get_loupe")){
 			add_action('get_loupe');
 			add_object('../../img/loupe.png','Loupe');
-			//unlock('Foi_en_l_humanite_restauree');
+			unlock_achievement('Foi_en_l_humanite_restauree');
 		}
 		else if(fait('arrest_sherlock') && !fait("get_loupe")){
 			add_action('get_loupe');
 			add_object('../../img/loupe.png','Loupe');
-			//unlock_achievement('La_puissance_de_la_justice');
+			unlock_achievement('La_puissance_de_la_justice');
 			remove(wiggum);
 			remove(sherlock);
 		}

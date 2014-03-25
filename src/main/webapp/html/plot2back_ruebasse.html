@@ -2,4 +2,22 @@
 
 <img class="clickable" id="Fleche_b" src="../../img/Fleche_b.png" width="78px" style="left: 403px; bottom: 0px; z-index: 2" onclick="chargeView('plot2toward_ruebasse')"/>
 <img class="clickable" src="../../img/escalier_rue_basse.png" style="left: 176px; top: 178px; z-index: 2" onclick="chargeView('rue_haute_1_b')"/>
-<img class="clickable" src="../../img/champignon.png" style="left: 651px; top: 470px; z-index: 2" onclick="chargeView('village_sch')"/>
+<img class="clickable" src="../../img/champignon.png" style="left: 651px; top: 470px; z-index: 2" onclick="village()"/>
+
+
+<script>
+    var in_talk = false;
+
+    function village(){
+        if(isSelected('Loupe')){
+            chargeView('village_sch');
+        }
+        else{
+            if(!in_talk){
+                in_talk=true;
+                bandeText("On dirait qu'il y a des petites bêtes qui bougent...","580","125","T",'0');
+                document.getElementById('T').setAttribute("onclick","remove(this);in_talk=false");
+            }
+        }
+    }
+</script>

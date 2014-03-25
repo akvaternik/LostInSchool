@@ -25,7 +25,7 @@
     <body>
         <header>
             <div id="titre">
-                root@ubuntu-server:~Lost In School
+                root@pro-zac-2000:~Lost In School
             </div>
             <nav id="menu">
                 <ul>
@@ -60,19 +60,19 @@
                             <td><img class="achievement" src="../../img/inconnu.png" name="Paradoxe_temporel" title="?"></td>
                             <td><img class="achievement" src="../../img/inconnu.png" name="Im_Batman!" title="?"></td>
                             <td><img class="achievement" src="../../img/inconnu.png" name="Error_404_Achievement_Not_Found" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="Foi_en_l_humanite_restauree" title="?"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="La_puissance_de_la_justice" title="?"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="Viens_au_pays_des_schtroumpfs!" title="?"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="Angelique" title="?"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="Demoniaque" title="?"></td>
                         </tr>
                         <tr>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="Vandale" title="?"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="Pigeon" title="?"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="Maladroit" title="?"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="Soigneux" title="?"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="Mac_Gyver" title="?"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="La_consigne!!" title="?"></td>
                             <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
                             <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
                             <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>

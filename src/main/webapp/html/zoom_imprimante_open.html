@@ -46,6 +46,12 @@
     function emplacement_encre(){
         if(!fait("put_ink")){
             if(isSelected("Encre") || isSelected("Eponge_sale")){
+                if(isSelected("Encre")){
+                    unlock_achievement('Soigneux');
+                }
+                else{
+                    unlock_achievement('Mac_Gyver');
+                }
                 if(!in_talk){
                     in_talk = true;
                     remove_selected_object();

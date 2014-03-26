@@ -22,6 +22,7 @@
 				//bris de glace
 				if(fait('ouvrir_valve')){
 					add_action('inonder_couloir');
+                    unlock_achievement('Pompier_dans_l_ame');
 					document.getElementById("vue").setAttribute("src","../../img/pompe_incendie_eau.jpg");
 					//eau qui coule
 				}
@@ -44,6 +45,7 @@
 			//bruit de valve?
 			if(fait('casser_manometre')){
 					add_action('inonder_couloir');
+                    unlock_achievement('Pompier_dans_l_ame');
 					document.getElementById("vue").setAttribute("src","../../img/pompe_incendie_eau.jpg");
 					//eau qui coule
 			}

@@ -64,9 +64,9 @@
                             <td><img class="achievement" src="../../img/inconnu.png" name="La_puissance_de_la_justice" title="?"></td>
                             <td><img class="achievement" src="../../img/inconnu.png" name="Viens_au_pays_des_schtroumpfs!" title="?"></td>
                             <td><img class="achievement" src="../../img/inconnu.png" name="Angelique" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="Demoniaque" title="?"></td>
                         </tr>
                         <tr>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="Demoniaque" title="?"></td>
                             <td><img class="achievement" src="../../img/inconnu.png" name="Vandale" title="?"></td>
                             <td><img class="achievement" src="../../img/inconnu.png" name="Pigeon" title="?"></td>
                             <td><img class="achievement" src="../../img/inconnu.png" name="Maladroit" title="?"></td>
@@ -74,52 +74,14 @@
                             <td><img class="achievement" src="../../img/inconnu.png" name="Mac_Gyver" title="?"></td>
                             <td><img class="achievement" src="../../img/inconnu.png" name="La_consigne!!" title="?"></td>
                             <td><img class="achievement" src="../../img/inconnu.png" name="Really_lost_in_school" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
                         </tr>
                         <tr>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                        </tr>
-                        <tr>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                        </tr>
-                        <tr>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                        </tr>
-                        <tr>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
-                            <td><img class="achievement" src="../../img/inconnu.png" name="test" title="?"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="Fin_du_monde" title="?"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="Chef_cuistot" title="?"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="Victoire_de_Zac" title="?"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="Lieu_de_sieste" title="?"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="Rat_de_bibliotheque" title="?"></td>
+                            <td><img class="achievement" src="../../img/inconnu.png" name="Pompier_dans_l_ame" title="?"></td>
                         </tr>
                     </tbody>
                 </table>

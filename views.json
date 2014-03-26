@@ -77,5 +77,6 @@
     {"name": "back_salle_rouge", "html": "../../html/back_salle_rouge.html"},
     {"name": "front_salle_rouge", "html": "../../html/front_salle_rouge.html"},
     {"name": "mail_ouvert", "html": "../../html/mail_ouvert.html"},
-    {"name": "bonne_fin", "html": "../../html/bonne_fin.html"}
+    {"name": "bonne_fin", "html": "../../html/bonne_fin.html"},
+    {"name": "mauvaise_fin", "html": "../../html/mauvaise_fin.html"}
 ]

@@ -51,7 +51,7 @@ function chargeView(destination){
                 var newView = jQuery.parseJSON(newViewString);
                 ecran.load(newView.html);
                 current_view = newView.name;
-                if(current_view != "login" && current_view != "unsubscribe" && current_view != "reset"){
+                if(current_view != "login" && current_view != "unsubscribe" && current_view != "reset" && current_view != "subscribe"){
                     save();
                 }
             },
